@@ -33,7 +33,7 @@ function myMenuFunction(){
 
 /* ----- TYPING EFFECT ----- */
 var typingEffect = new Typed(".typedText", {
-  strings: ["Influencer", "Gamer", "Developer", "Writer" , "Fashain Model" ,],  // Use colon and array directly
+  strings: ["Influencer", "Gamer", "Developer", "Writer" , "Traveler" ,],  // Use colon and array directly
   loop: true,    // Use colon here as well
   typeSpeed: 100, 
   backSpeed: 80,
