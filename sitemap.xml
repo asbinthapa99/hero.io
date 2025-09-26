@@ -1,2 +1,18 @@
-<?xml version='1.0' encoding='utf-8'?>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><sitemap><loc>https://asbinthapa.info.np/images-sitemap.xml</loc></sitemap><sitemap><loc>https://asbinthapa.info.np/index.html</loc></sitemap><sitemap><loc>https://asbinthapa.info.np/about.html</loc></sitemap><sitemap><loc>https://asbinthapa.info.np/contact.html</loc></sitemap><sitemap><loc>https://asbinthapa.info.np/gallery.html</loc></sitemap></sitemapindex>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Main pages -->
+  <url>
+    <loc>https://asbinthapa.info.np/</loc>
+  </url>
+  <url>
+    <loc>https://asbinthapa.info.np/about.html</loc>
+  </url>
+  <url>
+    <loc>https://asbinthapa.info.np/contact.html</loc>
+  </url>
+  <url>
+    <loc>https://asbinthapa.info.np/gallery.html</loc>
+  </url>
+
+</urlset>
