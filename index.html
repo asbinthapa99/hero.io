@@ -12,28 +12,150 @@
     </noscript>
     <script src="https://kit.fontawesome.com/457a315592.js" crossorigin="anonymous"></script>
     <script type="application/ld+json">
-
-        {
-          "@context": "https://schema.org",
-          "@type": "Person",
-          "name": "Asbin Thapa",
-          "alternateName": ["Asbin", "Asbin T"],
-          "url": "https://asbinthapa.info.np/",
-          "sameAs": [
-            "https://www.instagram.com/asbin_chetrri/",
-            "https://twitter.com/kiddoo_12",
-            "https://github.com/asbinthapa99",
-            "https://www.facebook.com/ThapaXetrry99",
-            "https://www.linkedin.com/in/asbin-thapa-6a9a4733b"
-          ],
-          "jobTitle": "Cybersecurity Enthusiast & Computer Science Student",
-          "birthDate": "2006-06-04",
-          "nationality": "Nepalese",
-          "gender": "Male",
-          "description": "Nepalese cybersecurity enthusiast and computer science student at Ulster University London. Skilled in cybersecurity, social media management, graphic design, and digital marketing.",
-          "image": "https://asbinthapa.info.np/img/IMG_1069.jpg"
-        }
-        
+      
+            {
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "Person",
+                  "@id": "https://asbinthapa.info.np/#person",
+                  "name": "Asbin Thapa",
+                  "alternateName": ["Asbin", "Asbin T", "Asbin Chettri", "Asbin Thapa Xettri"],
+                  "url": "https://asbinthapa.info.np/",
+                  "image": {
+                    "@type": "ImageObject",
+                    "url": "    https://asbinthapa.info.np/img/IMG_1069.jpg",
+                    "width": 800,
+                    "height": 600
+                  },
+                  "sameAs": [
+                    "https://www.instagram.com/asbin_chetrri/",
+                    "https://twitter.com/MeHope55586",
+                    "https://github.com/asbinthapa99",
+                    "https://www.facebook.com/ThapaXetrry99",
+                    "https://www.linkedin.com/in/asbin-thapa-6a9a4733b"
+                  ],
+                  "jobTitle": "Cybersecurity Expert",
+                  "worksFor": {
+                    "@type": "EducationalOrganization",
+                    "name": "Ulster University London"
+                  },        
+                  "alumniOf": {
+                    "@type": "EducationalOrganization",
+                    "name": "Ulster University London"
+                  },
+                  "birthDate": "2006-06-04",
+                  "nationality": "Nepalese",
+                  "gender": "Male",
+                  "description": "Cybersecurity Expert and Computer Science student specializing in blockchain technology, digital marketing, and social media management.",
+                  "email": "asbinthapa27@gmail.com",
+                  "telephone": ["+9779808343056", "+4407386811087"],
+                  "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "London",
+                    "addressCountry": "GB"
+                  },
+                  "knowsAbout": [
+                    "Cybersecurity",
+                    "Network Security",
+                    "Web Application Security", 
+                    "Penetration Testing",
+                    "Digital Marketing",
+                    "SEO",
+                    "Social Media Marketing",
+                    "Graphic Design",
+                    "Blockchain Technology",
+                    "Computer Science"
+                  ],
+                  "hasCredential": [
+                    {
+                      "@type": "EducationalOccupationalCredential",
+                      "name": "Computer Science with Blockchain",
+                      "credentialCategory": "degree",
+                      "educationalLevel": "undergraduate"
+                    }
+                  ]
+                },
+                {
+                  "@type": "WebSite",
+                  "@id": "https://asbinthapa.info.np/#website",
+                  "url": "https://asbinthapa.info.np/",
+                  "name": "Asbin Thapa - Cybersecurity Expert Portfolio",
+                  "description": "Official portfolio of Asbin Thapa - Cybersecurity Expert, Computer Science student, and Digital Marketing specialist from London.",
+                  "publisher": {
+                    "@id": "https://asbinthapa.info.np/#person"
+                  },
+                  "inLanguage": "en-US",
+                  "potentialAction": {
+                    "@type": "SearchAction",
+                    "target": {
+                      "@type": "EntryPoint",
+                      "urlTemplate": "https://asbinthapa.info.np/?s={search_term_string}"
+                    },
+                    "query-input": "required name=search_term_string"
+                  }
+                },
+                {
+                  "@type": "WebPage",
+                  "@id": "https://asbinthapa.info.np/#webpage",
+                  "url": "https://asbinthapa.info.np/",
+                  "name": "Asbin Thapa | Cybersecurity Expert & Portfolio",
+                  "description": "Explore the professional portfolio of Asbin Thapa, a cybersecurity expert and computer science student. Discover projects, skills in digital marketing, and contact information.",
+                  "isPartOf": {
+                    "@id": "https://asbinthapa.info.np/#website"
+                  },
+                  "about": {
+                    "@id": "https://asbinthapa.info.np/#person"
+                  },
+                  "datePublished": "2023-01-01",
+                  "dateModified": "2024-12-01",
+                  "breadcrumb": {
+                    "@type": "BreadcrumbList",
+                    "itemListElement": [
+                      {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": "https://asbinthapa.info.np/"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "@type": "ProfessionalService",
+                  "@id": "https://asbinthapa.info.np/#service",
+                  "name": "Asbin Thapa Cybersecurity Services",
+                  "description": "Professional cybersecurity, digital marketing, and web development services by Asbin Thapa.",
+                  "provider": {
+                    "@id": "https://asbinthapa.info.np/#person"
+                  },
+                  "areaServed": {
+                    "@type": "Place",
+                    "name": "London, UK"
+                  },
+                  "serviceType": [
+                    "Cybersecurity Consulting",
+                    "Network Security",
+                    "Penetration Testing", 
+                    "Digital Marketing",
+                    "Social Media Management",
+                    "Graphic Design"
+                  ],
+                  "offers": {
+                    "@type": "Offer",
+                    "availability": "https://schema.org/InStock"
+                  }
+                },
+                {
+                  "@type": "ContactPoint",
+                  "contactType": "customer service",
+                  "email": "asbinthapa27@gmail.com",
+                  "telephone": "+9779808343056",
+                  "url": "https://asbinthapa.info.np/#contact"
+                }
+              ]
+            }
+            </script>
         </script>
         
 
@@ -84,8 +206,8 @@
             </ul>
         </div>
         <div class="nav-button">
-            <a href="photos.html">
-                <button class="btn">Photography website <i class="uil uil-file-alt"></i></button>
+            <a href="education.html">
+                <button class="btn">Academic Portfolio <i class="uil uil-file-alt"></i></button>
             </a>
                     </div>
         <div class="nav-menu-btn">
@@ -263,7 +385,7 @@
                 <div class="contact-info">
                     <h2>Find Me <i class="uil uil-corner-right-down"></i></h2>
                     <p><i class="uil uil-envelope"></i> Email:asbinthapa27@gmail.com</p>
-                    <p><i class="uil uil-phone"></i> Tel:+9779808343056, +9779813839273</p>
+                    <p><i class="uil uil-phone"></i> :+9779808343056, +4407386811087</p>
                     <p><i class="uil uil-website"></i>Web:asbinthapa.info.np</p>
                 </div>
              </div>

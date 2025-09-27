@@ -1,0 +1,1849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asbin Thapa |  Educational Journey & Academic Portfolio</title>
+    <meta name="description" content="Explore Asbin Thapa's educational journey from Nepal to London. Computer Science student specializing in blockchain technology and cybersecurity at Ulster University.">
+    <meta name="keywords" content="Asbin Thapa education, Ulster University London, Computer Science blockchain, educational journey, academic portfolio, Nepal to London">
+    <meta name="author" content="Asbin Thapa">
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            --secondary-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --dark-gradient: linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 50%, #2d2d2d 100%);
+            --accent-color: #00d4ff;
+            --text-primary: #ffffff;
+            --text-secondary: #b3b3b3;
+            --surface-dark: rgba(255, 255, 255, 0.05);
+            --surface-light: rgba(255, 255, 255, 0.1);
+            --border-color: rgba(255, 255, 255, 0.1);
+            --shadow-primary: 0 20px 40px rgba(0, 212, 255, 0.3);
+            --shadow-secondary: 0 10px 30px rgba(102, 126, 234, 0.2);
+            --rain-color: rgba(173, 216, 230, 0.6);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--dark-gradient);
+            overflow-x: hidden;
+        }
+
+        /* Rain Background Effect */
+        .rain-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            z-index: -3;
+            pointer-events: none;
+        }
+
+        .rain-drop {
+            position: absolute;
+            width: 2px;
+            height: 15px;
+            background: linear-gradient(to bottom, transparent, var(--rain-color), transparent);
+            animation: rainFall linear infinite;
+            opacity: 0.7;
+        }
+
+        @keyframes rainFall {
+            0% {
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            90% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+
+        /* Particles Background */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            opacity: 0.4;
+        }
+
+        /* Code Rain */
+        .code-rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.1;
+            overflow: hidden;
+        }
+
+        .code-column {
+            position: absolute;
+            top: -100px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            color: var(--accent-color);
+            white-space: nowrap;
+            animation: fall linear infinite;
+            text-shadow: 0 0 10px var(--accent-color);
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+
+        /* Loading Screen */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--dark-gradient);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            transition: opacity 0.5s ease;
+        }
+
+        .loader {
+            width: 80px;
+            height: 80px;
+            border: 3px solid rgba(0, 212, 255, 0.3);
+            border-top: 3px solid var(--accent-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            position: relative;
+        }
+
+        .loader::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        /* Scroll Progress Indicator */
+        .scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: 9999;
+        }
+
+        .scroll-progress {
+            height: 100%;
+            background: var(--primary-gradient);
+            width: 0%;
+            transition: width 0.1s ease;
+        }
+
+        /* Floating Action Button */
+        .fab {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: var(--primary-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-primary);
+            border: none;
+            color: white;
+            font-size: 24px;
+        }
+
+        .fab:hover {
+            transform: scale(1.1) rotate(180deg);
+            box-shadow: 0 25px 50px rgba(0, 212, 255, 0.4);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(12, 12, 12, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(12, 12, 12, 0.98);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 500;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-gradient);
+            transition: all 0.3s ease;
+            z-index: -1;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .nav-link:hover::before,
+        .nav-link.active::before {
+            left: 0;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Header */
+        header {
+            background: var(--dark-gradient);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(118, 75, 162, 0.1) 0%, transparent 50%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 4px solid transparent;
+            background: var(--primary-gradient);
+            padding: 4px;
+            margin: 0 auto 2rem;
+            display: block;
+            object-fit: cover;
+            box-shadow: var(--shadow-primary);
+            transition: all 0.5s ease;
+            animation: profileFloat 6s ease-in-out infinite;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05) rotate(5deg);
+            box-shadow: 0 30px 60px rgba(0, 212, 255, 0.4);
+        }
+
+        .glitch {
+            font-size: 4rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            position: relative;
+            margin-bottom: 1rem;
+            animation: glitch 2s infinite;
+        }
+
+        .glitch::before,
+        .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .glitch::before {
+            animation: glitch-1 0.5s infinite;
+            color: var(--accent-color);
+            z-index: -1;
+        }
+
+        .glitch::after {
+            animation: glitch-2 0.5s infinite;
+            color: #ff00ff;
+            z-index: -2;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            opacity: 0.9;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            background: var(--secondary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        .student-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1rem;
+            padding: 0.8rem 1.5rem;
+            background: var(--surface-dark);
+            border-radius: 50px;
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .info-item:hover {
+            transform: translateY(-5px);
+            background: var(--surface-light);
+            box-shadow: var(--shadow-secondary);
+        }
+
+        .info-item i {
+            color: var(--accent-color);
+            font-size: 1.2rem;
+        }
+
+        /* Main Content */
+        main {
+            padding: 6rem 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .section {
+            background: var(--surface-dark);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s ease;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--primary-gradient);
+            transform: scaleX(0);
+            transition: transform 0.5s ease;
+        }
+
+        .section.in-view::before {
+            transform: scaleX(1);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title i {
+            color: var(--accent-color);
+            margin-right: 1rem;
+        }
+
+        /* Stats Cards with 3D Effect */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            perspective: 1000px;
+        }
+
+        .stat-card {
+            background: var(--surface-light);
+            border: 1px solid var(--border-color);
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.5s ease;
+            transform-style: preserve-3d;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--primary-gradient);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .stat-card:hover {
+            transform: rotateY(10deg) rotateX(10deg) translateZ(20px);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .stat-card:hover::before {
+            opacity: 0.1;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+            background: var(--secondary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        /* Timeline with Advanced Effects */
+        .timeline {
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--primary-gradient);
+            border-radius: 2px;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            padding-left: 3rem;
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.6s ease;
+        }
+
+        .timeline-item.animate {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -12px;
+            top: 1rem;
+            width: 20px;
+            height: 20px;
+            background: var(--accent-color);
+            border: 4px solid var(--dark-gradient);
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px var(--accent-color), 0 0 20px rgba(0, 212, 255, 0.5);
+            animation: pulse 2s infinite;
+        }
+
+        .timeline-content {
+            background: var(--surface-light);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: translateX(10px);
+            box-shadow: var(--shadow-secondary);
+        }
+
+        .timeline-year {
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .timeline-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-subtitle {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .timeline-description {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        /* Skills Grid with Hover Effects */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--surface-light);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .skill-category:hover::before {
+            left: 100%;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-secondary);
+        }
+
+        .skill-category h3 {
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-category h3 i {
+            color: var(--accent-color);
+            font-size: 1.5rem;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 0.5rem 0;
+            color: var(--text-secondary);
+            position: relative;
+            padding-left: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .skill-list li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .skill-list li:hover {
+            color: var(--text-primary);
+            transform: translateX(5px);
+        }
+
+        .skill-list li:hover::before {
+            color: #ff00ff;
+            transform: scale(1.2);
+        }
+
+        /* Achievements with 3D Cards */
+        .achievement-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .achievement-card {
+            background: var(--surface-light);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(10px);
+            transition: all 0.5s ease;
+            transform-style: preserve-3d;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .achievement-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--secondary-gradient);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .achievement-card:hover {
+            transform: perspective(1000px) rotateX(10deg) rotateY(10deg) translateZ(20px);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .achievement-card:hover::before {
+            opacity: 0.05;
+        }
+
+        .achievement-icon {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .achievement-card:hover .achievement-icon {
+            transform: scale(1.2) rotate(10deg);
+            color: #ff00ff;
+        }
+
+        .achievement-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        /* Goals with Progress Bars */
+        .goals-list {
+            list-style: none;
+        }
+
+        .goal-item {
+            background: var(--surface-light);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .goal-item::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--primary-gradient);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .goal-item:hover {
+            transform: translateX(10px);
+            box-shadow: var(--shadow-secondary);
+        }
+
+        .goal-item:hover::before {
+            transform: scaleX(1);
+        }
+
+        .goal-icon {
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-top: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .goal-item:hover .goal-icon {
+            transform: scale(1.2) rotate(15deg);
+            color: #ff00ff;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-gradient);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            margin-top: 4rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-link {
+            color: var(--text-secondary);
+            font-size: 2rem;
+            transition: all 0.3s ease;
+            padding: 1rem;
+            border-radius: 50%;
+            background: var(--surface-dark);
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+        }
+
+        .social-link:hover {
+            color: var(--accent-color);
+            transform: translateY(-5px) rotate(10deg);
+            box-shadow: var(--shadow-primary);
+            background: var(--surface-light);
+        }
+
+        /* Animations */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes profileFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(2deg); }
+        }
+
+        @keyframes glitch {
+            0%, 100% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+        }
+
+        @keyframes glitch-1 {
+            0%, 100% { transform: translate(0); }
+            10% { transform: translate(-2px, -2px); }
+            20% { transform: translate(-2px, -2px); }
+            30% { transform: translate(-2px, -2px); }
+            40% { transform: translate(-2px, -2px); }
+            50% { transform: translate(-2px, -2px); }
+            60% { transform: translate(-2px, -2px); }
+            70% { transform: translate(-2px, -2px); }
+            80% { transform: translate(-2px, -2px); }
+            90% { transform: translate(-2px, -2px); }
+        }
+
+        @keyframes glitch-2 {
+            0%, 100% { transform: translate(0); }
+            10% { transform: translate(2px, 2px); }
+            20% { transform: translate(2px, 2px); }
+            30% { transform: translate(2px, 2px); }
+            40% { transform: translate(2px, 2px); }
+            50% { transform: translate(2px, 2px); }
+            60% { transform: translate(2px, 2px); }
+            70% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, 2px); }
+            90% { transform: translate(2px, 2px); }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .glitch {
+                font-size: 2.5rem;
+            }
+            
+            .student-info {
+                gap: 1rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .section {
+                padding: 2rem;
+            }
+            
+            .timeline {
+                padding-left: 2rem;
+            }
+            
+            .timeline-item {
+                padding-left: 2rem;
+            }
+
+            .stats-grid,
+            .skills-grid,
+            .achievement-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .goal-item {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        /* Dark theme enhancements */
+        .section:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(0, 212, 255, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Rain Background -->
+    <div class="rain-container" id="rainContainer"></div>
+
+    <!-- Particles Background -->
+    <canvas class="particles" id="particles"></canvas>
+
+    <!-- Code Rain -->
+    <div class="code-rain" id="codeRain"></div>
+
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-indicator">
+        <div class="scroll-progress" id="scrollProgress"></div>
+    </div>
+
+    <!-- Floating Action Button -->
+    <button class="fab" id="fabButton" title="Back to Top">
+        <i class="fas fa-rocket"></i>
+    </button>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">AT</div>
+            <ul class="nav-links">
+                <li><a href="#overview" class="nav-link active">Overview</a></li>
+                <li><a href="#journey" class="nav-link">Journey</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#achievements" class="nav-link">Achievements</a></li>
+                <li><a href="#goals" class="nav-link">Goals</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <img src="https://asbinthapa.info.np/img/IMG_1069.jpg" alt="Asbin Thapa" class="profile-image">
+                <h1 class="glitch" data-text="FREAKY">FREAKY</h1>
+                <p class="subtitle">Computer Science Student & Future Blockchain Developer.</p>
+                <div class="student-info">
+                    <div class="info-item">
+                        <i class="fas fa-university"></i>
+                        <span>Ulster University London</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Computer Science with Blockchain</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-calendar"></i>
+                        <span>Born June 2006</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>London, UK - Dhading, Nepal</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Overview Section -->
+        <section id="overview" class="section">
+            <h2 class="section-title"><i class="fas fa-user-graduate"></i> Student Overview</h2>
+            <div class="stats-grid">
+                <div class="stat-card" data-count="19">
+                    <div class="stat-number">19</div>
+                    <div class="stat-label">Years Old</div>
+                </div>
+                <div class="stat-card" data-count="3">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Years at University</div>
+                </div>
+                <div class="stat-card" data-count="1">
+                    <div class="stat-number">1</div>
+                    <div class="stat-label">st Generation University Student</div>
+                </div>
+                <div class="stat-card" data-count="100">
+                    <div class="stat-number">0</div>
+                    <div class="stat-label">% Passionate About Tech</div>
+                </div>
+            </div>
+            <div style="margin-top: 3rem;">
+                <p style="font-size: 1.2rem; line-height: 1.8; color: var(--text-secondary);">
+                    I'm Asbin Thapa, a Cyber Security Expert with a background in Computer Science. I am passionate about ensuring the security and integrity of digital systems. Currently, I am studying blockchain in Computer Science to enhance my knowledge and skills in the field. Additionally, I work in social work at a lower level, handle social media accounts, and have skills in graphic design.
+                </p>
+            </div>
+        </section>
+
+        <!-- Educational Journey Section -->
+        <section id="journey" class="section">
+            <h2 class="section-title"><i class="fas fa-road"></i> Educational Journey</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2006 - 2018</div>
+                        <div class="timeline-title">Primary & Secondary Education</div>
+                        <div class="timeline-subtitle">Nepal</div>
+                        <div class="timeline-description">
+                            Completed my foundational education in Nepal, where I developed a strong interest in mathematics, science, and early computer literacy. These formative years in Nepal instilled in me the values of hard work, determination, and the importance of education in creating opportunities.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2018 - 2020</div>
+                        <div class="timeline-title">Higher Secondary Education</div>
+                        <div class="timeline-subtitle">Nepal / Preparation for International Study</div>
+                        <div class="timeline-description">
+                            Focused on science and mathematics during my higher secondary years, while simultaneously preparing for international education. This period was crucial in developing my analytical thinking skills and laying the groundwork for my future studies in computer science.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2020 - 2021</div>
+                        <div class="timeline-title">Transition & Preparation</div>
+                        <div class="timeline-subtitle">Moving to London</div>
+                        <div class="timeline-description">
+                            Made the significant transition from Nepal to London, adapting to a new culture and educational system. Used this time to enhance my English proficiency, understand the UK education system, and prepare for university-level studies in technology.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2021 - Present</div>
+                        <div class="timeline-title">Computer Science </div>
+                        <div class="timeline-subtitle">Ulster University London</div>
+                        <div class="timeline-description">
+                            Currently pursuing my undergraduate degree in Computer Science with a specialization in Blockchain Technology. The program combines theoretical computer science foundations with practical applications in emerging technologies. Key areas of study include software development, cybersecurity, distributed systems, and blockchain implementation.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2021 - Present</div>
+                        <div class="timeline-title">Practical Experience & Projects</div>
+                        <div class="timeline-subtitle">Cybersecurity & Digital Marketing</div>
+                        <div class="timeline-description">
+                            Alongside my formal education, I've been actively developing practical skills in cybersecurity, digital marketing, and social media management. This hands-on experience complements my academic studies and provides real-world application of my technical knowledge.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section">
+            <h2 class="section-title"><i class="fas fa-cogs"></i> Skills & Knowledge Areas</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><i class="fas fa-laptop-code"></i> Computer Science Fundamentals</h3>
+                    <ul class="skill-list">
+                        <li>Object-Oriented Programming</li>
+                        <li>Data Structures & Algorithms</li>
+                        <li>Software Engineering Principles</li>
+                        <li>Database Management Systems</li>
+                        <li>Web Development</li>
+                        <li>System Architecture</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-link"></i> Blockchain Technology</h3>
+                    <ul class="skill-list">
+                        <li>Blockchain Fundamentals</li>
+                        <li>Smart Contract Development</li>
+                        <li>Cryptocurrency Concepts</li>
+                        <li>Distributed Ledger Technology</li>
+                        <li>Consensus Mechanisms</li>
+                        <li>DeFi Applications</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-shield-alt"></i> Cybersecurity</h3>
+                    <ul class="skill-list">
+                        <li>Network Security</li>
+                        <li>Web Application Security</li>
+                        <li>Penetration Testing</li>
+                        <li>Security Compliance</li>
+                        <li>Risk Assessment</li>
+                        <li>Incident Response</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-chart-line"></i> Digital Marketing</h3>
+                    <ul class="skill-list">
+                        <li>Search Engine Optimization</li>
+                        <li>Social Media Marketing</li>
+                        <li>Content Strategy</li>
+                        <li>Google Analytics</li>
+                        <li>Email Marketing</li>
+                        <li>Digital Campaign Management</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-tools"></i> Technical Tools</h3>
+                    <ul class="skill-list">
+                        <li>Programming Languages (Python, Java, JavaScript)</li>
+                        <li>Development Frameworks</li>
+                        <li>Version Control (Git)</li>
+                        <li>Cloud Platforms</li>
+                        <li>Security Testing Tools</li>
+                        <li>Design Software</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-lightbulb"></i> Soft Skills</h3>
+                    <ul class="skill-list">
+                        <li>Problem Solving</li>
+                        <li>Critical Thinking</li>
+                        <li>Cross-Cultural Communication</li>
+                        <li>Project Management</li>
+                        <li>Adaptability</li>
+                        <li>Leadership</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Achievements Section -->
+        <section id="achievements" class="section">
+            <h2 class="section-title"><i class="fas fa-trophy"></i> Academic & Professional Achievements</h2>
+            <div class="achievement-grid">
+                <div class="achievement-card">
+                    <div class="achievement-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <div class="achievement-title">University Admission Success</div>
+                    <div class="timeline-description">
+                        Successfully gained admission to Ulster University London for Computer Science with Blockchain specialization, demonstrating academic excellence and potential.
+                    </div>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="achievement-icon"><i class="fas fa-globe"></i></div>
+                    <div class="achievement-title">International Student Success</div>
+                    <div class="timeline-description">
+                        Successfully transitioned from Nepal to UK education system, adapting to new cultural and academic environments while maintaining strong performance.
+                    </div>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="achievement-icon"><i class="fas fa-users"></i></div>
+                    <div class="achievement-title">Practical Experience</div>
+                    <div class="timeline-description">
+                        Gained hands-on experience in cybersecurity, digital marketing, and social media management while pursuing studies, demonstrating practical application of knowledge.
+                    </div>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="achievement-icon"><i class="fas fa-code"></i></div>
+                    <div class="achievement-title">Technical Expertise</div>
+                    <div class="timeline-description">
+                        Developed comprehensive skills in multiple programming languages, cybersecurity tools, and blockchain technologies through academic and self-directed learning.
+                    </div>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="achievement-icon"><i class="fas fa-language"></i></div>
+                    <div class="achievement-title">Multilingual Communication</div>
+                    <div class="timeline-description">
+                        Achieved fluency in English as a second language, enabling effective communication in international academic and professional environments.
+                    </div>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="achievement-icon"><i class="fas fa-camera"></i></div>
+                    <div class="achievement-title">Creative Portfolio</div>
+                    <div class="timeline-description">
+                        Developed photography skills and created a comprehensive portfolio, showcasing creative abilities alongside technical expertise.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Future Goals Section -->
+        <section id="goals" class="section">
+            <h2 class="section-title"><i class="fas fa-rocket"></i> Future Educational & Career Goals</h2>
+            <ul class="goals-list">
+                <div class="goal-item">
+                    <div class="goal-icon"><i class="fas fa-certificate"></i></div>
+                    <div>
+                        <strong>Graduate with Honors:</strong> Complete my Computer Science degree with distinction, demonstrating mastery of both fundamental computer science concepts and specialized blockchain technology.
+                    </div>
+                </div>
+
+                <div class="goal-item">
+                    <div class="goal-icon"><i class="fas fa-project-diagram"></i></div>
+                    <div>
+                        <strong>Capstone Project Excellence:</strong> Develop an innovative blockchain-based solution for my final year project that addresses real-world problems and demonstrates technical innovation.
+                    </div>
+                </div>
+
+                <div class="goal-item">
+                    <div class="goal-icon"><i class="fas fa-industry"></i></div>
+                    <div>
+                        <strong>Industry Internship:</strong> Secure internship opportunities with leading technology companies to gain practical experience in blockchain development or cybersecurity.
+                    </div>
+                </div>
+
+                <div class="goal-item">
+                    <div class="goal-icon"><i class="fas fa-award"></i></div>
+                    <div>
+                        <strong>Professional Certifications:</strong> Obtain industry-recognized certifications in cybersecurity (such as CISSP, CEH) and blockchain development platforms.
+                    </div>
+                </div>
+
+                <div class="goal-item">
+                    <div class="goal-icon"><i class="fas fa-user-graduate"></i></div>
+                    <div>
+                        <strong>Postgraduate Studies:</strong> Pursue Master's degree in either Advanced Cybersecurity or Blockchain Technology to deepen specialization and research capabilities.
+                    </div>
+                </div>
+
+                <div class="goal-item">
+                    <div class="goal-icon"><i class="fas fa-briefcase"></i></div>
+                    <div>
+                        <strong>Career Launch:</strong> Launch career as a Blockchain Developer or Cybersecurity Specialist, contributing to innovative projects in fintech or security sectors.
+                    </div>
+                </div>
+
+                <div class="goal-item">
+                    <div class="goal-icon"><i class="fas fa-lightbulb"></i></div>
+                    <div>
+                        <strong>Innovation & Entrepreneurship:</strong> Develop innovative blockchain solutions or security products, potentially leading to entrepreneurial ventures.
+                    </div>
+                </div>
+
+                <div class="goal-item">
+                    <div class="goal-icon"><i class="fas fa-hands-helping"></i></div>
+                    <div>
+                        <strong>Community Impact:</strong> Use technical skills to create solutions that benefit communities, particularly bridging technology gaps between Nepal and UK.
+                    </div>
+                </div>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/asbin-thapa-6a9a4733b" target="_blank" class="social-link">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/asbinthapa99" target="_blank" class="social-link">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.instagram.com/asbin_chetrri/" target="_blank" class="social-link">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://asbinthapa.info.np/" target="_blank" class="social-link">
+                    <i class="fas fa-globe"></i>
+                </a>
+            </div>
+            <p>&copy; 2024 Asbin Thapa Educational Portfolio. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Advanced JavaScript functionality
+        class AdvancedPortfolio {
+            constructor() {
+                this.init();
+                this.setupEventListeners();
+                this.initRainEffect();
+                this.initParticles();
+                this.initCodeRain();
+                this.initScrollAnimations();
+                this.initTypingEffect();
+            }
+
+            init() {
+                // Hide loading screen
+                setTimeout(() => {
+                    const loadingScreen = document.getElementById('loadingScreen');
+                    if (loadingScreen) {
+                        loadingScreen.style.opacity = '0';
+                        setTimeout(() => {
+                            loadingScreen.style.display = 'none';
+                        }, 500);
+                    }
+                }, 2000);
+
+                // Initialize counter animations
+                this.initCounters();
+                
+                // Setup intersection observer for animations
+                this.setupIntersectionObserver();
+            }
+
+            initRainEffect() {
+                const rainContainer = document.getElementById('rainContainer');
+                if (!rainContainer) return;
+
+                const createRainDrop = () => {
+                    const drop = document.createElement('div');
+                    drop.className = 'rain-drop';
+                    
+                    // Random position and properties
+                    drop.style.left = Math.random() * window.innerWidth + 'px';
+                    drop.style.animationDuration = (Math.random() * 1 + 0.5) + 's';
+                    drop.style.animationDelay = Math.random() * 2 + 's';
+                    
+                    // Random opacity and size variations
+                    drop.style.opacity = Math.random() * 0.5 + 0.3;
+                    drop.style.transform = `scaleX(${Math.random() * 0.5 + 0.5})`;
+                    
+                    rainContainer.appendChild(drop);
+                    
+                    // Remove after animation
+                    setTimeout(() => {
+                        if (drop.parentNode) {
+                            drop.parentNode.removeChild(drop);
+                        }
+                    }, 3000);
+                };
+
+                // Create rain drops continuously
+                setInterval(createRainDrop, 50);
+            }
+
+            setupEventListeners() {
+                // Scroll progress indicator
+                window.addEventListener('scroll', () => {
+                    this.updateScrollProgress();
+                    this.updateNavbar();
+                });
+
+                // Navigation links
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const targetId = link.getAttribute('href');
+                        const targetElement = document.querySelector(targetId);
+                        
+                        if (targetElement) {
+                            targetElement.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }
+
+                        // Update active nav link
+                        document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                        link.classList.add('active');
+                    });
+                });
+
+                // FAB button
+                const fabButton = document.getElementById('fabButton');
+                if (fabButton) {
+                    fabButton.addEventListener('click', () => {
+                        window.scrollTo({
+                            top: 0,
+                            behavior: 'smooth'
+                        });
+                    });
+                }
+
+                // Mobile menu toggle
+                const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+                if (mobileMenuToggle) {
+                    mobileMenuToggle.addEventListener('click', () => {
+                        this.toggleMobileMenu();
+                    });
+                }
+
+                // Keyboard navigation
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'ArrowDown') {
+                        e.preventDefault();
+                        this.scrollToNextSection();
+                    } else if (e.key === 'ArrowUp') {
+                        e.preventDefault();
+                        this.scrollToPrevSection();
+                    }
+                });
+            }
+
+            updateScrollProgress() {
+                const scrollTop = window.pageYOffset;
+                const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const scrollPercent = (scrollTop / documentHeight) * 100;
+                
+                const progressBar = document.getElementById('scrollProgress');
+                if (progressBar) {
+                    progressBar.style.width = `${scrollPercent}%`;
+                }
+            }
+
+            updateNavbar() {
+                const navbar = document.getElementById('navbar');
+                if (navbar) {
+                    if (window.scrollY > 100) {
+                        navbar.classList.add('scrolled');
+                    } else {
+                        navbar.classList.remove('scrolled');
+                    }
+                }
+            }
+
+            initCounters() {
+                const counters = document.querySelectorAll('.stat-card');
+                
+                counters.forEach(counter => {
+                    const target = parseInt(counter.dataset.count);
+                    const numberElement = counter.querySelector('.stat-number');
+                    if (!numberElement) return;
+                    
+                    let current = 0;
+                    const increment = target / 100;
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= target) {
+                            current = target;
+                            clearInterval(timer);
+                        }
+                        numberElement.textContent = Math.floor(current);
+                    }, 20);
+                });
+            }
+
+            setupIntersectionObserver() {
+                const observerOptions = {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -50px 0px'
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('in-view');
+                            
+                            // Animate timeline items
+                            if (entry.target.classList.contains('timeline-item')) {
+                                entry.target.classList.add('animate');
+                            }
+                        }
+                    });
+                }, observerOptions);
+
+                // Observe all sections and timeline items
+                document.querySelectorAll('.section, .timeline-item').forEach(el => {
+                    observer.observe(el);
+                });
+            }
+
+            initCodeRain() {
+                const codeRain = document.getElementById('codeRain');
+                if (!codeRain) return;
+                
+                const codeStrings = [
+                    'function blockchain()',
+                    'const security = true;',
+                    'if (cybersecurity)',
+                    'import React from "react"',
+                    'class SmartContract {',
+                    'npm install web3',
+                    'git commit -m "feat"',
+                    'SELECT * FROM users',
+                    'def encrypt_data():',
+                    'async function mine()',
+                    'console.log("Hello")',
+                    'public static void',
+                    'let ethereum = new Web3',
+                    'docker build -t app',
+                    'kubectl apply -f',
+                    '<div className="app">',
+                    'pragma solidity ^0.8',
+                    'from cryptography import',
+                    'interface IBlockchain',
+                    'const web3 = new Web3()',
+                    'pip install django',
+                    'yarn add typescript',
+                    'go mod init project',
+                    'use std::collections',
+                    'package main import',
+                    'export default class',
+                    'try { await fetch() }',
+                    'struct User { uint }',
+                    'mapping(address => uint)',
+                    'require(msg.sender)',
+                ];
+
+                // Create ambient code rain
+                setInterval(() => {
+                    if (codeRain.children.length < 15) { // Limit number of elements
+                        const column = document.createElement('div');
+                        column.className = 'code-column';
+                        column.textContent = codeStrings[Math.floor(Math.random() * codeStrings.length)];
+                        
+                        column.style.left = Math.random() * window.innerWidth + 'px';
+                        column.style.animationDuration = (Math.random() * 4 + 3) + 's';
+                        column.style.animationDelay = Math.random() * 2 + 's';
+                        
+                        const colors = ['#00d4ff', '#667eea', '#764ba2'];
+                        column.style.color = colors[Math.floor(Math.random() * colors.length)];
+                        
+                        codeRain.appendChild(column);
+                        
+                        setTimeout(() => {
+                            if (column.parentNode) {
+                                column.parentNode.removeChild(column);
+                            }
+                        }, 7000);
+                    }
+                }, 1000);
+            }
+
+            initScrollAnimations() {
+                // Animation elements
+                const animateElements = document.querySelectorAll('.section, .timeline-item, .stat-card, .skill-category, .achievement-card, .goal-item');
+                
+                const animateOnScroll = () => {
+                    animateElements.forEach(el => {
+                        const rect = el.getBoundingClientRect();
+                        const inView = rect.top < window.innerHeight * 0.8;
+                        
+                        if (inView && !el.classList.contains('animated')) {
+                            el.style.transform = 'translateY(0)';
+                            el.style.opacity = '1';
+                            el.classList.add('animated');
+                        }
+                    });
+                };
+
+                // Initial setup
+                animateElements.forEach(el => {
+                    if (!el.classList.contains('section')) {
+                        el.style.transform = 'translateY(50px)';
+                        el.style.opacity = '0';
+                        el.style.transition = 'all 0.6s ease';
+                    }
+                });
+
+                window.addEventListener('scroll', animateOnScroll);
+                animateOnScroll(); // Initial check
+            }
+
+            initTypingEffect() {
+                const subtitle = document.querySelector('.subtitle');
+                if (!subtitle) return;
+                
+                const text = subtitle.textContent;
+                subtitle.textContent = '';
+                
+                let index = 0;
+                const typeWriter = () => {
+                    if (index < text.length) {
+                        subtitle.textContent += text.charAt(index);
+                        index++;
+                        setTimeout(typeWriter, 50);
+                    }
+                };
+                
+                setTimeout(typeWriter, 1000);
+            }
+            
+            initParticles() {
+                const canvas = document.getElementById('particles');
+                if (!canvas) return;
+                
+                const ctx = canvas.getContext('2d');
+                
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+
+                const particles = [];
+                const particleCount = 80;
+
+                class Particle {
+                    constructor() {
+                        this.x = Math.random() * canvas.width;
+                        this.y = Math.random() * canvas.height;
+                        this.vx = (Math.random() - 0.5) * 0.5;
+                        this.vy = (Math.random() - 0.5) * 0.5;
+                        this.size = Math.random() * 2 + 1;
+                        this.opacity = Math.random() * 0.5 + 0.2;
+                    }
+
+                    update() {
+                        this.x += this.vx;
+                        this.y += this.vy;
+
+                        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+                    }
+
+                    draw() {
+                        ctx.globalAlpha = this.opacity;
+                        ctx.fillStyle = '#00d4ff';
+                        ctx.beginPath();
+                        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                        ctx.fill();
+                    }
+                }
+
+                // Create particles
+                for (let i = 0; i < particleCount; i++) {
+                    particles.push(new Particle());
+                }
+
+                const animate = () => {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    
+                    particles.forEach(particle => {
+                        particle.update();
+                        particle.draw();
+                    });
+
+                    // Draw connections
+                    particles.forEach((particle, i) => {
+                        particles.slice(i + 1).forEach(otherParticle => {
+                            const dx = particle.x - otherParticle.x;
+                            const dy = particle.y - otherParticle.y;
+                            const distance = Math.sqrt(dx * dx + dy * dy);
+
+                            if (distance < 120) {
+                                ctx.globalAlpha = 0.1;
+                                ctx.strokeStyle = '#00d4ff';
+                                ctx.lineWidth = 1;
+                                ctx.beginPath();
+                                ctx.moveTo(particle.x, particle.y);
+                                ctx.lineTo(otherParticle.x, otherParticle.y);
+                                ctx.stroke();
+                            }
+                        });
+                    });
+
+                    requestAnimationFrame(animate);
+                };
+
+                animate();
+
+                // Handle resize
+                window.addEventListener('resize', () => {
+                    canvas.width = window.innerWidth;
+                    canvas.height = window.innerHeight;
+                });
+            }
+
+            toggleMobileMenu() {
+                const navLinks = document.querySelector('.nav-links');
+                const toggle = document.getElementById('mobileMenuToggle');
+                
+                if (navLinks) navLinks.classList.toggle('active');
+                if (toggle) {
+                    const icon = toggle.querySelector('i');
+                    if (icon) {
+                        icon.classList.toggle('fa-bars');
+                        icon.classList.toggle('fa-times');
+                    }
+                }
+            }
+
+            scrollToNextSection() {
+                const sections = document.querySelectorAll('.section');
+                let currentSection = 0;
+                
+                sections.forEach((section, index) => {
+                    const rect = section.getBoundingClientRect();
+                    if (rect.top <= 100 && rect.bottom >= 100) {
+                        currentSection = index;
+                    }
+                });
+
+                if (currentSection < sections.length - 1) {
+                    sections[currentSection + 1].scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }
+
+            scrollToPrevSection() {
+                const sections = document.querySelectorAll('.section');
+                let currentSection = 0;
+                
+                sections.forEach((section, index) => {
+                    const rect = section.getBoundingClientRect();
+                    if (rect.top <= 100 && rect.bottom >= 100) {
+                        currentSection = index;
+                    }
+                });
+
+                if (currentSection > 0) {
+                    sections[currentSection - 1].scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }
+        }
+
+        // Initialize the portfolio
+        document.addEventListener('DOMContentLoaded', () => {
+            new AdvancedPortfolio();
+        });
+
+        // Additional performance optimizations
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js');
+            });
+        }
+
+        // Preload critical resources
+        const preloadLink = document.createElement('link');
+        preloadLink.rel = 'preload';
+        preloadLink.as = 'image';
+        preloadLink.href = 'https://asbinthapa.info.np/img/IMG_1069.jpg';
+        document.head.appendChild(preloadLink);
+    </script>
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://asbinthapa.info.np/education.html#student",
+          "name": "Asbin Thapa",
+          "birthDate": "2006-06-04",
+          "nationality": "Nepalese",
+          "description": "Computer Science student at Ulster University London specializing in blockchain technology and cybersecurity",
+          "alumniOf": {
+            "@type": "EducationalOrganization",
+            "name": "Ulster University London",
+            "location": "London, UK"
+          },
+          "hasCredential": [
+            {
+              "@type": "EducationalOccupationalCredential",
+              "name": "Computer Science with Blockchain",
+              "credentialCategory": "degree",
+              "educationalLevel": "undergraduate",
+              "recognizedBy": {
+                "@type": "EducationalOrganization",
+                "name": "Ulster University London"
+              }
+            }
+          ],
+          "knowsAbout": [
+            "Computer Science",
+            "Blockchain Technology",
+            "Cybersecurity",
+            "Software Development",
+            "Digital Innovation"
+          ]
+        }
+      ]
+    }
+    </script>
+</body>
+</html>
