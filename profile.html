@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asbin Thapa - Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        /* Left Side - Profile Card */
+        .left-side {
+            flex: 1;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Matrix/Hacking Background */
+        .matrix-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            opacity: 0.3;
+        }
+
+        .matrix-bg::before {
+            content: '01010101 10101010 11001100 00110011 10011001 01100110 11110000 00001111 10101010 01010101 11001100 00110011 function() { algorithm } while(true) { hack(); } if(code) { execute(); } for(i=0; i<∞; i++) { loop(); } const binary = 0x1010; let matrix = true; var cyber = "security"; console.log("hacking..."); return encrypted; decrypt(); encode(); import { hack } from "cyber"; <script> alert("matrix"); </script> SELECT * FROM data; python main.py --hack git commit -m "code" npm run build sudo rm -rf / ./exploit.sh chmod +x hack.py AI ML DL NLP IoT API REST JSON XML HTML CSS JS';
+            position: absolute;
+            top: -100%;
+            left: 0;
+            width: 200%;
+            height: 200%;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.5);
+            word-wrap: break-word;
+            line-height: 1.5;
+            animation: matrixRain 15s linear infinite;
+            white-space: pre-wrap;
+        }
+
+        @keyframes matrixRain {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(100%);
+            }
+        }
+
+        .code-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .code-line {
+            position: absolute;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.4);
+            white-space: nowrap;
+            animation: scrollCode 20s linear infinite;
+        }
+
+        .code-line:nth-child(1) { top: 10%; animation-delay: 0s; }
+        .code-line:nth-child(2) { top: 25%; animation-delay: 2s; }
+        .code-line:nth-child(3) { top: 40%; animation-delay: 4s; }
+        .code-line:nth-child(4) { top: 55%; animation-delay: 6s; }
+        .code-line:nth-child(5) { top: 70%; animation-delay: 8s; }
+        .code-line:nth-child(6) { top: 85%; animation-delay: 10s; }
+
+        @keyframes scrollCode {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+        }
+
+        .binary-rain {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .binary-column {
+            position: absolute;
+            font-family: 'Courier New', monospace;
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.3);
+            animation: binaryFall 10s linear infinite;
+        }
+
+        .binary-column:nth-child(1) { left: 5%; animation-delay: 0s; }
+        .binary-column:nth-child(2) { left: 15%; animation-delay: 1s; }
+        .binary-column:nth-child(3) { left: 25%; animation-delay: 2s; }
+        .binary-column:nth-child(4) { left: 35%; animation-delay: 3s; }
+        .binary-column:nth-child(5) { left: 45%; animation-delay: 4s; }
+        .binary-column:nth-child(6) { left: 55%; animation-delay: 5s; }
+        .binary-column:nth-child(7) { left: 65%; animation-delay: 1.5s; }
+        .binary-column:nth-child(8) { left: 75%; animation-delay: 2.5s; }
+        .binary-column:nth-child(9) { left: 85%; animation-delay: 3.5s; }
+        .binary-column:nth-child(10) { left: 95%; animation-delay: 4.5s; }
+
+        @keyframes binaryFall {
+            0% {
+                top: -100%;
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                top: 100%;
+                opacity: 0;
+            }
+        }
+
+        .left-side::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .profile-card {
+            background: rgba(30, 39, 46, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            padding: 50px 40px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+            position: relative;
+            z-index: 1;
+            animation: slideIn 0.8s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .profile-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #667eea;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05);
+        }
+
+        .profile-name {
+            color: white;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .divider {
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #667eea, transparent);
+            margin: 20px 0;
+        }
+
+        .profile-role {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #d946ef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            transform: translateY(-5px) scale(1.1);
+            background: #c026d3;
+            box-shadow: 0 10px 20px rgba(217, 70, 239, 0.5);
+        }
+
+        /* Right Side - Content */
+        .right-side {
+            flex: 1;
+            background: #1e272e;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 50px;
+            color: white;
+        }
+
+        .hello-text {
+            font-size: 5rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, white, #667eea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .hello-text .exclamation {
+            color: #667eea;
+            -webkit-text-fill-color: #667eea;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .subtitle {
+            font-size: 1.8rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 40px;
+            animation: fadeIn 1.2s ease-out;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 60px;
+            animation: fadeIn 1.4s ease-out;
+        }
+
+        .btn {
+            padding: 18px 40px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #764ba2;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #1e272e;
+            transform: translateY(-3px);
+        }
+
+        .footer-text {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.7);
+            animation: fadeIn 1.6s ease-out;
+        }
+
+        .footer-text .highlight {
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .left-side, .right-side {
+                flex: none;
+                height: 50vh;
+            }
+
+            .profile-card {
+                padding: 30px 20px;
+                max-width: 350px;
+            }
+
+            .profile-image {
+                width: 120px;
+                height: 120px;
+            }
+
+            .profile-name {
+                font-size: 1.8rem;
+            }
+
+            .profile-role {
+                font-size: 0.9rem;
+            }
+
+            .hello-text {
+                font-size: 3rem;
+            }
+
+            .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .button-group {
+                flex-direction: column;
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .right-side {
+                padding: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .profile-card {
+                padding: 20px;
+            }
+
+            .profile-image {
+                width: 100px;
+                height: 100px;
+            }
+
+            .profile-name {
+                font-size: 1.5rem;
+            }
+
+            .social-link {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+
+            .hello-text {
+                font-size: 2.5rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            .btn {
+                padding: 15px 30px;
+                font-size: 0.9rem;
+            }
+
+            .footer-text {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Left Side - Profile Card -->
+        <div class="left-side">
+            <!-- Matrix/Hacking Background Effects -->
+            <div class="matrix-bg"></div>
+            
+            <div class="code-lines">
+                <div class="code-line">function hackTheMatrix() { while(true) { execute(); } }</div>
+                <div class="code-line">import cybersecurity from 'algorithms'; const encrypted = true;</div>
+                <div class="code-line">SELECT * FROM database WHERE security = 'high';</div>
+                <div class="code-line">git commit -m "Advanced hacking algorithms implemented"</div>
+                <div class="code-line">python neural_network.py --train --epochs=1000</div>
+                <div class="code-line">if (authenticated) { grant_access(); } else { deny(); }</div>
+            </div>
+
+            <div class="binary-rain">
+                <div class="binary-column">1010101<br>0101010<br>1100110<br>0011001<br>1111000<br>0000111<br>1010101<br>0101010</div>
+                <div class="binary-column">0110011<br>1001100<br>0110011<br>1001100<br>1010101<br>0101010<br>1100110<br>0011001</div>
+                <div class="binary-column">1111000<br>0000111<br>1010101<br>0101010<br>1100110<br>0011001<br>1111000<br>0000111</div>
+                <div class="binary-column">1001100<br>0110011<br>1010101<br>0101010<br>1100110<br>0011001<br>1111000<br>0000111</div>
+                <div class="binary-column">0101010<br>1010101<br>0011001<br>1100110<br>0000111<br>1111000<br>0101010<br>1010101</div>
+                <div class="binary-column">1100110<br>0011001<br>1111000<br>0000111<br>1010101<br>0101010<br>1100110<br>0011001</div>
+                <div class="binary-column">0000111<br>1111000<br>0101010<br>1010101<br>0011001<br>1100110<br>0000111<br>1111000</div>
+                <div class="binary-column">1010101<br>0101010<br>1100110<br>0011001<br>1111000<br>0000111<br>1010101<br>0101010</div>
+                <div class="binary-column">0011001<br>1100110<br>0000111<br>1111000<br>0101010<br>1010101<br>0011001<br>1100110</div>
+                <div class="binary-column">1111000<br>0000111<br>1010101<br>0101010<br>1100110<br>0011001<br>1111000<br>0000111</div>
+            </div>
+
+            <div class="profile-card">
+                <img src="https://asbinthapa.info.np/img/IMG_1069.jpg" alt="Asbin Thapa" class="profile-image">
+                <h1 class="profile-name">Asbin Thapa</h1>
+                <div class="divider"></div>
+                <p class="profile-role">Web Developer</p>
+                
+                <div class="social-links">
+                    <a href="https://github.com/asbinthapa99" class="social-link" target="_blank" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://x.com/MeHope55586" class="social-link" target="_blank" title="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/asbin-thapa-6a9a4733b/" class="social-link" target="_blank" title="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://www.instagram.com/asbin_chetrri/" class="social-link" target="_blank" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side - Content -->
+        <div class="right-side">
+            <h1 class="hello-text">HELLO<span class="exclamation">!</span></h1>
+            <p class="subtitle">Here's who I am & what I do</p>
+            
+            <div class="button-group">
+                <a href="https://asbinthapa.info.np" class="btn btn-primary" target="_blank">PORTFOLIO</a>
+                <a href="https://github.com/asbinthapa99" class="btn btn-secondary" target="_blank">GIT HUB</a>
+            </div>
+            
+            <p class="footer-text">
+                A skill full web developer.<br>
+                Made by <span class="highlight"> Asbin Thapa</span>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
