@@ -5,14 +5,13 @@
   <!-- Main Gallery Page with ALL Images -->
   <url>
     <loc>https://asbinthapa.info.np/photos.html</loc>
-    <lastmod>2024-10-02</lastmod>
+    <lastmod>2025-11-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     
     <!-- London Category -->
     <image:image>
       <image:loc>https://asbinthapa.info.np/images/asbin-thapa-image-1.jpeg</image:loc>
-      
       <image:title>London Street Photography - Asbin Thapa</image:title>
       <image:caption>Urban London street photography by Asbin Thapa</image:caption>
     </image:image>
@@ -319,12 +318,8 @@
       <image:title>iOS Photography - Image 110 - Asbin Thapa</image:title>
       <image:caption>Shot on iOS by Asbin Thapa - London photographer</image:caption>
     </image:image>
-     <url>
-    <loc>https://asbinthapa.info.np/photos.html</loc>
-    <lastmod>2025-11-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
 
+    <!-- WhatsApp Images Series -->
     <image:image>
       <image:loc>https://asbinthapa.info.np/images/WhatsApp-Image-2025-11-13-at-21.26.41.jpeg</image:loc>
       <image:title>London Street</image:title>
@@ -414,7 +409,6 @@
       <image:title>Morning in London</image:title>
       <image:caption>Morning city photography in London by Asbin Thapa</image:caption>
     </image:image>
-
     
   </url>
   
@@ -437,4 +431,5 @@
       <image:caption>Official logo of Asbin Thapa's professional portfolio</image:caption>
     </image:image>
   </url>
-  
+
+</urlset>
