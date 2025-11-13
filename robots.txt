@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# Point Google (and other crawlers) to the sitemaps
+Sitemap: https://asbinthapa.info.np/sitemap.xml
+Sitemap: https://asbinthapa.info.np/images-sitemap.xml
