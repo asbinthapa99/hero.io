@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PyCast — Automated Python News</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:ital,wght@0,300;0,700;1,300&family=Syne:wght@400;800&display=swap"
+    rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #0d0e0f;
+      --surface: #141516;
+      --border: #222426;
+      --accent: #c8f135;
+      --accent2: #3bffbd;
+      --muted: #5a5e64;
+      --text: #e8eaed;
+      --text-dim: #868b92;
+      --snake: #c8f135;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Syne', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── GRID NOISE TEXTURE ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255, 255, 255, 0.018) 40px),
+        repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255, 255, 255, 0.018) 40px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── GLOW BLOB ── */
+    .glow {
+      position: fixed;
+      width: 700px;
+      height: 700px;
+      border-radius: 50%;
+      filter: blur(140px);
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.15;
+    }
+
+    .glow-1 {
+      background: var(--accent);
+      top: -200px;
+      left: -200px;
+    }
+
+    .glow-2 {
+      background: var(--accent2);
+      bottom: -200px;
+      right: -200px;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 48px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'DM Mono', monospace;
+      font-size: 1rem;
+      letter-spacing: 0.05em;
+    }
+
+    .nav-logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-dim);
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .nav-cta {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.78rem;
+      padding: 10px 20px;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      background: transparent;
+      cursor: pointer;
+      letter-spacing: 0.08em;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .nav-cta:hover {
+      background: var(--accent);
+      color: #000;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      z-index: 5;
+      padding: 100px 48px 80px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .eyebrow-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: blink 1.4s step-end infinite;
+    }
+
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 1
+      }
+
+      50% {
+        opacity: 0
+      }
+    }
+
+    .eyebrow-text {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--accent);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(3.2rem, 6vw, 5.5rem);
+      font-weight: 700;
+      line-height: 1.04;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--accent);
+    }
+
+    .hero-desc {
+      margin-top: 28px;
+      color: var(--text-dim);
+      font-size: 1rem;
+      line-height: 1.75;
+      font-family: 'DM Mono', monospace;
+      font-weight: 400;
+      max-width: 480px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      margin-top: 40px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 30px;
+      background: var(--accent);
+      color: #000;
+      font-weight: 800;
+      font-size: 0.9rem;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(200, 241, 53, 0.35);
+    }
+
+    .btn-secondary {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.82rem;
+      color: var(--text-dim);
+      text-decoration: none;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .btn-secondary:hover {
+      color: var(--text);
+      border-color: var(--text);
+    }
+
+    /* ── TERMINAL CARD ── */
+    .terminal {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      overflow: hidden;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.8rem;
+      animation: fadeup 0.8s 0.3s both ease-out;
+    }
+
+    @keyframes fadeup {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .terminal-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 16px;
+      background: #1a1b1c;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+    }
+
+    .dot-r {
+      background: #ff5f57;
+    }
+
+    .dot-y {
+      background: #ffbd2e;
+    }
+
+    .dot-g {
+      background: #28c840;
+    }
+
+    .terminal-title {
+      margin-left: 8px;
+      color: var(--muted);
+      font-size: 0.72rem;
+    }
+
+    .terminal-body {
+      padding: 24px;
+      line-height: 2;
+    }
+
+    .t-comment {
+      color: var(--muted);
+    }
+
+    .t-keyword {
+      color: #d989f5;
+    }
+
+    .t-fn {
+      color: var(--accent2);
+    }
+
+    .t-str {
+      color: var(--accent);
+    }
+
+    .t-num {
+      color: #ff9a5c;
+    }
+
+    .t-output {
+      color: var(--text-dim);
+      padding-top: 8px;
+      border-top: 1px dashed var(--border);
+      margin-top: 8px;
+    }
+
+    .t-output .t-label {
+      color: var(--accent);
+    }
+
+    /* cursor blink */
+    .cursor {
+      display: inline-block;
+      width: 9px;
+      height: 1.2em;
+      background: var(--accent);
+      vertical-align: text-bottom;
+      animation: blink 1s step-end infinite;
+    }
+
+    /* ── STATS STRIP ── */
+    .stats-strip {
+      position: relative;
+      z-index: 5;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      overflow: hidden;
+    }
+
+    .stat-item {
+      flex: 1;
+      padding: 36px 40px;
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .stat-item:last-child {
+      border-right: none;
+    }
+
+    .stat-num {
+      font-family: 'Fraunces', serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    /* ── FEATURES ── */
+    .features-section {
+      position: relative;
+      z-index: 5;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 100px 48px;
+    }
+
+    .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 60px;
+    }
+
+    .section-label span {
+      color: var(--accent);
+      margin-right: 10px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+    }
+
+    .feature-card {
+      background: var(--bg);
+      padding: 48px 40px;
+      transition: background 0.3s;
+    }
+
+    .feature-card:hover {
+      background: var(--surface);
+    }
+
+    .feature-num {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      color: var(--muted);
+      letter-spacing: 0.15em;
+      margin-bottom: 28px;
+    }
+
+    .feature-icon {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .feature-title {
+      font-family: 'Fraunces', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+      line-height: 1.2;
+    }
+
+    .feature-desc {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      line-height: 1.85;
+    }
+
+    /* ── PIPELINE VIZ ── */
+    .pipeline-section {
+      position: relative;
+      z-index: 5;
+      border-top: 1px solid var(--border);
+      padding: 100px 48px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .pipeline {
+      margin-top: 60px;
+      display: flex;
+      align-items: center;
+      gap: 0;
+      overflow-x: auto;
+      padding-bottom: 8px;
+    }
+
+    .pipe-step {
+      flex: 1;
+      min-width: 160px;
+      padding: 28px 24px;
+      border: 1px solid var(--border);
+      position: relative;
+      background: var(--surface);
+    }
+
+    .pipe-step::after {
+      content: '→';
+      position: absolute;
+      right: -18px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--accent);
+      font-size: 1.2rem;
+      z-index: 2;
+    }
+
+    .pipe-step:last-child::after {
+      display: none;
+    }
+
+    .pipe-num {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .pipe-name {
+      font-weight: 800;
+      font-size: 0.9rem;
+      margin-bottom: 6px;
+      letter-spacing: 0.04em;
+    }
+
+    .pipe-detail {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+
+    /* ── TICKER ── */
+    .ticker-wrap {
+      position: relative;
+      z-index: 5;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+      background: var(--surface);
+      padding: 14px 0;
+    }
+
+    .ticker-label {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      padding: 0 20px;
+      background: var(--accent);
+      display: flex;
+      align-items: center;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: #000;
+      letter-spacing: 0.1em;
+      z-index: 2;
+    }
+
+    .ticker-track {
+      display: flex;
+      animation: ticker 28s linear infinite;
+      padding-left: 140px;
+      white-space: nowrap;
+    }
+
+    @keyframes ticker {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .ticker-item {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      padding: 0 48px 0 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .ticker-item::before {
+      content: '//';
+      color: var(--accent);
+      font-size: 0.7rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      position: relative;
+      z-index: 5;
+      border-top: 1px solid var(--border);
+      padding: 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .footer-brand {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .footer-brand span {
+      color: var(--accent);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+
+    /* ── NEWS PREVIEW ── */
+    .news-section {
+      position: relative;
+      z-index: 5;
+      border-top: 1px solid var(--border);
+      padding: 100px 48px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .news-section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 48px;
+    }
+
+    .news-section-header h2 {
+      font-family: 'Fraunces', serif;
+      font-size: 2.6rem;
+      font-weight: 700;
+      line-height: 1.1;
+    }
+
+    .news-section-header h2 em {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--accent);
+    }
+
+    .see-all-link {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.78rem;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: 0.1em;
+      border-bottom: 1px solid var(--accent);
+      padding-bottom: 2px;
+      white-space: nowrap;
+      transition: opacity 0.2s;
+    }
+
+    .see-all-link:hover {
+      opacity: 0.7;
+    }
+
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .news-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.25s, transform 0.25s;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .news-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+    }
+
+    .news-card-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .news-card-img-placeholder {
+      width: 100%;
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.8rem;
+      flex-shrink: 0;
+    }
+
+    .news-card-body {
+      padding: 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .news-card-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .news-card-title {
+      font-family: 'Fraunces', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      line-height: 1.35;
+      margin-bottom: 12px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .news-card-excerpt {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.73rem;
+      color: var(--text-dim);
+      line-height: 1.7;
+      flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .news-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+
+    .news-card-author {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      color: var(--muted);
+    }
+
+    .news-card-date {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.66rem;
+      color: var(--muted);
+    }
+
+    .news-loading {
+      grid-column: 1 / -1;
+      text-align: center;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.82rem;
+      color: var(--muted);
+      padding: 60px 0;
+    }
+
+    .news-loading .spinner {
+      width: 30px;
+      height: 30px;
+      border: 3px solid var(--border);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 16px;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .news-section {
+        padding: 60px 24px;
+      }
+
+      .news-section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+
+      .news-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    nav {
+      padding: 20px 24px;
+    }
+
+    .nav-links {
+      display: none;
+    }
+
+    .hero {
+      grid-template-columns: 1fr;
+      padding: 60px 24px 40px;
+    }
+
+    .stats-strip {
+      flex-wrap: wrap;
+    }
+
+    .stat-item {
+      flex: 1 0 50%;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .features-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .features-section,
+    .pipeline-section {
+      padding: 60px 24px;
+    }
+
+    footer {
+      flex-direction: column;
+      gap: 24px;
+      padding: 32px 24px;
+    }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="glow glow-1"></div>
+  <div class="glow glow-2"></div>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo"><span>&gt;&gt;&gt;</span> py<span>cast</span></div>
+    <ul class="nav-links">
+      <li><a href="#">Episodes</a></li>
+      <li><a href="#">Archives</a></li>
+      <li><a href="#">GitHub</a></li>
+      <li><a href="#">API Docs</a></li>
+    </ul>
+    <button class="nav-cta">Subscribe()</button>
+  </nav>
+
+  <!-- TICKER -->
+  <div class="ticker-wrap">
+    <div class="ticker-label">LIVE</div>
+    <div class="ticker-track">
+      <span class="ticker-item">Python 3.14 alpha ships new JIT improvements</span>
+      <span class="ticker-item">Ruff 0.9 drops with 2x parse speed boost</span>
+      <span class="ticker-item">FastAPI hits 80k GitHub stars</span>
+      <span class="ticker-item">PEP 789 accepted — new typing syntax</span>
+      <span class="ticker-item">Django 6.0 beta now in testing</span>
+      <span class="ticker-item">uv replaces pip in major projects</span>
+      <span class="ticker-item">NumPy 2.1 brings strict dtype casting</span>
+      <span class="ticker-item">Python 3.14 alpha ships new JIT improvements</span>
+      <span class="ticker-item">Ruff 0.9 drops with 2x parse speed boost</span>
+      <span class="ticker-item">FastAPI hits 80k GitHub stars</span>
+      <span class="ticker-item">PEP 789 accepted — new typing syntax</span>
+      <span class="ticker-item">Django 6.0 beta now in testing</span>
+      <span class="ticker-item">uv replaces pip in major projects</span>
+      <span class="ticker-item">NumPy 2.1 brings strict dtype casting</span>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-eyebrow">
+        <div class="eyebrow-dot"></div>
+        <span class="eyebrow-text">Automated · Daily · Open Source</span>
+      </div>
+      <h1 class="hero-title">
+        The Python<br />
+        news channel<br />
+        that <em>never</em><br />
+        sleeps.
+      </h1>
+      <p class="hero-desc">
+        A fully automated pipeline scrapes, summarises, and broadcasts the latest from the Python ecosystem — every
+        single day. Zero humans harmed.
+      </p>
+      <div class="hero-actions">
+        <a href="#" class="btn-primary">▶ Watch Today's Episode</a>
+        <a href="#" class="btn-secondary">View source on GitHub →</a>
+      </div>
+    </div>
+
+    <!-- TERMINAL -->
+    <div class="terminal">
+      <div class="terminal-bar">
+        <div class="dot dot-r"></div>
+        <div class="dot dot-y"></div>
+        <div class="dot dot-g"></div>
+        <span class="terminal-title">pycast/pipeline.py</span>
+      </div>
+      <div class="terminal-body">
+        <div><span class="t-comment"># Daily news pipeline — runs at 06:00 UTC</span></div>
+        <div><span class="t-keyword">from</span> pycast <span class="t-keyword">import</span> <span
+            class="t-fn">scrape</span>, <span class="t-fn">summarise</span>, <span class="t-fn">broadcast</span></div>
+        <div>&nbsp;</div>
+        <div><span class="t-keyword">def</span> <span class="t-fn">run_pipeline</span>():</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;sources = <span class="t-fn">scrape</span>(<span
+            class="t-str">"peps,pypi,discourse,hn"</span>)</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;digest = <span class="t-fn">summarise</span>(sources, model=<span
+            class="t-str">"claude"</span>)</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;episode = <span class="t-fn">broadcast</span>(digest, fmt=<span
+            class="t-str">"video+rss"</span>)</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-keyword">return</span> episode</div>
+        <div>&nbsp;</div>
+        <div class="t-output">
+          <div><span class="t-label">▶ OUTPUT</span></div>
+          <div>✓ scraped <span class="t-num">214</span> articles in <span class="t-num">4.2s</span></div>
+          <div>✓ digest generated — <span class="t-num">11</span> stories selected</div>
+          <div>✓ episode #<span class="t-num">318</span> published to YouTube + RSS</div>
+          <div>→ <span class="cursor"></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats-strip">
+    <div class="stat-item">
+      <div class="stat-num">318</div>
+      <div class="stat-label">Episodes Published</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">24k</div>
+      <div class="stat-label">Subscribers</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">4.1s</div>
+      <div class="stat-label">Avg Pipeline Runtime</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Automated</div>
+    </div>
+  </div>
+
+  <!-- FEATURES -->
+  <section class="features-section">
+    <p class="section-label"><span>#</span> What's under the hood</p>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-num">01 ——</div>
+        <div class="feature-icon">🕷️</div>
+        <div class="feature-title">Multi-Source Scraper</div>
+        <p class="feature-desc">Crawls PyPI releases, PEPs, Hacker News, Python Discourse, GitHub trending, and major
+          dev blogs daily using scrapy + httpx.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-num">02 ——</div>
+        <div class="feature-icon">🧠</div>
+        <div class="feature-title">LLM Curation</div>
+        <p class="feature-desc">An AI layer ranks, de-dupes and summarises each story into a tight two-sentence digest.
+          Hallucination-checked against raw sources.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-num">03 ——</div>
+        <div class="feature-icon">🎙️</div>
+        <div class="feature-title">Voice & Video Synthesis</div>
+        <p class="feature-desc">ElevenLabs TTS reads the script. FFmpeg compiles b-roll, code snippets, and captions
+          into a finished 5-minute YouTube video.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-num">04 ——</div>
+        <div class="feature-icon">📡</div>
+        <div class="feature-title">Auto-Broadcast</div>
+        <p class="feature-desc">YouTube Data API, RSS feed, and a newsletter are all published in a single atomic step
+          before 07:00 UTC every morning.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-num">05 ——</div>
+        <div class="feature-icon">🔍</div>
+        <div class="feature-title">Full Transparency</div>
+        <p class="feature-desc">Every episode links to its raw sources and prompt logs. We believe in showing our work —
+          reproducibly and openly.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-num">06 ——</div>
+        <div class="feature-icon">⚙️</div>
+        <div class="feature-title">Contribute & Fork</div>
+        <p class="feature-desc">The entire pipeline is MIT-licensed on GitHub. Add a new source, tweak the ranking
+          model, or deploy your own edition in under 20 minutes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PIPELINE -->
+  <section class="pipeline-section">
+    <p class="section-label"><span>#</span> The pipeline</p>
+    <div class="pipeline">
+      <div class="pipe-step">
+        <div class="pipe-num">Step 01</div>
+        <div class="pipe-name">Scrape</div>
+        <div class="pipe-detail">scrapy / httpx<br />cron @06:00 UTC</div>
+      </div>
+      <div class="pipe-step">
+        <div class="pipe-num">Step 02</div>
+        <div class="pipe-name">Parse & Store</div>
+        <div class="pipe-detail">pydantic models<br />SQLite + JSON</div>
+      </div>
+      <div class="pipe-step">
+        <div class="pipe-num">Step 03</div>
+        <div class="pipe-name">Rank & Summarise</div>
+        <div class="pipe-detail">Claude API<br />top-11 selection</div>
+      </div>
+      <div class="pipe-step">
+        <div class="pipe-num">Step 04</div>
+        <div class="pipe-name">TTS + Edit</div>
+        <div class="pipe-detail">ElevenLabs<br />FFmpeg pipeline</div>
+      </div>
+      <div class="pipe-step">
+        <div class="pipe-num">Step 05</div>
+        <div class="pipe-name">Publish</div>
+        <div class="pipe-detail">YouTube / RSS<br />Mailchimp</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWS PREVIEW -->
+  <section class="news-section">
+    <div class="news-section-header">
+      <h2>Latest from the<br /><em>Python universe</em></h2>
+      <a href="news.html" class="see-all-link">View all stories →</a>
+    </div>
+    <div class="news-grid" id="preview-grid">
+      <div class="news-loading">
+        <div class="spinner"></div>
+        fetching latest stories...
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-brand"><span>&gt;&gt;&gt;</span> pycast · built with Python &amp; ❤️</div>
+    <ul class="footer-links">
+      <li><a href="#">GitHub</a></li>
+      <li><a href="#">RSS Feed</a></li>
+      <li><a href="#">Newsletter</a></li>
+      <li><a href="#">License</a></li>
+    </ul>
+  </footer>
+
+  <script>
+    const RSS_URL = 'https://planetpython.org/rss20.xml';
+
+    // Multiple CORS proxy fallbacks — tries each in order
+    const PROXIES = [
+      url => `https://corsproxy.io/?${encodeURIComponent(url)}`,
+      url => `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`,
+      url => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`,
+    ];
+
+    const PALETTES = [
+      ['#1a2a1a', '#c8f135'], ['#1a1a2e', '#3bffbd'], ['#2a1a1a', '#ff9a5c'],
+      ['#1a1e2a', '#667eea'], ['#2a1a2a', '#d989f5'], ['#1a2a28', '#00e5ff'],
+    ];
+    const EMOJIS = ['🐍', '⚡', '🔬', '📦', '🚀', '🧠', '🔧', '📡', '🌐', '💡'];
+
+    function stripHtml(html) {
+      const div = document.createElement('div');
+      div.innerHTML = html;
+      return div.textContent || '';
+    }
+
+    function timeAgo(dateStr) {
+      const diff = (Date.now() - new Date(dateStr)) / 1000;
+      if (diff < 3600) return `${Math.floor(diff / 60)}m ago`;
+      if (diff < 86400) return `${Math.floor(diff / 3600)}h ago`;
+      return `${Math.floor(diff / 86400)}d ago`;
+    }
+
+    function parseRSS(xmlText) {
+      const parser = new DOMParser();
+      const xml = parser.parseFromString(xmlText, 'text/xml');
+      return Array.from(xml.querySelectorAll('item')).map(node => {
+        const get = tag => node.querySelector(tag)?.textContent?.trim() || '';
+        let thumbnail = '';
+        const enc = node.querySelector('enclosure');
+        if (enc && /image/.test(enc.getAttribute('type') || '')) thumbnail = enc.getAttribute('url') || '';
+        if (!thumbnail) {
+          const m = node.querySelector('content, thumbnail');
+          thumbnail = m?.getAttribute('url') || '';
+        }
+        if (!thumbnail) {
+          const match = get('description').match(/<img[^>]+src=["']([^"']+)["']/i);
+          if (match) thumbnail = match[1];
+        }
+        return {
+          title: get('title'),
+          link: get('link'),
+          description: get('description'),
+          author: get('author') || get('creator'),
+          pubDate: get('pubDate'),
+          thumbnail,
+        };
+      });
+    }
+
+    function makeCard(item, i) {
+      const [bg, fg] = PALETTES[i % PALETTES.length];
+      const em = EMOJIS[i % EMOJIS.length];
+      const excerpt = stripHtml(item.description).slice(0, 180).trim();
+      const author = (item.author || 'Python Community').slice(0, 30);
+      const imgHtml = item.thumbnail
+        ? `<img class="news-card-img" src="${item.thumbnail}" alt="" loading="lazy" onerror="this.outerHTML='<div class=\\'news-card-img-placeholder\\' style=\\'background:${bg};color:${fg}\\'>${em}</div>'">`
+        : `<div class="news-card-img-placeholder" style="background:${bg};color:${fg}">${em}</div>`;
+
+      return `
+        <a class="news-card" href="${item.link}" target="_blank" rel="noopener">
+          ${imgHtml}
+          <div class="news-card-body">
+            <div class="news-card-tag">Python News</div>
+            <div class="news-card-title">${item.title}</div>
+            <div class="news-card-excerpt">${excerpt}…</div>
+            <div class="news-card-footer">
+              <span class="news-card-author">${author}</span>
+              <span class="news-card-date">${timeAgo(item.pubDate)}</span>
+            </div>
+          </div>
+        </a>`;
+    }
+
+    // Fallback sample news when all proxies fail (e.g. running from file://)
+    const FALLBACK_NEWS = [
+      { title: 'Python 3.13 Released with Improved Error Messages', link: 'https://docs.python.org/3/whatsnew/3.13.html', description: 'Python 3.13 brings better error messages, a new interactive interpreter, and experimental free-threaded mode for improved multi-core performance.', author: 'Python Dev Team', pubDate: new Date().toISOString(), thumbnail: '' },
+      { title: 'FastAPI Becomes the Most Popular Python Web Framework', link: 'https://fastapi.tiangolo.com/', description: 'FastAPI has surpassed Flask and Django in new project adoption, thanks to its async-first design and automatic OpenAPI documentation generation.', author: 'Python Community', pubDate: new Date().toISOString(), thumbnail: '' },
+      { title: 'uv: The Blazing Fast Python Package Manager', link: 'https://github.com/astral-sh/uv', description: 'Written in Rust, uv is replacing pip in major Python projects with 10-100x faster installs. It now supports full project management workflows.', author: 'Astral', pubDate: new Date().toISOString(), thumbnail: '' },
+    ];
+
+    async function fetchWithProxy(proxyFn) {
+      const url = proxyFn(RSS_URL);
+      const res = await fetch(url);
+      // allorigins wraps content in JSON, others return raw XML
+      const contentType = res.headers.get('content-type') || '';
+      if (contentType.includes('json')) {
+        const data = await res.json();
+        const xml = data.contents || data.body || '';
+        if (!xml) throw new Error('empty JSON response');
+        return xml;
+      }
+      return await res.text();
+    }
+
+    async function loadPreview() {
+      const grid = document.getElementById('preview-grid');
+
+      // Try each proxy in order
+      for (const proxyFn of PROXIES) {
+        try {
+          const xmlText = await fetchWithProxy(proxyFn);
+          const items = parseRSS(xmlText).slice(0, 3);
+          if (items.length) {
+            grid.innerHTML = items.map(makeCard).join('');
+            return; // Success!
+          }
+        } catch (e) {
+          console.warn('Proxy failed, trying next...', e.message);
+        }
+      }
+
+      // All proxies failed — show fallback news
+      console.warn('All proxies failed. Showing fallback news.');
+      grid.innerHTML = FALLBACK_NEWS.map(makeCard).join('');
+    }
+
+    loadPreview();
+  </script>
+</body>
+
+</html>

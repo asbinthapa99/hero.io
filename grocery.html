@@ -3,507 +3,1259 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thapa Store</title>
-    <link rel="stylesheet" href="css/css.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" />
+    <title>Thapa Grocery — Fresh & Organic</title>
+    <meta name="description"
+        content="Thapa Grocery Store — Fresh produce, organic products, and pantry essentials delivered to your door.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2d6a4f;
+            --primary-light: #52b788;
+            --primary-dark: #1b4332;
+            --accent: #f77f00;
+            --accent-light: #fcbf49;
+            --bg: #f8faf9;
+            --card: #ffffff;
+            --text: #1a1a2e;
+            --text-light: #6b7280;
+            --radius: 16px;
+            --shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+            --shadow-hover: 0 12px 40px rgba(45, 106, 79, 0.15);
+            --glass: rgba(255, 255, 255, 0.7);
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* === NAVBAR === */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            backdrop-filter: blur(20px);
+            background: var(--glass);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            transition: var(--transition);
+        }
+
+        .navbar.scrolled {
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .nav-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            height: 72px;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            text-decoration: none;
+        }
+
+        .nav-logo i {
+            font-size: 1.4rem;
+            color: var(--primary-light);
+            background: linear-gradient(135deg, var(--primary-light), var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            border-radius: 2px;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-actions .icon-btn {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            border: none;
+            background: rgba(45, 106, 79, 0.08);
+            color: var(--primary);
+            font-size: 1.05rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-actions .icon-btn:hover {
+            background: var(--primary);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        .home-btn {
+            padding: 10px 24px;
+            border-radius: 12px;
+            border: none;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: #fff;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .home-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(45, 106, 79, 0.3);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.4rem;
+            color: var(--text);
+            cursor: pointer;
+        }
+
+        /* === HERO === */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #d8f3dc 0%, #b7e4c7 30%, #95d5b2 60%, #74c69d 100%);
+            padding: 120px 24px 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(247, 127, 0, 0.12) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(45, 106, 79, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+
+        .hero-badge i {
+            color: var(--accent);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--primary-dark);
+            opacity: 0.7;
+            max-width: 560px;
+            margin: 0 auto 36px;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 40px;
+            border-radius: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.05rem;
+            text-decoration: none;
+            transition: var(--transition);
+            box-shadow: 0 8px 30px rgba(27, 67, 50, 0.3);
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(27, 67, 50, 0.4);
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            margin-top: 60px;
+        }
+
+        .hero-stat {
+            text-align: center;
+        }
+
+        .hero-stat .num {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+        }
+
+        .hero-stat .label {
+            font-size: 0.85rem;
+            color: var(--primary-dark);
+            opacity: 0.6;
+            margin-top: 4px;
+        }
+
+        /* === SECTION SHARED === */
+        .section {
+            padding: 100px 24px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 50px;
+            background: rgba(45, 106, 79, 0.08);
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 800;
+            color: var(--text);
+        }
+
+        .section-title span {
+            color: var(--primary);
+        }
+
+        /* === FEATURES === */
+        .features-grid {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .feature-card {
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 40px 32px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-card img {
+            height: 100px;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-transform: capitalize;
+        }
+
+        .feature-card p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .card-link:hover {
+            gap: 10px;
+        }
+
+        /* === PRODUCTS === */
+        .products-grid {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .product-card {
+            background: var(--card);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .product-img {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #f0faf4, #e8f5ec);
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-img img {
+            height: 140px;
+            transition: var(--transition);
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.08));
+        }
+
+        .product-card:hover .product-img img {
+            transform: scale(1.08);
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: capitalize;
+            margin-bottom: 6px;
+        }
+
+        .product-info .price {
+            font-size: 0.95rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .product-info .stars {
+            color: var(--accent);
+            font-size: 0.8rem;
+            margin-bottom: 14px;
+        }
+
+        .add-cart-btn {
+            width: 100%;
+            padding: 11px;
+            border-radius: 10px;
+            border: 2px solid var(--primary);
+            background: transparent;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: var(--transition);
+            text-transform: capitalize;
+        }
+
+        .add-cart-btn:hover {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        /* === CATEGORIES === */
+        .categories-grid {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .category-card {
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 36px 24px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .category-card img {
+            height: 100px;
+            margin-bottom: 16px;
+            transition: var(--transition);
+            filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.08));
+        }
+
+        .category-card:hover img {
+            transform: scale(1.1) rotate(-3deg);
+        }
+
+        .category-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: capitalize;
+            margin-bottom: 6px;
+        }
+
+        .category-card .discount {
+            font-size: 0.85rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 14px;
+        }
+
+        .shop-btn {
+            padding: 10px 28px;
+            border-radius: 50px;
+            border: none;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: #fff;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .shop-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(45, 106, 79, 0.25);
+        }
+
+        /* === REVIEWS === */
+        .reviews-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .review-card {
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 32px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            text-align: center;
+        }
+
+        .review-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .review-card img {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 16px;
+            border: 3px solid var(--primary-light);
+        }
+
+        .review-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .review-card .stars {
+            color: var(--accent);
+            font-size: 0.85rem;
+            margin-bottom: 12px;
+        }
+
+        .review-card p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.7;
+            font-style: italic;
+        }
+
+        /* === BLOGS === */
+        .blogs-grid {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .blog-card {
+            background: var(--card);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .blog-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .blog-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .blog-img-wrap {
+            overflow: hidden;
+        }
+
+        .blog-content {
+            padding: 24px;
+        }
+
+        .blog-meta {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 12px;
+        }
+
+        .blog-meta span {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .blog-meta i {
+            color: var(--primary-light);
+            font-size: 0.75rem;
+        }
+
+        .blog-content h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            line-height: 1.5;
+            text-transform: capitalize;
+            margin-bottom: 14px;
+        }
+
+        /* === FOOTER === */
+        .footer {
+            background: var(--primary-dark);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 80px 24px 30px;
+        }
+
+        .footer-grid {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer h4 {
+            color: #fff;
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .footer-brand .logo-text {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-brand .logo-text i {
+            color: var(--primary-light);
+        }
+
+        .footer-brand p {
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 1rem;
+        }
+
+        .social-links a:hover {
+            background: var(--primary-light);
+            transform: translateY(-3px);
+        }
+
+        .footer-links a {
+            display: block;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 6px 0;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+            padding-left: 6px;
+        }
+
+        .footer-links a i {
+            margin-right: 8px;
+            color: var(--primary-light);
+            font-size: 0.75rem;
+        }
+
+        .footer-contact a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 8px 0;
+            transition: var(--transition);
+        }
+
+        .footer-contact a:hover {
+            color: #fff;
+        }
+
+        .footer-contact i {
+            color: var(--primary-light);
+            width: 18px;
+        }
+
+        .newsletter-input {
+            display: flex;
+            margin-bottom: 16px;
+        }
+
+        .newsletter-input input {
+            flex: 1;
+            padding: 12px 16px;
+            border: none;
+            border-radius: 10px 0 0 10px;
+            font-size: 0.9rem;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        .newsletter-input input::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .newsletter-input button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 0 10px 10px 0;
+            background: var(--primary-light);
+            color: #fff;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .newsletter-input button:hover {
+            background: var(--accent);
+        }
+
+        .footer-bottom {
+            max-width: 1280px;
+            margin: 0 auto;
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.85rem;
+        }
+
+        .footer-bottom a {
+            color: var(--primary-light);
+            text-decoration: none;
+        }
+
+        /* === ANIMATIONS === */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* === RESPONSIVE === */
+        @media(max-width:1024px) {
+
+            .products-grid,
+            .categories-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .features-grid,
+            .blogs-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media(max-width:768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 72px;
+                left: 0;
+                right: 0;
+                background: var(--glass);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 20px;
+                gap: 16px;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .hero-stats {
+                gap: 24px;
+                flex-wrap: wrap;
+            }
+
+            .products-grid,
+            .categories-grid,
+            .features-grid,
+            .blogs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <header class="header">
-        <a href="#" class="logo"><i class="fas fa-shopping-basket"></i>Grocery Store</a>
 
-
-        <nav class="navbar">
-            <button class="btn" onclick="window.location.href='index.html'">Home  <i class="uil uil-file-alt"></i></button>
-            <a href="#features">Features</a>
-            <a href="#products">Products</a>
-            <a href="#category">Categories</a>
-            <a href="#review">Review</a>
-            <a href="#blogs">Blogs</a>
-        </nav>
-
-        <div class="icons">
-            <div class="fas fa-bars" id="menu-btn"></div>
-            <div class="fas fa-search" id="search-btn"></div>
-            <div class="fas fa-shopping-cart" id="cart-btn"></div>
-            <div class="fas fa-user" id="login-btn"></div>
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo"><i class="fas fa-leaf"></i> Thapa Grocery</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#categories">Categories</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#blogs">Blogs</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="icon-btn" id="search-btn" aria-label="Search"><i class="fas fa-search"></i></button>
+                <button class="icon-btn" id="cart-btn" aria-label="Cart"><i class="fas fa-shopping-bag"></i></button>
+                <a href="index.html" class="home-btn"><i class="fas fa-home"></i> Home</a>
+                <button class="menu-toggle" id="menuToggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
+            </div>
         </div>
+    </nav>
 
-        <form class="search-form">
-            <input type="search" id="search-box" placeholder="search here....">
-            <label for="search-box" class="fas fa-search"></label>
-        </form>
-
-        <div class="shopping-cart">
-            <div class="box">
-                <i class="fas fa-trash"></i>
-                <img src="image/cart-img-1.png" alt="">
-                <div class="content">
-                    <h3>Watermelon</h3>
-                    <span class="price">4.99/-</span>
-                    <span class="quantity">qty:1</span>
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="hero-inner fade-up">
+            <div class="hero-badge"><i class="fas fa-seedling"></i> 100% Organic & Fresh</div>
+            <h1>Fresh and <span>Organic</span><br>Products for You</h1>
+            <p>Your one-stop shop for farm-fresh produce, pantry essentials, and wholesome groceries delivered right to
+                your doorstep.</p>
+            <a href="#products" class="hero-cta"><i class="fas fa-shopping-basket"></i> Shop Now</a>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="num">500+</div>
+                    <div class="label">Products</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="num">10K+</div>
+                    <div class="label">Happy Customers</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="num">24/7</div>
+                    <div class="label">Support</div>
                 </div>
             </div>
-            <div class="box">
-                <i class="fas fa-trash"></i>
-                <img src="image/cart-img-2.png" alt="">
-                <div class="content">
-                    <h3>Onion</h3>
-                    <span class="price">4.99/-</span>
-                    <span class="quantity">qty:1</span>
-                </div>
-            </div>
-            <div class="box">
-                <i class="fas fa-trash"></i>
-                <img src="image/cart-img-3.png" alt="">
-                <div class="content">
-                    <h3>Chicken</h3>
-                    <span class="price">4.99/-</span>
-                    <span class="quantity">qty:1</span>
-                </div>
-            </div>
-            <div class="total"> total : $19.69/- </div>
-            <a href="#" class="btn">checkout</a>
         </div>
-
-        <form action="" class="login-form">
-            <h3>Login now</h3>
-            <input type="email" placeholder="your email" class="box">
-            <input type="password" placeholder="your password" class="box">
-            <p>forgot your password</p> <a href="#">Click Here</a>
-            <p>don't have account</p> <a href="#">Create Now</a>
-            <input type="submit" value="login now" class="btn">
-        </form>
-
-    </header>
-    <!-- header section ends -->
-
-    <!-- home section starts  -->
-
-    <section class="home" id="home">
-
-        <div class="content">
-            <h3>Fresh and <span>Organic</span> Products for your Health.</h3>
-            <p>Thapa Groceries - Your One-Stop Shop for Fresh Produce and Pantry Essentials!</p>
-            <a href="#" class="btn">Order now</a>
-        </div>
-
     </section>
 
-    <!-- home section ends -->
-
-    <!-- features section starts  -->
-    <section class="features" id="features">
-        <h1 class="heading">our <span>features</span></h1>
-        <div class="box-container">
-            <div class="box">
-                <img src="image/feature-img-1.png" alt="">
-                <h3>fresh and organic</h3>
-             <p>   We Proudly Offer a Wide Selection of 🌱 Fresh, Locally Sourced, and Organic Products.                </p>
-                <a href="free.html" class="btn">read more</a>
+    <!-- FEATURES -->
+    <section class="section" id="features">
+        <div class="section-header fade-up">
+            <div class="section-tag">Why Choose Us</div>
+            <h2 class="section-title">Our <span>Features</span></h2>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card fade-up">
+                <img src="image/feature-img-1.png" alt="Fresh & Organic">
+                <h3>Fresh & Organic</h3>
+                <p>We proudly offer a wide selection of 🌱 fresh, locally sourced, and organic products.</p>
+                <a href="free.html" class="card-link">Learn More <i class="fas fa-arrow-right"></i></a>
             </div>
-
-            <div class="box">
-                <img src="image/feature-img-2.png" alt="">
-                <h3>free delivery</h3>
-                <p>We Provide 🚚 Complimentary Delivery Services Within Our Local District.</p>
-                <a href="about.html" class="btn">read more</a>
+            <div class="feature-card fade-up">
+                <img src="image/feature-img-2.png" alt="Free Delivery">
+                <h3>Free Delivery</h3>
+                <p>We provide 🚚 complimentary delivery services within our local district.</p>
+                <a href="about.html" class="card-link">Learn More <i class="fas fa-arrow-right"></i></a>
             </div>
-
-            <div class="box">
-                <img src="image/feature-img-3.png" alt="">
+            <div class="feature-card fade-up">
+                <img src="image/feature-img-3.png" alt="Easy Payments">
                 <h3>Easy Payments</h3>
-                <p>We accept 💳 easy payment methods including cash and online payment via eSewa, etc</p>
-                <a href="#" class="btn">read more</a>
+                <p>We accept 💳 easy payment methods including cash and online payments via eSewa.</p>
+                <a href="#" class="card-link">Learn More <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
     </section>
 
-    <!-- products section starts  -->
-
-    <section class="products" id="products">
-
-        <h1 class="heading"> our <span>products</span> </h1>
-
-        <div class="swiper product-slider">
-
-            <div class="swiper-wrapper">
-
-                <div class="swiper-slide box">
-                    <img src="image/product-1.png" alt="">
-                    <h3>fresh orange</h3>
-                    <div class="price"> Npr 100/- - 250/- </div>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                    <a href="#" class="btn">add to cart</a>
-                </div>
-
-                <div class="swiper-slide box">
-                    <img src="image/product-2.png" alt="">
-                    <h3>fresh onion</h3>
-                    <div class="price"> Npr 80/- - 120/- </div>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                    <a href="#" class="btn">add to cart</a>
-                </div>
-
-                <div class="swiper-slide box">
-                    <img src="image/product-3.png" alt="">
-                    <h3>fresh meat/Goat-Boka/khasi</h3>
-                    <div class="price"> Npr 600/- - 1000/- </div>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                    <a href="#" class="btn">add to cart</a>
-                </div>
-
-                <div class="swiper-slide box">
-                    <img src="image/product-4.png" alt="">
-                    <h3>fresh cabbage</h3>
-                    <div class="price"> Npr 60/- - 90/- </div>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                    <a href="#" class="btn">add to cart</a>
-                </div>
-
-            </div>
-
+    <!-- PRODUCTS -->
+    <section class="section" id="products" style="background:linear-gradient(180deg,#f0faf4,var(--bg));">
+        <div class="section-header fade-up">
+            <div class="section-tag">Shop Fresh</div>
+            <h2 class="section-title">Our <span>Products</span></h2>
         </div>
-
-        <div class="swiper product-slider">
-
-            <div class="swiper-wrapper">
-
-                <div class="swiper-slide box">
-                    <img src="image/product-5.png" alt="">
-                    <h3>fresh potato</h3>
-                    <div class="price"> Npr 50/- - 100/- </div>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                    <a href="#" class="btn">add to cart</a>
+        <div class="products-grid">
+            <div class="product-card fade-up">
+                <div class="product-img"><img src="image/product-1.png" alt="Orange"></div>
+                <div class="product-info">
+                    <h3>Fresh Orange</h3>
+                    <div class="price">Npr 100 – 250</div>
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div><button class="add-cart-btn">Add to Cart</button>
                 </div>
-
-                <div class="swiper-slide box">
-                    <img src="image/product-6.png" alt="">
-                    <h3>fresh avocado</h3>
-                    <div class="price"> $4.99/- - 10.99/- </div>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                    <a href="#" class="btn">add to cart</a>
+            </div>
+            <div class="product-card fade-up">
+                <div class="product-img"><img src="image/product-2.png" alt="Onion"></div>
+                <div class="product-info">
+                    <h3>Fresh Onion</h3>
+                    <div class="price">Npr 80 – 120</div>
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div><button class="add-cart-btn">Add to Cart</button>
                 </div>
-
-                <div class="swiper-slide box">
-                    <img src="image/product-7.png" alt="">
-                    <h3>fresh carrot</h3>
-                    <div class="price"> $4.99/- - 10.99/- </div>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                    <a href="#" class="btn">add to cart</a>
+            </div>
+            <div class="product-card fade-up">
+                <div class="product-img"><img src="image/product-3.png" alt="Meat"></div>
+                <div class="product-info">
+                    <h3>Fresh Goat Meat</h3>
+                    <div class="price">Npr 600 – 1000</div>
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div><button class="add-cart-btn">Add to Cart</button>
                 </div>
-
-                <div class="swiper-slide box">
-                    <img src="image/product-8.png" alt="">
-                    <h3>green lemon</h3>
-                    <div class="price"> Npr 350/- - 400/- </div>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                    <a href="#" class="btn">add to cart</a>
+            </div>
+            <div class="product-card fade-up">
+                <div class="product-img"><img src="image/product-4.png" alt="Cabbage"></div>
+                <div class="product-info">
+                    <h3>Fresh Cabbage</h3>
+                    <div class="price">Npr 60 – 90</div>
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div><button class="add-cart-btn">Add to Cart</button>
                 </div>
-
             </div>
-
-        </div>
-
-
-    </section>
-
-    <!-- products section ends -->
-
-
-    <!-- categories section starts  -->
-    <section class="categories" id="category">
-        <h1 class="heading">product <span>categories</span></h1>
-        <div class="box-container">
-            <div class="box">
-                <img src="image/cat-1.png" alt="">
-                <h3>vegitables</h3>
-                <p>upto 45% off</p>
-                <a href="#" class="btn">Shop Now</a>
+            <div class="product-card fade-up">
+                <div class="product-img"><img src="image/product-5.png" alt="Potato"></div>
+                <div class="product-info">
+                    <h3>Fresh Potato</h3>
+                    <div class="price">Npr 50 – 100</div>
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div><button class="add-cart-btn">Add to Cart</button>
+                </div>
             </div>
-
-            <div class="box">
-                <img src="image/cat-2.png" alt="">
-                <h3>fresh fruits</h3>
-                <p>upto 45% off</p>
-                <a href="103-grocery-store" class="btn">Shop Now</a>
+            <div class="product-card fade-up">
+                <div class="product-img"><img src="image/product-6.png" alt="Avocado"></div>
+                <div class="product-info">
+                    <h3>Fresh Avocado</h3>
+                    <div class="price">Npr 500 – 1100</div>
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div><button class="add-cart-btn">Add to Cart</button>
+                </div>
             </div>
-
-            <div class="box">
-                <img src="image/cat-3.png" alt="">
-                <h3>dairy products</h3>
-                <p>upto 45% off</p>
-                <a href="#" class="btn">Shop Now</a>
+            <div class="product-card fade-up">
+                <div class="product-img"><img src="image/product-7.png" alt="Carrot"></div>
+                <div class="product-info">
+                    <h3>Fresh Carrot</h3>
+                    <div class="price">Npr 80 – 150</div>
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div><button class="add-cart-btn">Add to Cart</button>
+                </div>
             </div>
-
-            <div class="box">
-                <img src="image/cat-4.png" alt="">
-                <h3>fresh meat</h3>
-                <p>upto 45% off</p>
-                <a href="#" class="btn">Shop Now</a>
+            <div class="product-card fade-up">
+                <div class="product-img"><img src="image/product-8.png" alt="Lemon"></div>
+                <div class="product-info">
+                    <h3>Green Lemon</h3>
+                    <div class="price">Npr 350 – 400</div>
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div><button class="add-cart-btn">Add to Cart</button>
+                </div>
             </div>
         </div>
     </section>
-    <!-- categories section starts  -->
 
-    <!-- review section starts  -->
-    <section class="review" id="review">
-        <h1 class="heading"> customer's <span>review</span> </h1>
-        <div class="swiper review-slider">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide box">
-                    <img src="image/pic-1.png" alt="">
-                    <p></p>
-                    <h3>Batra M</h3>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                </div>
-
-                <div class="swiper-slide box">
-                    <img src="image/pic-2.png" alt="">
-                    <p>.</p>
-                    <h3>Sinha J</h3>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                </div>
-                <div class="swiper-slide box">
-                    <img src="image/pic-3.png" alt="">
-                    <p></p>
-                    <h3>Singh R</h3>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                </div>
-
-                <div class="swiper-slide box">
-                    <img src="image/pic-4.png" alt="">
-                    <p>.</p>
-                    <h3>Sharma R</h3>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                </div>
-
+    <!-- CATEGORIES -->
+    <section class="section" id="categories">
+        <div class="section-header fade-up">
+            <div class="section-tag">Browse</div>
+            <h2 class="section-title">Product <span>Categories</span></h2>
+        </div>
+        <div class="categories-grid">
+            <div class="category-card fade-up"><img src="image/cat-1.png" alt="Vegetables">
+                <h3>Vegetables</h3>
+                <p class="discount">Upto 45% Off</p><button class="shop-btn">Shop Now</button>
+            </div>
+            <div class="category-card fade-up"><img src="image/cat-2.png" alt="Fruits">
+                <h3>Fresh Fruits</h3>
+                <p class="discount">Upto 45% Off</p><button class="shop-btn">Shop Now</button>
+            </div>
+            <div class="category-card fade-up"><img src="image/cat-3.png" alt="Dairy">
+                <h3>Dairy Products</h3>
+                <p class="discount">Upto 45% Off</p><button class="shop-btn">Shop Now</button>
+            </div>
+            <div class="category-card fade-up"><img src="image/cat-4.png" alt="Meat">
+                <h3>Fresh Meat</h3>
+                <p class="discount">Upto 45% Off</p><button class="shop-btn">Shop Now</button>
             </div>
         </div>
     </section>
-    <!-- review section ends -->
 
-
-    <!-- blogs section starts  -->
-
-    <section class="blogs" id="blogs">
-
-        <h1 class="heading"> our <span>blogs</span> </h1>
-
-        <div class="box-container">
-
-            <div class="box">
-                <img src="image/blog-1.jpg" alt="">
-                <div class="content">
-                    <div class="icons">
-                        <a href="#"> <i class="fas fa-user"></i> by user </a>
-                        <a href="#"> <i class="fas fa-calendar"></i> 1st may, 2021 </a>
-                    </div>
-                    <h3>fresh and organic vegitables and fruits</h3>
-                    <p> </p>
-                    <a href="#" class="btn">read more</a>
-                </div>
-            </div>
-
-            <div class="box">
-                <img src="image/blog-2.jpg" alt="">
-                <div class="content">
-                    <div class="icons">
-                        <a href="#"> <i class="fas fa-user"></i> by user </a>
-                        <a href="#"> <i class="fas fa-calendar"></i> 1st may, 2021 </a>
-                    </div>
-                    <h3>fresh and organic vegitables and fruits</h3>
-                    <p></p>
-                    <a href="#" class="btn">read more</a>
-                </div>
-            </div>
-
-            <div class="box">
-                <img src="image/blog-3.jpg" alt="">
-                <div class="content">
-                    <div class="icons">
-                        <a href="#"> <i class="fas fa-user"></i> by user </a>
-                        <a href="#"> <i class="fas fa-calendar"></i> 1st may, 2021 </a>
-                    </div>
-                    <h3>fresh and organic vegitables and fruits</h3>
-                    <p></p>
-                    <a href="#" class="btn">read more</a>
-                </div>
-            </div>
-
+    <!-- REVIEWS -->
+    <section class="section" id="reviews" style="background:linear-gradient(180deg,#f0faf4,var(--bg));">
+        <div class="section-header fade-up">
+            <div class="section-tag">Testimonials</div>
+            <h2 class="section-title">Customer <span>Reviews</span></h2>
         </div>
-
-    </section>
-
-    <!-- blogs section ends -->
-
-    <!-------------Footer Section---------------------->
-    <section class="footer">
-        <div class="box-container">
-            <div class="box">
-                <h3><i class="fas fa-shopping-basket"></i>Kirana </h3>
-                <p></p>
-                <div class="share">
-                    <a href="#" class="fab fa-facebook-f"></a>
-                    <a href="#" class="fab fa-twitter"></a>
-                    <a href="#" class="fab fa-instagram"></a>
-                    <a href="#" class="fab fa-linkedin"></a>
-                </div>
+        <div class="reviews-grid">
+            <div class="review-card fade-up"><img src="image/pic-1.png" alt="Batra M">
+                <h3>Batra M</h3>
+                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                        class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                <p>"Absolutely love the freshness and quality. My go-to grocery store for everything organic!"</p>
             </div>
-
-            <div class="box">
-                <h3>contact info</h3>
-                <a href="#" class="links"><i class="fas fa-phone"></i>9813839273</a>
-                <a href="#" class="links"><i class="fas fa-phone"></i>9813839273</a>
-                <a href="#" class="links"><i class="fas fa-envelope"></i>asbinthapa27@gmail.com</a>
-                <a href="#" class="links"><i class="fas fa-map-marker-alt"></i>Kathmandu, Nepal</a>
+            <div class="review-card fade-up"><img src="image/pic-2.png" alt="Sinha J">
+                <h3>Sinha J</h3>
+                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                        class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                <p>"Fast delivery and great prices. The vegetables are always farm-fresh. Highly recommend!"</p>
             </div>
-
-            <div class="box">
-                <h3>Quick links</h3>
-                <a href="#" class="links"><i class="fas fa-arrow-right"></i>Home</a>
-                <a href="#" class="links"><i class="fas fa-arrow-right"></i>Features</a>
-                <a href="#" class="links"><i class="fas fa-arrow-right"></i>Products</a>
-                <a href="#" class="links"><i class="fas fa-arrow-right"></i>Categories</a>
-                <a href="#" class="links"><i class="fas fa-arrow-right"></i>Review</a>
-                <a href="#" class="links"><i class="fas fa-arrow-right"></i>Blogs</a>
+            <div class="review-card fade-up"><img src="image/pic-3.png" alt="Singh R">
+                <h3>Singh R</h3>
+                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                        class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                <p>"Best grocery shopping experience. Easy payments and the produce lasts so much longer!"</p>
             </div>
-
-            <div class="box">
-                <h3>newsletter</h3>
-                <p>Subscribe for latest updates</p>
-                <input type="email" placeholder="Your Email" class="email">
-                <input type="submit" value="subscribe" class="btn">
-                <img src="image/payment.png" alt="" class="payment-img">
+            <div class="review-card fade-up"><img src="image/pic-4.png" alt="Sharma R">
+                <h3>Sharma R</h3>
+                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                        class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                <p>"Outstanding quality and customer service. The organic range is simply unmatched!"</p>
             </div>
         </div>
-        <div class="credit"> All Rights Reserved. <a class="text-secondary fw-bold" href="https://asbinthapa.info.np"> </a> <span> FREAKY AKA ASBIN </span>| Designed by <a class="text-secondary fw-bold" href="https://asbinthapa.info.np"> Asbin chettri</a> </div>
     </section>
 
+    <!-- BLOGS -->
+    <section class="section" id="blogs">
+        <div class="section-header fade-up">
+            <div class="section-tag">Latest News</div>
+            <h2 class="section-title">Our <span>Blogs</span></h2>
+        </div>
+        <div class="blogs-grid">
+            <div class="blog-card fade-up">
+                <div class="blog-img-wrap"><img src="image/blog-1.jpg" alt="Blog"></div>
+                <div class="blog-content">
+                    <div class="blog-meta"><span><i class="fas fa-user"></i> Admin</span><span><i
+                                class="fas fa-calendar"></i> May 1, 2021</span></div>
+                    <h3>Tips for Choosing Fresh & Organic Vegetables</h3><a href="#" class="card-link">Read More <i
+                            class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="blog-card fade-up">
+                <div class="blog-img-wrap"><img src="image/blog-2.jpg" alt="Blog"></div>
+                <div class="blog-content">
+                    <div class="blog-meta"><span><i class="fas fa-user"></i> Admin</span><span><i
+                                class="fas fa-calendar"></i> May 1, 2021</span></div>
+                    <h3>Health Benefits of Eating Seasonal Fruits</h3><a href="#" class="card-link">Read More <i
+                            class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="blog-card fade-up">
+                <div class="blog-img-wrap"><img src="image/blog-3.jpg" alt="Blog"></div>
+                <div class="blog-content">
+                    <div class="blog-meta"><span><i class="fas fa-user"></i> Admin</span><span><i
+                                class="fas fa-calendar"></i> May 1, 2021</span></div>
+                    <h3>Why Organic Food is Worth the Investment</h3><a href="#" class="card-link">Read More <i
+                            class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!----------------Scripts------------------------->
-    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-    <script src="js/script.js"></script>
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="logo-text"><i class="fas fa-leaf"></i> Thapa Grocery</div>
+                <p>Your trusted source for fresh, organic, and locally sourced groceries in Kathmandu.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="#home"><i class="fas fa-chevron-right"></i> Home</a>
+                <a href="#features"><i class="fas fa-chevron-right"></i> Features</a>
+                <a href="#products"><i class="fas fa-chevron-right"></i> Products</a>
+                <a href="#categories"><i class="fas fa-chevron-right"></i> Categories</a>
+                <a href="#reviews"><i class="fas fa-chevron-right"></i> Reviews</a>
+                <a href="#blogs"><i class="fas fa-chevron-right"></i> Blogs</a>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact Info</h4>
+                <a href="tel:9813839273"><i class="fas fa-phone"></i> 9813839273</a>
+                <a href="mailto:asbinthapa27@gmail.com"><i class="fas fa-envelope"></i> asbinthapa27@gmail.com</a>
+                <a href="#"><i class="fas fa-map-marker-alt"></i> Kathmandu, Nepal</a>
+            </div>
+            <div>
+                <h4>Newsletter</h4>
+                <p style="font-size:0.9rem;margin-bottom:16px;">Subscribe for latest updates and offers.</p>
+                <div class="newsletter-input"><input type="email" placeholder="Your email"><button>Subscribe</button>
+                </div>
+                <img src="image/payment.png" alt="Payment Methods" style="height:28px;opacity:0.6;">
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Thapa Grocery. All Rights Reserved. Designed by <a href="https://asbinthapa.info.np">Asbin
+                    Chettri</a></p>
+        </div>
+    </footer>
 
     <script>
-        var swiper = new Swiper(".review-slider", {
-            loop: true,
-            spaceBetween: 20,
-            autoplay: {
-                delay: 7500,
-                disableOnInteraction: false,
-            },
-            centeredSlides: true,
-            breakpoints: {
-                0: {
-                    slidesPerView: 1,
-                },
-                768: {
-                    slidesPerView: 2,
-                },
-                1020: {
-                    slidesPerView: 3,
-                },
-            },
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
         });
-    </script>
-    <script>
-        var swiper = new Swiper(".product-slider", {
-            loop: true,
-            spaceBetween: 20,
-            autoplay: {
-                delay: 7500,
-                disableOnInteraction: false,
-            },
-            centeredSlides: true,
-            breakpoints: {
-                0: {
-                    slidesPerView: 1,
-                },
-                768: {
-                    slidesPerView: 2,
-                },
-                1020: {
-                    slidesPerView: 3,
-                },
-            },
+
+        // Mobile menu toggle
+        document.getElementById('menuToggle').addEventListener('click', () => {
+            document.getElementById('navLinks').classList.toggle('active');
         });
+
+        // Scroll fade-up animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
     </script>
 </body>
-<p class="mb-0">&copy; <a class="text-secondary fw-bold" href="https://asbinthapa.info.np">asbin chettri</a>. All Rights Reserved. Designed by <a class="text-secondary fw-bold" href="https://asbinthapa.info.np"> Asbin chettri</a></p>        </div>
+
 </html>
