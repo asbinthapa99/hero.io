@@ -4,8 +4,47 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Asbin Thapa </title>
+  <title>Asbin Thapa | Cybersecurity Expert, Computer Science & Blockchain Developer</title>
   <link rel="icon" href="img/Logos-removebg-preview.png">
+  <link rel="canonical" href="https://asbinthapa.info.np/">
+
+  <!-- SEO Meta Tags -->
+  <meta name="description"
+    content="Asbin Thapa — Cybersecurity Expert, Computer Science student at Ulster University London, Blockchain Developer, and Digital Marketing Specialist from Nepal. Explore projects, photography, and blog.">
+  <meta name="keywords"
+    content="Asbin Thapa, Asbin Chettri, cybersecurity expert, computer science student, Ulster University, blockchain developer, digital marketing, Nepal, London, penetration testing, web security, SEO specialist">
+  <meta name="author" content="Asbin Thapa">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow">
+  <meta name="theme-color" content="#1e1e2e">
+
+  <!-- Open Graph / Facebook / LinkedIn -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://asbinthapa.info.np/">
+  <meta property="og:title" content="Asbin Thapa | Cybersecurity Expert & Blockchain Developer">
+  <meta property="og:description"
+    content="Official portfolio of Asbin Thapa — Cybersecurity Expert, Computer Science student at Ulster University London, and Digital Marketing Specialist. Projects, blog, photography, and more.">
+  <meta property="og:image" content="https://asbinthapa.info.np/img/IMG_1069.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Asbin Thapa — Cybersecurity Expert Portfolio">
+  <meta property="og:site_name" content="Asbin Thapa Portfolio">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@MeHope55586">
+  <meta name="twitter:creator" content="@MeHope55586">
+  <meta name="twitter:title" content="Asbin Thapa | Cybersecurity Expert & Blockchain Developer">
+  <meta name="twitter:description"
+    content="Official portfolio of Asbin Thapa — Cybersecurity Expert, Computer Science student at Ulster University London.">
+  <meta name="twitter:image" content="https://asbinthapa.info.np/img/IMG_1069.jpg">
+
+  <!-- Geo Tags -->
+  <meta name="geo.region" content="GB-LND">
+  <meta name="geo.placename" content="London">
+  <meta name="geo.position" content="51.5510;0.0456">
+  <meta name="ICBM" content="51.5510, 0.0456">
 
   <link rel="stylesheet" href="css/style.css" />
   <noscript>
@@ -306,15 +345,6 @@
 
 
 
-  <head>
-
-  </head>
-  <meta name="keywords"
-    content="Asbin thapa, Asbinthapa, asbinthapa, asbin, asbinthapa, Asbin Thapa Xettri, Asbin chettri, Asbin Thapa, Asbin Thapa Info, Asbin xettri, thapa">
-  <meta name="description"
-    content="Welcome,  I'm Asbin Thapa, a Cyber Security Expert with a background in Computer Science. Explore information about Asbin Thapa and more. ">
-  <meta name="author" content="Asbin Thapa">
-
   <!-- --------- UNICONS ---------- -->
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
 
@@ -503,6 +533,548 @@
                   </div>
       </section>
 
+      <!-- -------------- BLOG / PROJECT LIST ---------------- -->
+      <style>
+        @keyframes workFadeUp {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes fillBar {
+          from {
+            width: 0;
+          }
+        }
+
+        @keyframes certSlideIn {
+          from {
+            opacity: 0;
+            transform: translateX(20px);
+          }
+
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+
+        .work-layout {
+          display: grid;
+          grid-template-columns: 1fr 340px;
+          gap: 30px;
+          margin-top: 30px;
+          align-items: start;
+        }
+
+        .work-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+          gap: 20px;
+        }
+
+        .work-card-img {
+          width: 100%;
+          height: 140px;
+          object-fit: cover;
+          border-radius: 12px;
+          margin-bottom: 16px;
+          display: block;
+          transition: transform 0.4s ease;
+        }
+
+        .work-card:hover .work-card-img {
+          transform: scale(1.05);
+        }
+
+        .work-card-img-wrap {
+          overflow: hidden;
+          border-radius: 12px;
+          margin-bottom: 16px;
+          position: relative;
+        }
+
+        .work-card-img-wrap::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          height: 40%;
+          background: linear-gradient(transparent, var(--bg-color, #1e1e2e));
+          pointer-events: none;
+          border-radius: 0 0 12px 12px;
+        }
+
+        .work-card {
+          background: var(--bg-color, #1e1e2e);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-radius: 16px;
+          padding: 0 0 24px 0;
+          transition: transform 0.35s cubic-bezier(.4, 0, .2, 1), box-shadow 0.35s, border-color 0.35s;
+          cursor: pointer;
+          text-decoration: none;
+          display: block;
+          color: inherit;
+          opacity: 0;
+          transform: translateY(30px);
+          position: relative;
+          overflow: hidden;
+        }
+
+        .work-card::before {
+          content: '';
+          position: absolute;
+          width: 300px;
+          height: 300px;
+          border-radius: 50%;
+          background: radial-gradient(circle, rgba(100, 200, 255, 0.15) 0%, transparent 70%);
+          pointer-events: none;
+          transform: translate(-50%, -50%);
+          left: var(--mouse-x, -200px);
+          top: var(--mouse-y, -200px);
+          opacity: 0;
+          transition: opacity 0.3s;
+          z-index: 0;
+        }
+
+        .work-card:hover::before {
+          opacity: 1;
+        }
+
+        .work-card>* {
+          position: relative;
+          z-index: 1;
+        }
+
+        .work-card.visible {
+          animation: workFadeUp 0.6s ease forwards;
+        }
+
+        .work-card:nth-child(1).visible {
+          animation-delay: 0s;
+        }
+
+        .work-card:nth-child(2).visible {
+          animation-delay: 0.08s;
+        }
+
+        .work-card:nth-child(3).visible {
+          animation-delay: 0.16s;
+        }
+
+        .work-card:nth-child(4).visible {
+          animation-delay: 0.24s;
+        }
+
+        .work-card:nth-child(5).visible {
+          animation-delay: 0.32s;
+        }
+
+        .work-card:nth-child(6).visible {
+          animation-delay: 0.4s;
+        }
+
+        .work-card:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+          border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .work-card-header {
+          display: flex;
+          align-items: center;
+          gap: 14px;
+          margin-bottom: 14px;
+          padding: 0 24px;
+        }
+
+        .work-card-icon {
+          width: 46px;
+          height: 46px;
+          border-radius: 12px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.2rem;
+          color: #fff;
+          flex-shrink: 0;
+        }
+
+        .work-card h3 {
+          font-size: 1.05rem;
+          margin: 0;
+          color: #fff;
+          font-weight: 600;
+        }
+
+        .work-card .tag {
+          display: inline-block;
+          font-size: 0.7rem;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          padding: 3px 10px;
+          border-radius: 20px;
+          background: rgba(255, 255, 255, 0.08);
+          color: rgba(255, 255, 255, 0.6);
+          margin-top: 3px;
+          font-weight: 500;
+        }
+
+        .work-card p {
+          font-size: 0.88rem;
+          line-height: 1.65;
+          margin: 0;
+          color: rgba(255, 255, 255, 0.75);
+          padding: 0 24px;
+        }
+
+        /* ── CREDENTIALS SIDEBAR ── */
+        .cred-sidebar {
+          background: var(--bg-color, #1e1e2e);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-radius: 16px;
+          padding: 28px;
+          position: sticky;
+          top: 80px;
+          opacity: 0;
+          transform: translateX(20px);
+        }
+
+        .cred-sidebar.visible {
+          animation: certSlideIn 0.6s 0.2s ease forwards;
+        }
+
+        .cred-sidebar h2 {
+          font-size: 1.15rem;
+          color: #fff;
+          margin: 0 0 20px;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          font-weight: 600;
+        }
+
+        .cred-sidebar h2 i {
+          color: #4ecdc4;
+        }
+
+        .cred-item {
+          margin-bottom: 18px;
+          padding-bottom: 18px;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .cred-item:last-child {
+          margin-bottom: 0;
+          padding-bottom: 0;
+          border-bottom: none;
+        }
+
+        .cred-item-header {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          margin-bottom: 8px;
+        }
+
+        .cred-item-dot {
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          flex-shrink: 0;
+        }
+
+        .cred-item h4 {
+          font-size: 0.92rem;
+          margin: 0;
+          color: #fff;
+          font-weight: 500;
+        }
+
+        .cred-item .cred-org {
+          font-size: 0.78rem;
+          color: rgba(255, 255, 255, 0.5);
+          margin: 2px 0 8px 18px;
+        }
+
+        .cred-bar-track {
+          height: 4px;
+          border-radius: 4px;
+          background: rgba(255, 255, 255, 0.08);
+          margin-left: 18px;
+          overflow: hidden;
+        }
+
+        .cred-bar-fill {
+          height: 100%;
+          border-radius: 4px;
+          animation: fillBar 1s 0.5s ease forwards;
+          width: 0;
+        }
+
+        @media(max-width:900px) {
+          .work-layout {
+            grid-template-columns: 1fr;
+          }
+
+          .cred-sidebar {
+            position: static;
+          }
+        }
+
+        @media(max-width:768px) {
+          .work-grid {
+            grid-template-columns: 1fr;
+            gap: 14px;
+          }
+
+          .work-card {
+            padding: 22px;
+          }
+
+          .work-card h3 {
+            font-size: 1rem;
+          }
+
+          .work-card p {
+            font-size: 0.85rem;
+          }
+
+          .work-layout {
+            gap: 20px;
+          }
+        }
+
+        @media(max-width:480px) {
+          .work-grid {
+            gap: 10px;
+          }
+
+          .work-card {
+            padding: 18px;
+            border-radius: 12px;
+          }
+
+          .work-card-icon {
+            width: 40px;
+            height: 40px;
+            font-size: 1.1rem;
+            border-radius: 10px;
+          }
+
+          .cred-sidebar {
+            padding: 20px;
+          }
+        }
+      </style>
+
+      <section class="section" id="work">
+        <div class="top-header">
+          <h1>My Work &amp; Blog <i class="uil uil-apps"></i></h1>
+        </div>
+        <div class="work-layout">
+
+          <!-- LEFT: Project Cards -->
+          <div class="work-grid" id="work-grid">
+
+            <a href="news.html" class="work-card">
+              <div class="work-card-img-wrap">
+                <img src="images/asbin-thapa-image-17.jpeg" alt="PyCast News" class="work-card-img">
+              </div>
+              <div class="work-card-header">
+                <div class="work-card-icon" style="background:linear-gradient(135deg,#667eea,#764ba2);">
+                  <i class="uil uil-rss"></i>
+                </div>
+                <div>
+                  <h3>PyCast News</h3>
+                  <span class="tag">Web App</span>
+                </div>
+              </div>
+              <p>A Python-powered news aggregator that scrapes and displays the latest tech headlines in a sleek
+                interface.</p>
+            </a>
+
+            <a href="photos.html" class="work-card">
+              <div class="work-card-img-wrap">
+                <img src="images/Asbin 100.jpeg" alt="Photography Portfolio" class="work-card-img">
+              </div>
+              <div class="work-card-header">
+                <div class="work-card-icon" style="background:linear-gradient(135deg,#4ecdc4,#45b7aa);">
+                  <i class="uil uil-camera"></i>
+                </div>
+                <div>
+                  <h3>Photography Portfolio</h3>
+                  <span class="tag">Gallery</span>
+                </div>
+              </div>
+              <p>My personal photo diary — London streets, nature shots, and everyday moments captured through my lens.
+              </p>
+            </a>
+
+            <a href="grocery.html" class="work-card">
+              <div class="work-card-img-wrap">
+                <img src="images/asbin-thapa-image-18.jpeg" alt="Grocery Store" class="work-card-img">
+              </div>
+              <div class="work-card-header">
+                <div class="work-card-icon" style="background:linear-gradient(135deg,#2ecc71,#27ae60);">
+                  <i class="uil uil-shopping-cart"></i>
+                </div>
+                <div>
+                  <h3>Grocery Store</h3>
+                  <span class="tag">E-Commerce</span>
+                </div>
+              </div>
+              <p>A modern grocery store website with product listings, categories, reviews, and a premium shopping
+                experience.</p>
+            </a>
+
+            <a href="art.html" class="work-card">
+              <div class="work-card-img-wrap">
+                <img src="images/art 3.jpeg" alt="Art Blog" class="work-card-img">
+              </div>
+              <div class="work-card-header">
+                <div class="work-card-icon" style="background:linear-gradient(135deg,#e74c3c,#c0392b);">
+                  <i class="uil uil-palette"></i>
+                </div>
+                <div>
+                  <h3>Art Blog</h3>
+                  <span class="tag">Blog</span>
+                </div>
+              </div>
+              <p>Exploring the world of art and design — creative inspirations, techniques, and artistic expression.</p>
+            </a>
+
+            <div class="work-card">
+              <div class="work-card-img-wrap">
+                <img src="images/asbin-thapa-image-19.jpeg" alt="Cybersecurity Research" class="work-card-img">
+              </div>
+              <div class="work-card-header">
+                <div class="work-card-icon" style="background:linear-gradient(135deg,#f39c12,#e67e22);">
+                  <i class="uil uil-shield"></i>
+                </div>
+                <div>
+                  <h3>Cybersecurity Research</h3>
+                  <span class="tag">Research</span>
+                </div>
+              </div>
+              <p>Penetration testing, network security audits, and web application security assessments for real-world
+                clients.</p>
+            </div>
+
+            <div class="work-card">
+              <div class="work-card-img-wrap">
+                <img src="images/asbin-thapa-image-20.jpeg" alt="Blockchain Study" class="work-card-img">
+              </div>
+              <div class="work-card-header">
+                <div class="work-card-icon" style="background:linear-gradient(135deg,#3498db,#2980b9);">
+                  <i class="uil uil-bitcoin-circle"></i>
+                </div>
+                <div>
+                  <h3>Blockchain Study</h3>
+                  <span class="tag">Academic</span>
+                </div>
+              </div>
+              <p>Studying blockchain technology at Ulster University — decentralized systems, smart contracts, and
+                crypto security.</p>
+            </div>
+
+          </div>
+
+          <!-- RIGHT: Certifications & Credentials -->
+          <div class="cred-sidebar" id="cred-sidebar">
+            <h2><i class="uil uil-award"></i> Credentials</h2>
+
+            <div class="cred-item">
+              <div class="cred-item-header">
+                <div class="cred-item-dot" style="background:#4ecdc4;"></div>
+                <h4>Computer Science</h4>
+              </div>
+              <div class="cred-org">BSc — Ulster University, London</div>
+              <div class="cred-bar-track">
+                <div class="cred-bar-fill" style="width:90%;background:linear-gradient(90deg,#4ecdc4,#45b7aa);"></div>
+              </div>
+            </div>
+
+            <div class="cred-item">
+              <div class="cred-item-header">
+                <div class="cred-item-dot" style="background:#667eea;"></div>
+                <h4>Cybersecurity</h4>
+              </div>
+              <div class="cred-org">2+ Years Hands-on Experience</div>
+              <div class="cred-bar-track">
+                <div class="cred-bar-fill" style="width:85%;background:linear-gradient(90deg,#667eea,#764ba2);"></div>
+              </div>
+            </div>
+
+            <div class="cred-item">
+              <div class="cred-item-header">
+                <div class="cred-item-dot" style="background:#2ecc71;"></div>
+                <h4>Digital Marketing</h4>
+              </div>
+              <div class="cred-org">SEO, SEM, Social Media</div>
+              <div class="cred-bar-track">
+                <div class="cred-bar-fill" style="width:80%;background:linear-gradient(90deg,#2ecc71,#27ae60);"></div>
+              </div>
+            </div>
+
+            <div class="cred-item">
+              <div class="cred-item-header">
+                <div class="cred-item-dot" style="background:#f39c12;"></div>
+                <h4>Blockchain Technology</h4>
+              </div>
+              <div class="cred-org">Smart Contracts & DeFi</div>
+              <div class="cred-bar-track">
+                <div class="cred-bar-fill" style="width:75%;background:linear-gradient(90deg,#f39c12,#e67e22);"></div>
+              </div>
+            </div>
+
+            <div class="cred-item">
+              <div class="cred-item-header">
+                <div class="cred-item-dot" style="background:#e74c3c;"></div>
+                <h4>Web Development</h4>
+              </div>
+              <div class="cred-org">HTML, CSS, JS, Python</div>
+              <div class="cred-bar-track">
+                <div class="cred-bar-fill" style="width:88%;background:linear-gradient(90deg,#e74c3c,#c0392b);"></div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <script>
+        // Scroll-triggered staggered animation for work cards + credentials
+        (function () {
+          const obs = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+              if (e.isIntersecting) {
+                e.target.classList.add('visible');
+                obs.unobserve(e.target);
+              }
+            });
+          }, { threshold: 0.1 });
+          document.querySelectorAll('.work-card, .cred-sidebar').forEach(function (c) { obs.observe(c); });
+
+          // Next.js-style cursor spotlight
+          document.querySelectorAll('.work-card').forEach(function (card) {
+            card.addEventListener('mousemove', function (e) {
+              var rect = card.getBoundingClientRect();
+              card.style.setProperty('--mouse-x', (e.clientX - rect.left) + 'px');
+              card.style.setProperty('--mouse-y', (e.clientY - rect.top) + 'px');
+            });
+          });
+        })();
+      </script>
+
       <!-- -------------- PROJECT BOX ---------------- -->
 
       <section class="section" id="projects">
@@ -530,103 +1102,334 @@
         </div>
       </section>
 
-      <!-- -------------- CONTACT BOX ---------------- -->
+      <!-- -------------- CONTACT BOX (REDESIGNED) ---------------- -->
+      <style>
+        .contact-redesign {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 0;
+          min-height: 560px;
+          background: var(--bg-color, #1e1e2e);
+          border-radius: 24px;
+          overflow: hidden;
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          margin-top: 30px;
+          box-shadow: 0 24px 80px rgba(0, 0, 0, 0.4);
+        }
+
+        .contact-3d {
+          position: relative;
+          min-height: 500px;
+          background: #0d0d1a;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          overflow: hidden;
+        }
+
+        .contact-3d spline-viewer {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          inset: 0;
+          --logo-display: none;
+        }
+
+        .contact-3d-overlay {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          padding: 30px;
+          background: linear-gradient(transparent, rgba(13, 13, 26, 0.9));
+          z-index: 2;
+        }
+
+        .contact-3d-overlay h3 {
+          color: #fff;
+          font-size: 1.3rem;
+          margin: 0 0 6px;
+          font-weight: 600;
+        }
+
+        .contact-3d-overlay p {
+          color: rgba(255, 255, 255, 0.6);
+          font-size: 0.85rem;
+          margin: 0;
+        }
+
+        .contact-form-side {
+          padding: 48px 40px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+
+        .contact-form-side h2 {
+          font-size: 1.6rem;
+          color: #fff;
+          margin: 0 0 6px;
+          font-weight: 700;
+        }
+
+        .contact-form-side .subtitle {
+          color: rgba(255, 255, 255, 0.5);
+          font-size: 0.9rem;
+          margin: 0 0 28px;
+        }
+
+        .contact-chips {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+          margin-bottom: 28px;
+        }
+
+        .contact-chip {
+          display: inline-flex;
+          align-items: center;
+          gap: 7px;
+          background: rgba(255, 255, 255, 0.06);
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          border-radius: 50px;
+          padding: 8px 16px;
+          color: rgba(255, 255, 255, 0.7);
+          font-size: 0.8rem;
+          transition: border-color 0.3s, background 0.3s;
+          text-decoration: none;
+        }
+
+        .contact-chip:hover {
+          border-color: rgba(78, 205, 196, 0.4);
+          background: rgba(78, 205, 196, 0.08);
+          color: #fff;
+        }
+
+        .contact-chip i {
+          color: #4ecdc4;
+          font-size: 1rem;
+        }
+
+        .contact-field-group {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 14px;
+          margin-bottom: 14px;
+        }
+
+        .contact-input {
+          width: 100%;
+          padding: 14px 16px;
+          background: rgba(255, 255, 255, 0.04);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-radius: 12px;
+          color: #fff;
+          font-size: 0.9rem;
+          outline: none;
+          transition: border-color 0.3s, box-shadow 0.3s;
+          font-family: inherit;
+          box-sizing: border-box;
+        }
+
+        .contact-input:focus {
+          border-color: #4ecdc4;
+          box-shadow: 0 0 0 3px rgba(78, 205, 196, 0.15);
+        }
+
+        .contact-input::placeholder {
+          color: rgba(255, 255, 255, 0.35);
+        }
+
+        .contact-textarea {
+          width: 100%;
+          min-height: 120px;
+          padding: 14px 16px;
+          background: rgba(255, 255, 255, 0.04);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-radius: 12px;
+          color: #fff;
+          font-size: 0.9rem;
+          outline: none;
+          transition: border-color 0.3s, box-shadow 0.3s;
+          font-family: inherit;
+          resize: vertical;
+          margin-bottom: 18px;
+          box-sizing: border-box;
+        }
+
+        .contact-textarea:focus {
+          border-color: #4ecdc4;
+          box-shadow: 0 0 0 3px rgba(78, 205, 196, 0.15);
+        }
+
+        .contact-textarea::placeholder {
+          color: rgba(255, 255, 255, 0.35);
+        }
+
+        .contact-send-btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          padding: 14px 32px;
+          background: linear-gradient(135deg, #4ecdc4, #45b7aa);
+          color: #fff;
+          border: none;
+          border-radius: 12px;
+          font-size: 0.95rem;
+          font-weight: 600;
+          cursor: pointer;
+          transition: transform 0.2s, box-shadow 0.2s;
+          font-family: inherit;
+        }
+
+        .contact-send-btn:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 8px 24px rgba(78, 205, 196, 0.3);
+        }
+
+        .contact-send-btn:active {
+          transform: translateY(0);
+        }
+
+        @media(max-width:900px) {
+          .contact-redesign {
+            grid-template-columns: 1fr;
+          }
+
+          .contact-3d {
+            min-height: 350px;
+          }
+
+          .contact-form-side {
+            padding: 36px 28px;
+          }
+        }
+
+        @media(max-width:480px) {
+          .contact-field-group {
+            grid-template-columns: 1fr;
+          }
+
+          .contact-form-side {
+            padding: 28px 20px;
+          }
+
+          .contact-form-side h2 {
+            font-size: 1.3rem;
+          }
+
+          .contact-3d {
+            min-height: 280px;
+          }
+        }
+      </style>
 
       <section class="section" id="contact">
         <div class="top-header">
-          <h1>
-            Get in Touch <i class="uil uil-envelope"></i>
-          </h1>
-          <span>Do you have a project in mind? Contact me here.</span>
-
+          <h1>Get in Touch <i class="uil uil-envelope"></i></h1>
+          <span>Have a project in mind? Let's make something amazing together.</span>
         </div>
-        <div class="row">
-          <div class="col">
-            <div class="contact-info">
-              <h2>Find Me <i class="uil uil-corner-right-down"></i></h2>
-              <p><i class="uil uil-envelope"></i> asbinthapa27@gmail.com</p>
-              <p><i class="uil uil-phone"></i> +9779808343056, +4407386811087</p>
-              <p><i class="uil uil-website"></i> asbinthapa.info.np</p>
+
+        <div class="contact-redesign">
+
+          <!-- LEFT: 3D Spline Scene -->
+          <div class="contact-3d">
+            <spline-viewer url="https://prod.spline.design/oiigef2fh-EjWoMT/scene.splinecode"></spline-viewer>
+            <div class="contact-3d-overlay">
+              <h3>Let's Collaborate</h3>
+              <p>Interactive 3D </p>
             </div>
           </div>
-          <div class="col">
-            <form action="https://formspree.io/f/myzgbqrb" method="POST" class="form-control">
-              <div class="form-inputs">
-                <input type="text" name="name" class="input-field" placeholder="Name">
-                <input type="email" name="email" class="input-field" placeholder="Email">
-              </div>
 
-              <div class="text-area">
-                <textarea name="message" placeholder="Message"></textarea>
-              </div>
+          <!-- RIGHT: Contact Form -->
+          <div class="contact-form-side">
+            <h2>Send a Message</h2>
+            <p class="subtitle">I'll get back to you as soon as possible.</p>
 
-              <div class="form-button">
-                <button type="submit" class="btn">
-                  Send <i class="uil uil-message"></i>
-                </button>
+            <div class="contact-chips">
+              <a href="mailto:asbinthapa27@gmail.com" class="contact-chip">
+                <i class="uil uil-envelope"></i> asbinthapa27@gmail.com
+              </a>
+              <a href="tel:+4407386811087" class="contact-chip">
+                <i class="uil uil-phone"></i> +44 07386 811087
+              </a>
+              <a href="https://asbinthapa.info.np" target="_blank" class="contact-chip">
+                <i class="uil uil-globe"></i> asbinthapa.info.np
+              </a>
+            </div>
+
+            <form action="https://formspree.io/f/myzgbqrb" method="POST">
+              <div class="contact-field-group">
+                <input type="text" name="name" class="contact-input" placeholder="Your Name" required>
+                <input type="email" name="email" class="contact-input" placeholder="Your Email" required>
               </div>
+              <textarea name="message" class="contact-textarea" placeholder="Your Message..." required></textarea>
+              <button type="submit" class="contact-send-btn">
+                Send Message <i class="uil uil-message"></i>
+              </button>
             </form>
           </div>
 
         </div>
-  </div>
-  </div>
-  </section>
+      </section>
 
-  </main>
+    </main>
 
 
-  <!-- --------------- FOOTER --------------- -->
-  <footer>
-    <div class="top-footer">
-      <p>Asbin chettri</p>
-    </div>
-    <div class="middle-footer">
-      <div class="footer-buttons" style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
-        <a href="education.html">
-          <button class="btn">Academic Portfolio <i class="uil uil-graduation-cap"></i></button>
+    <!-- --------------- FOOTER --------------- -->
+    <footer>
+      <div class="top-footer">
+        <p>Asbin chettri</p>
+      </div>
+      <div class="middle-footer">
+        <div class="footer-buttons" style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
+          <a href="education.html">
+            <button class="btn">Academic Portfolio <i class="uil uil-graduation-cap"></i></button>
+          </a>
+          <a href="art.html">
+            <button class="btn">Art Blog <i class="uil uil-palette"></i></button>
+          </a>
+          <a href="grocery.html">
+            <button class="btn">Grocery Store <i class="uil uil-shopping-cart"></i></button>
+          </a>
+          <a href="photos.html">
+            <button class="btn">Gallery <i class="uil uil-camera"></i></button>
+          </a>
+          <a href="profile.html">
+            <button class="btn">Profile <i class="uil uil-user"></i></button>
+          </a>
+
+        </div>
+      </div>
+      <div class="footer-social-icons">
+        <a href="https://www.instagram.com/asbin_chetrri/" target="_blank" class="icon"><i
+            class="uil uil-instagram"></i></a>
+        <a href="https://twitter.com/MeHope55586" target="_blank" class="icon"><i class="uil uil-twitter-alt"></i></a>
+        <a href="https://github.com/asbinthapa99" target="_blank" class="icon"><i class="uil uil-github-alt"></i></a>
+        <a href="https://www.facebook.com/ThapaXetrry99" target="_blank" class="icon"><i
+            class="uil uil-facebook-f"></i></a>
+        <a href="https://share.google/1PDNoy4F5ewvefyYf" target="_blank" class="icon"><i class="uil uil-google"></i></a>
+        <a href="https://www.linkedin.com/in/asbin-thapa" target="_blank" class="icon"><i
+            class="uil uil-linkedin"></i></a>
+        <a href="https://www.snapchat.com/add/asbin_ksetrii" target="_blank" class="icon">
+          <i class="fab fa-snapchat-ghost"></i>
         </a>
-        <a href="art.html">
-          <button class="btn">Art Blog <i class="uil uil-palette"></i></button>
-        </a>
-        <a href="grocery.html">
-          <button class="btn">Grocery Store <i class="uil uil-shopping-cart"></i></button>
-        </a>
-        <a href="photos.html">
-          <button class="btn">Gallery <i class="uil uil-camera"></i></button>
-        </a>
-        <a href="profile.html">
-          <button class="btn">Profile <i class="uil uil-user"></i></button>
-        </a>
+
+
 
       </div>
-    </div>
-    <div class="footer-social-icons">
-      <a href="https://www.instagram.com/asbin_chetrri/" target="_blank" class="icon"><i
-          class="uil uil-instagram"></i></a>
-      <a href="https://twitter.com/MeHope55586" target="_blank" class="icon"><i class="uil uil-twitter-alt"></i></a>
-      <a href="https://github.com/asbinthapa99" target="_blank" class="icon"><i class="uil uil-github-alt"></i></a>
-      <a href="https://www.facebook.com/ThapaXetrry99" target="_blank" class="icon"><i
-          class="uil uil-facebook-f"></i></a>
-      <a href="https://share.google/1PDNoy4F5ewvefyYf" target="_blank" class="icon"><i class="uil uil-google"></i></a>
-      <a href="https://www.linkedin.com/in/asbin-thapa" target="_blank" class="icon"><i
-          class="uil uil-linkedin"></i></a>
-      <a href="https://www.snapchat.com/add/asbin_ksetrii" target="_blank" class="icon">
-        <i class="fab fa-snapchat-ghost"></i>
-      </a>
-
-
-
-    </div>
-    <div class="bottom-footer">
-      <p>Copyright &copy; <a href="#home" style="text-decoration: none;">Asbin thapa</a> - All rights reserved</p>
-    </div>
-  </footer>
+      <div class="bottom-footer">
+        <p>Copyright &copy; <a href="#home" style="text-decoration: none;">Asbin thapa</a> - All rights reserved</p>
+      </div>
+    </footer>
 
   </div>
 
 
 
+
+  <!-- ----- SPLINE 3D VIEWER ----- -->
+  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.82/build/spline-viewer.js"></script>
 
   <!-- ----- TYPING JS Link ----- -->
   <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
