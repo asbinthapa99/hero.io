@@ -400,6 +400,385 @@
     <main class="wrapper">
       <!-- -------------- FEATURED BOX ---------------- -->
       <section class="featured-box" id="home">
+
+        <!-- ====== 3D FLOATING ILLUSTRATION ====== -->
+        <div class="hero-3d-scene">
+          <!-- Floating cube -->
+          <div class="hero-3d-shape cube-wrap">
+            <div class="cube">
+              <div class="cube-face front"></div>
+              <div class="cube-face back"></div>
+              <div class="cube-face left"></div>
+              <div class="cube-face right"></div>
+              <div class="cube-face top"></div>
+              <div class="cube-face bottom"></div>
+            </div>
+          </div>
+          <!-- Floating ring -->
+          <div class="hero-3d-shape ring-1"></div>
+          <!-- Floating sphere -->
+          <div class="hero-3d-shape sphere-1"></div>
+          <!-- Small floating dots -->
+          <div class="hero-3d-shape dot dot-1"></div>
+          <div class="hero-3d-shape dot dot-2"></div>
+          <div class="hero-3d-shape dot dot-3"></div>
+          <div class="hero-3d-shape dot dot-4"></div>
+          <!-- Second ring -->
+          <div class="hero-3d-shape ring-2"></div>
+          <!-- Second cube (smaller) -->
+          <div class="hero-3d-shape cube-wrap cube-small">
+            <div class="cube">
+              <div class="cube-face front"></div>
+              <div class="cube-face back"></div>
+              <div class="cube-face left"></div>
+              <div class="cube-face right"></div>
+              <div class="cube-face top"></div>
+              <div class="cube-face bottom"></div>
+            </div>
+          </div>
+          <!-- Glowing orb -->
+          <div class="hero-3d-shape orb"></div>
+        </div>
+
+        <style>
+          /* ====== 3D FLOATING ILLUSTRATION STYLES ====== */
+          .hero-3d-scene {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+            perspective: 1200px;
+          }
+
+          .featured-text,
+          .featured-image,
+          .scroll-icon-box {
+            position: relative;
+            z-index: 2;
+          }
+
+          .hero-3d-shape {
+            position: absolute;
+          }
+
+          /* --- FLOATING CUBE --- */
+          .cube-wrap {
+            width: 90px;
+            height: 90px;
+            top: 15%;
+            right: 8%;
+            animation: float3d 8s ease-in-out infinite;
+            perspective: 600px;
+          }
+
+          .cube-wrap.cube-small {
+            width: 50px;
+            height: 50px;
+            top: auto;
+            right: auto;
+            bottom: 22%;
+            left: 6%;
+            animation: float3d 10s ease-in-out infinite reverse;
+          }
+
+          .cube {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: cubeRotate 12s linear infinite;
+          }
+
+          .cube-small .cube {
+            animation: cubeRotate 16s linear infinite reverse;
+          }
+
+          .cube-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 2px solid rgba(110, 87, 224, 0.35);
+            background: rgba(110, 87, 224, 0.06);
+            border-radius: 6px;
+          }
+
+          .cube-small .cube-face {
+            border-color: rgba(0, 201, 255, 0.35);
+            background: rgba(0, 201, 255, 0.06);
+          }
+
+          .cube-face.front {
+            transform: translateZ(45px);
+          }
+
+          .cube-face.back {
+            transform: rotateY(180deg) translateZ(45px);
+          }
+
+          .cube-face.left {
+            transform: rotateY(-90deg) translateZ(45px);
+          }
+
+          .cube-face.right {
+            transform: rotateY(90deg) translateZ(45px);
+          }
+
+          .cube-face.top {
+            transform: rotateX(90deg) translateZ(45px);
+          }
+
+          .cube-face.bottom {
+            transform: rotateX(-90deg) translateZ(45px);
+          }
+
+          .cube-small .cube-face.front {
+            transform: translateZ(25px);
+          }
+
+          .cube-small .cube-face.back {
+            transform: rotateY(180deg) translateZ(25px);
+          }
+
+          .cube-small .cube-face.left {
+            transform: rotateY(-90deg) translateZ(25px);
+          }
+
+          .cube-small .cube-face.right {
+            transform: rotateY(90deg) translateZ(25px);
+          }
+
+          .cube-small .cube-face.top {
+            transform: rotateX(90deg) translateZ(25px);
+          }
+
+          .cube-small .cube-face.bottom {
+            transform: rotateX(-90deg) translateZ(25px);
+          }
+
+          /* --- FLOATING RING --- */
+          .ring-1 {
+            width: 120px;
+            height: 120px;
+            top: 30%;
+            left: 3%;
+            border: 3px solid rgba(0, 201, 255, 0.3);
+            border-radius: 50%;
+            animation: ringFloat 9s ease-in-out infinite, ringSpin 15s linear infinite;
+            transform-style: preserve-3d;
+          }
+
+          .ring-1::before {
+            content: '';
+            position: absolute;
+            inset: 12px;
+            border: 2px dashed rgba(110, 87, 224, 0.2);
+            border-radius: 50%;
+          }
+
+          .ring-2 {
+            width: 70px;
+            height: 70px;
+            bottom: 35%;
+            right: 15%;
+            border: 2px solid rgba(192, 166, 49, 0.3);
+            border-radius: 50%;
+            animation: ringFloat 7s ease-in-out infinite 1s, ringSpin 20s linear infinite reverse;
+          }
+
+          /* --- FLOATING SPHERE --- */
+          .sphere-1 {
+            width: 60px;
+            height: 60px;
+            top: 60%;
+            right: 5%;
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 35%, rgba(0, 201, 255, 0.2), rgba(110, 87, 224, 0.12) 50%, transparent 70%);
+            box-shadow: inset 0 0 20px rgba(0, 201, 255, 0.1), 0 0 30px rgba(110, 87, 224, 0.08);
+            animation: sphereFloat 6s ease-in-out infinite;
+          }
+
+          /* --- FLOATING DOTS --- */
+          .dot {
+            border-radius: 50%;
+          }
+
+          .dot-1 {
+            width: 10px;
+            height: 10px;
+            top: 20%;
+            left: 18%;
+            background: rgba(110, 87, 224, 0.4);
+            animation: dotFloat 5s ease-in-out infinite;
+          }
+
+          .dot-2 {
+            width: 7px;
+            height: 7px;
+            top: 75%;
+            left: 12%;
+            background: rgba(0, 201, 255, 0.4);
+            animation: dotFloat 7s ease-in-out infinite 0.5s;
+          }
+
+          .dot-3 {
+            width: 12px;
+            height: 12px;
+            top: 45%;
+            right: 22%;
+            background: rgba(192, 166, 49, 0.35);
+            animation: dotFloat 6s ease-in-out infinite 1s;
+          }
+
+          .dot-4 {
+            width: 8px;
+            height: 8px;
+            bottom: 18%;
+            right: 30%;
+            background: rgba(110, 87, 224, 0.3);
+            animation: dotFloat 8s ease-in-out infinite 1.5s;
+          }
+
+          /* --- GLOWING ORB --- */
+          .orb {
+            width: 140px;
+            height: 140px;
+            top: 10%;
+            left: 40%;
+            border-radius: 50%;
+            background: radial-gradient(circle at 40% 40%,
+                rgba(110, 87, 224, 0.08) 0%,
+                rgba(0, 201, 255, 0.05) 40%,
+                transparent 70%);
+            filter: blur(1px);
+            animation: orbPulse 10s ease-in-out infinite;
+          }
+
+          /* ====== KEYFRAMES ====== */
+          @keyframes float3d {
+
+            0%,
+            100% {
+              transform: translateY(0) translateX(0);
+            }
+
+            25% {
+              transform: translateY(-18px) translateX(6px);
+            }
+
+            50% {
+              transform: translateY(-8px) translateX(-4px);
+            }
+
+            75% {
+              transform: translateY(-22px) translateX(2px);
+            }
+          }
+
+          @keyframes cubeRotate {
+            0% {
+              transform: rotateX(0) rotateY(0) rotateZ(0);
+            }
+
+            100% {
+              transform: rotateX(360deg) rotateY(360deg) rotateZ(180deg);
+            }
+          }
+
+          @keyframes ringFloat {
+
+            0%,
+            100% {
+              transform: translateY(0) rotateX(55deg);
+            }
+
+            50% {
+              transform: translateY(-20px) rotateX(55deg);
+            }
+          }
+
+          @keyframes ringSpin {
+            0% {
+              transform: rotateX(55deg) rotateZ(0);
+            }
+
+            100% {
+              transform: rotateX(55deg) rotateZ(360deg);
+            }
+          }
+
+          @keyframes sphereFloat {
+
+            0%,
+            100% {
+              transform: translateY(0) scale(1);
+            }
+
+            50% {
+              transform: translateY(-15px) scale(1.08);
+            }
+          }
+
+          @keyframes dotFloat {
+
+            0%,
+            100% {
+              transform: translateY(0) scale(1);
+              opacity: 0.6;
+            }
+
+            50% {
+              transform: translateY(-12px) scale(1.3);
+              opacity: 1;
+            }
+          }
+
+          @keyframes orbPulse {
+
+            0%,
+            100% {
+              transform: scale(1);
+              opacity: 0.6;
+            }
+
+            50% {
+              transform: scale(1.15);
+              opacity: 1;
+            }
+          }
+
+          /* Responsive: hide some shapes on smaller screens */
+          @media (max-width: 900px) {
+            .cube-wrap:not(.cube-small) {
+              display: none;
+            }
+
+            .ring-2 {
+              display: none;
+            }
+
+            .orb {
+              width: 100px;
+              height: 100px;
+            }
+          }
+
+          @media (max-width: 540px) {
+            .ring-1 {
+              width: 80px;
+              height: 80px;
+            }
+
+            .sphere-1 {
+              width: 40px;
+              height: 40px;
+            }
+
+            .orb {
+              display: none;
+            }
+          }
+        </style>
         <div class="featured-text">
           <div class="featured-text-card">
             <span>FREAKY</span>
@@ -459,7 +838,394 @@
 
       </section>
       <!-- -------------- ABOUT BOX ---------------- -->
-      <section class="section" id="about">
+      <section class="section" id="about" style="position:relative;overflow:hidden;">
+
+        <!-- ====== ABOUT 3D ILLUSTRATION ====== -->
+        <div class="about-3d-scene">
+          <!-- Rotating triangular prism -->
+          <div class="about-3d-el prism-wrap">
+            <div class="prism">
+              <div class="prism-face pf-1"></div>
+              <div class="prism-face pf-2"></div>
+              <div class="prism-face pf-3"></div>
+            </div>
+          </div>
+          <!-- Shield outline -->
+          <div class="about-3d-el shield-shape">
+            <svg viewBox="0 0 80 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M40 4 L76 22 L76 58 Q76 80 40 92 Q4 80 4 58 L4 22 Z" stroke="rgba(0,201,255,0.3)"
+                stroke-width="2" fill="rgba(0,201,255,0.04)" />
+              <path d="M40 20 L60 30 L60 52 Q60 66 40 74 Q20 66 20 52 L20 30 Z" stroke="rgba(110,87,224,0.25)"
+                stroke-width="1.5" fill="none" stroke-dasharray="4 3" />
+            </svg>
+          </div>
+          <!-- Hexagon grid cluster -->
+          <div class="about-3d-el hex-cluster">
+            <svg viewBox="0 0 160 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="40,10 55,18 55,34 40,42 25,34 25,18" stroke="rgba(110,87,224,0.25)" stroke-width="1.5"
+                fill="rgba(110,87,224,0.03)" />
+              <polygon points="70,10 85,18 85,34 70,42 55,34 55,18" stroke="rgba(0,201,255,0.2)" stroke-width="1.5"
+                fill="rgba(0,201,255,0.03)" />
+              <polygon points="55,34 70,42 70,58 55,66 40,58 40,42" stroke="rgba(192,166,49,0.2)" stroke-width="1.5"
+                fill="rgba(192,166,49,0.03)" />
+              <polygon points="85,34 100,42 100,58 85,66 70,58 70,42" stroke="rgba(110,87,224,0.2)" stroke-width="1.5"
+                fill="none" />
+              <polygon points="100,10 115,18 115,34 100,42 85,34 85,18" stroke="rgba(0,201,255,0.15)" stroke-width="1"
+                fill="none" />
+            </svg>
+          </div>
+          <!-- Circuit lines -->
+          <div class="about-3d-el circuit-line cl-1"></div>
+          <div class="about-3d-el circuit-line cl-2"></div>
+          <div class="about-3d-el circuit-line cl-3"></div>
+          <!-- Pulsing particles -->
+          <div class="about-3d-el pulse-dot pd-1"></div>
+          <div class="about-3d-el pulse-dot pd-2"></div>
+          <div class="about-3d-el pulse-dot pd-3"></div>
+          <div class="about-3d-el pulse-dot pd-4"></div>
+          <div class="about-3d-el pulse-dot pd-5"></div>
+          <!-- Floating bracket symbols -->
+          <div class="about-3d-el code-sym sym-1">&lt;/&gt;</div>
+          <div class="about-3d-el code-sym sym-2">{ }</div>
+          <div class="about-3d-el code-sym sym-3">#</div>
+        </div>
+
+        <style>
+          /* ====== ABOUT 3D ILLUSTRATION STYLES ====== */
+          .about-3d-scene {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+            perspective: 1000px;
+          }
+
+          #about .top-header,
+          #about .row {
+            position: relative;
+            z-index: 2;
+          }
+
+          .about-3d-el {
+            position: absolute;
+          }
+
+          /* --- TRIANGULAR PRISM --- */
+          .prism-wrap {
+            width: 80px;
+            height: 100px;
+            top: 10%;
+            right: 6%;
+            animation: prismFloat 9s ease-in-out infinite;
+            perspective: 500px;
+          }
+
+          .prism {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: prismRotate 18s linear infinite;
+          }
+
+          .prism-face {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 40px solid transparent;
+            border-right: 40px solid transparent;
+          }
+
+          .pf-1 {
+            border-bottom: 70px solid rgba(110, 87, 224, 0.08);
+            top: 15px;
+            left: 0;
+            transform: rotateY(0deg) translateZ(25px);
+            filter: drop-shadow(0 0 6px rgba(110, 87, 224, 0.15));
+          }
+
+          .pf-2 {
+            border-bottom: 70px solid rgba(0, 201, 255, 0.06);
+            top: 15px;
+            left: 0;
+            transform: rotateY(120deg) translateZ(25px);
+          }
+
+          .pf-3 {
+            border-bottom: 70px solid rgba(192, 166, 49, 0.06);
+            top: 15px;
+            left: 0;
+            transform: rotateY(240deg) translateZ(25px);
+          }
+
+          /* --- SHIELD --- */
+          .shield-shape {
+            width: 80px;
+            height: 96px;
+            bottom: 15%;
+            left: 5%;
+            animation: shieldFloat 7s ease-in-out infinite;
+          }
+
+          .shield-shape svg {
+            width: 100%;
+            height: 100%;
+          }
+
+          /* --- HEX CLUSTER --- */
+          .hex-cluster {
+            width: 160px;
+            top: 50%;
+            right: 2%;
+            animation: hexDrift 11s ease-in-out infinite;
+            opacity: 0.7;
+          }
+
+          .hex-cluster svg {
+            width: 100%;
+          }
+
+          /* --- CIRCUIT LINES --- */
+          .circuit-line {
+            height: 2px;
+            border-radius: 1px;
+          }
+
+          .cl-1 {
+            width: 120px;
+            top: 25%;
+            left: 0;
+            background: linear-gradient(90deg, transparent, rgba(0, 201, 255, 0.25), transparent);
+            animation: circuitPulse 4s ease-in-out infinite;
+          }
+
+          .cl-2 {
+            width: 90px;
+            bottom: 30%;
+            right: 0;
+            background: linear-gradient(90deg, transparent, rgba(110, 87, 224, 0.2), transparent);
+            animation: circuitPulse 5s ease-in-out infinite 1s;
+          }
+
+          .cl-3 {
+            width: 70px;
+            top: 65%;
+            left: 15%;
+            background: linear-gradient(90deg, transparent, rgba(192, 166, 49, 0.2), transparent);
+            animation: circuitPulse 6s ease-in-out infinite 2s;
+          }
+
+          /* --- PULSE DOTS --- */
+          .pulse-dot {
+            border-radius: 50%;
+          }
+
+          .pd-1 {
+            width: 8px;
+            height: 8px;
+            top: 15%;
+            left: 22%;
+            background: rgba(0, 201, 255, 0.5);
+            box-shadow: 0 0 10px rgba(0, 201, 255, 0.3);
+            animation: pulseDot 3s ease-in-out infinite;
+          }
+
+          .pd-2 {
+            width: 6px;
+            height: 6px;
+            top: 40%;
+            left: 8%;
+            background: rgba(110, 87, 224, 0.5);
+            box-shadow: 0 0 8px rgba(110, 87, 224, 0.3);
+            animation: pulseDot 4s ease-in-out infinite 0.5s;
+          }
+
+          .pd-3 {
+            width: 10px;
+            height: 10px;
+            bottom: 20%;
+            right: 18%;
+            background: rgba(192, 166, 49, 0.4);
+            box-shadow: 0 0 12px rgba(192, 166, 49, 0.2);
+            animation: pulseDot 3.5s ease-in-out infinite 1s;
+          }
+
+          .pd-4 {
+            width: 5px;
+            height: 5px;
+            top: 70%;
+            left: 35%;
+            background: rgba(0, 201, 255, 0.4);
+            animation: pulseDot 5s ease-in-out infinite 1.5s;
+          }
+
+          .pd-5 {
+            width: 7px;
+            height: 7px;
+            top: 8%;
+            right: 25%;
+            background: rgba(110, 87, 224, 0.35);
+            animation: pulseDot 4.5s ease-in-out infinite 0.8s;
+          }
+
+          /* --- CODE SYMBOLS --- */
+          .code-sym {
+            font-family: 'Courier New', monospace;
+            font-weight: 700;
+            opacity: 0.15;
+            user-select: none;
+          }
+
+          .sym-1 {
+            font-size: 28px;
+            top: 5%;
+            left: 40%;
+            color: rgb(110, 87, 224);
+            animation: symFloat 8s ease-in-out infinite;
+          }
+
+          .sym-2 {
+            font-size: 22px;
+            bottom: 10%;
+            right: 35%;
+            color: rgb(0, 201, 255);
+            animation: symFloat 10s ease-in-out infinite 1s;
+          }
+
+          .sym-3 {
+            font-size: 32px;
+            bottom: 40%;
+            left: 2%;
+            color: rgb(192, 166, 49);
+            animation: symFloat 7s ease-in-out infinite 2s;
+          }
+
+          /* ====== ABOUT KEYFRAMES ====== */
+          @keyframes prismFloat {
+
+            0%,
+            100% {
+              transform: translateY(0);
+            }
+
+            50% {
+              transform: translateY(-18px);
+            }
+          }
+
+          @keyframes prismRotate {
+            0% {
+              transform: rotateY(0);
+            }
+
+            100% {
+              transform: rotateY(360deg);
+            }
+          }
+
+          @keyframes shieldFloat {
+
+            0%,
+            100% {
+              transform: translateY(0) scale(1);
+            }
+
+            50% {
+              transform: translateY(-12px) scale(1.05);
+            }
+          }
+
+          @keyframes hexDrift {
+
+            0%,
+            100% {
+              transform: translateY(0) translateX(0);
+            }
+
+            33% {
+              transform: translateY(-10px) translateX(5px);
+            }
+
+            66% {
+              transform: translateY(5px) translateX(-3px);
+            }
+          }
+
+          @keyframes circuitPulse {
+
+            0%,
+            100% {
+              opacity: 0.3;
+              transform: scaleX(0.8);
+            }
+
+            50% {
+              opacity: 1;
+              transform: scaleX(1);
+            }
+          }
+
+          @keyframes pulseDot {
+
+            0%,
+            100% {
+              transform: scale(1);
+              opacity: 0.4;
+            }
+
+            50% {
+              transform: scale(1.6);
+              opacity: 1;
+            }
+          }
+
+          @keyframes symFloat {
+
+            0%,
+            100% {
+              transform: translateY(0) rotate(0deg);
+              opacity: 0.12;
+            }
+
+            50% {
+              transform: translateY(-10px) rotate(5deg);
+              opacity: 0.22;
+            }
+          }
+
+          /* About 3D Responsive */
+          @media (max-width: 900px) {
+            .prism-wrap {
+              display: none;
+            }
+
+            .hex-cluster {
+              width: 110px;
+              opacity: 0.5;
+            }
+
+            .code-sym {
+              font-size: 18px !important;
+            }
+          }
+
+          @media (max-width: 540px) {
+            .shield-shape {
+              width: 50px;
+              height: 60px;
+            }
+
+            .hex-cluster {
+              display: none;
+            }
+
+            .code-sym {
+              display: none;
+            }
+          }
+        </style>
+
         <div class="top-header">
           <h1>
             About Me <i class="uil uil-user"></i>
