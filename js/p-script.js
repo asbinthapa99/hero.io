@@ -114,6 +114,14 @@
     initTradingViewWidget('tv-eth', 'BINANCE:ETHUSDT');
     initTradingViewWidget('tv-sol', 'BINANCE:SOLUSDT');
 
+    // Stocks & Gold
+    initTradingViewWidget('tv-xau', 'OANDA:XAUUSD');
+    initTradingViewWidget('tv-nvda', 'NASDAQ:NVDA');
+    initTradingViewWidget('tv-googl', 'NASDAQ:GOOGL');
+    initTradingViewWidget('tv-xrp', 'BINANCE:XRPUSDT');
+    initTradingViewWidget('tv-xag', 'OANDA:XAGUSD');
+    initTradingViewWidget('tv-doge', 'BINANCE:DOGEUSDT');
+
     // ── NEWS FEED ──
     function fetchNews() {
         var feed = document.getElementById('newsFeed');

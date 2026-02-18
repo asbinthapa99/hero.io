@@ -674,6 +674,14 @@ button {
 .service-card {
     text-align: left;
     padding: 32px;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-card:hover {
+    background: linear-gradient(135deg, rgba(108, 92, 231, 0.15), rgba(0, 206, 201, 0.15));
+    border-color: var(--accent);
+    transform: translateY(-12px) scale(1.03);
+    box-shadow: 0 30px 60px -12px rgba(108, 92, 231, 0.2);
 }
 
 .service-icon {
@@ -752,12 +760,22 @@ button {
     align-items: center;
 }
 
+.about-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .about-img-wrap {
     position: relative;
     border-radius: var(--radius);
     overflow: hidden;
-    max-height: 400px;
+    max-height: 480px;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
     border: 1px solid var(--glass-border);
+    box-shadow: 0 0 30px rgba(108, 92, 231, 0.15);
 }
 
 .about-img-wrap::after {
@@ -866,6 +884,14 @@ button {
 .price-card {
     display: flex;
     flex-direction: column;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.price-card:hover {
+    transform: translateY(-12px) scale(1.03);
+    box-shadow: 0 30px 60px -12px rgba(108, 92, 231, 0.25);
+    border-color: var(--primary);
+    background: linear-gradient(180deg, rgba(108, 92, 231, 0.1), rgba(20, 20, 35, 0.8));
 }
 
 .price-card.featured {
@@ -1308,6 +1334,42 @@ textarea.form-input {
 
     .nav-links {
         display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(5, 5, 5, 0.95);
+        backdrop-filter: blur(20px);
+        padding: 40px;
+        gap: 32px;
+        border-bottom: 1px solid var(--glass-border);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .nav-links.open {
+        display: flex;
+        animation: slideDown 0.3s ease forwards;
+    }
+
+    .nav-links.open a {
+        font-size: 1.2rem;
+        width: 100%;
+        text-align: center;
+        padding-bottom: 16px;
+        border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
+    }
+
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
     .nav-toggle {
@@ -1613,4 +1675,15 @@ textarea.form-input {
 .crypto-pay-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 5px 20px rgba(153, 69, 255, 0.4);
+}
+
+.mastercard {
+    background: linear-gradient(135deg, #4776E6, #8E54E9);
+    border: none;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.mastercard:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(142, 84, 233, 0.4);
 }
