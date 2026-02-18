@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PyCast — Automated Python News Aggregator | Asbin Thapa</title>
-  <meta name="description" content="PyCast News — A Python-powered news aggregator displaying the latest tech, AI, and cybersecurity headlines. Built by Asbin Thapa.">
+  <meta name="description"
+    content="PyCast News — A Python-powered news aggregator displaying the latest tech, AI, and cybersecurity headlines. Built by Asbin Thapa.">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:ital,wght@0,300;0,700;1,300&family=Syne:wght@400;800&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:ital,wght@0,300;0,700;1,300&family=Syne:wght@400;800&display=swap"
+    rel="stylesheet" />
   <style>
     :root {
       --bg: #0d0e0f;
@@ -19,7 +23,9 @@
       --text-dim: #868b92;
     }
 
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
@@ -89,13 +95,13 @@
     .nav-logo span {
       color: var(--accent);
     }
-    
+
     .nav-links {
       display: flex;
       gap: 36px;
       list-style: none;
     }
-    
+
     .nav-links a {
       text-decoration: none;
       color: var(--text-dim);
@@ -104,7 +110,7 @@
       text-transform: uppercase;
       transition: color 0.2s;
     }
-    
+
     .nav-links a:hover {
       color: var(--accent);
     }
@@ -134,8 +140,15 @@
     }
 
     @keyframes blink {
-      0%, 100% { opacity: 1 }
-      50% { opacity: 0 }
+
+      0%,
+      100% {
+        opacity: 1
+      }
+
+      50% {
+        opacity: 0
+      }
     }
 
     .eyebrow-text {
@@ -170,262 +183,292 @@
 
     /* ── NEWS GRID ── */
     .news-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 32px;
-        margin-top: 40px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 40px;
     }
 
     .news-card {
-        background: var(--surface);
-        border: 1px solid var(--border);
-        display: flex;
-        flex-direction: column;
-        transition: transform 0.3s, border-color 0.3s;
-        text-decoration: none;
-        color: inherit;
-        overflow: hidden;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s, border-color 0.3s;
+      text-decoration: none;
+      color: inherit;
+      overflow: hidden;
     }
 
     .news-card:hover {
-        transform: translateY(-8px);
-        border-color: var(--accent);
+      transform: translateY(-8px);
+      border-color: var(--accent);
     }
 
     .card-img {
-        width: 100%;
-        height: 220px;
-        object-fit: cover;
-        border-bottom: 1px solid var(--border);
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-bottom: 1px solid var(--border);
     }
-    
+
     .card-placeholder {
-        width: 100%;
-        height: 220px;
-        background: linear-gradient(45deg, #1a1a1a, #2a2a2a);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 3rem;
-        border-bottom: 1px solid var(--border);
+      width: 100%;
+      height: 220px;
+      background: linear-gradient(45deg, #1a1a1a, #2a2a2a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      border-bottom: 1px solid var(--border);
     }
 
     .card-body {
-        padding: 24px;
-        flex: 1;
-        display: flex;
-        flex-direction: column;
+      padding: 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
     }
 
     .card-meta {
-        display: flex;
-        justify-content: space-between;
-        font-family: 'DM Mono', monospace;
-        font-size: 0.75rem;
-        color: var(--text-dim);
-        margin-bottom: 12px;
-        text-transform: uppercase;
+      display: flex;
+      justify-content: space-between;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      margin-bottom: 12px;
+      text-transform: uppercase;
     }
 
     .card-source {
-        color: var(--accent);
+      color: var(--accent);
     }
 
     .card-title {
-        font-family: 'Fraunces', serif;
-        font-size: 1.4rem;
-        font-weight: 600;
-        line-height: 1.3;
-        margin-bottom: 12px;
+      font-family: 'Fraunces', serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      line-height: 1.3;
+      margin-bottom: 12px;
     }
-    
+
     .card-desc {
-        font-family: 'DM Mono', monospace;
-        font-size: 0.85rem;
-        color: var(--text-dim);
-        line-height: 1.6;
-        margin-bottom: 20px;
-        flex: 1;
-        display: -webkit-box;
-        -webkit-line-clamp: 4;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      line-height: 1.6;
+      margin-bottom: 20px;
+      flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
 
     .read-more {
-        font-family: 'DM Mono', monospace;
-        font-size: 0.8rem;
-        color: var(--accent);
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        margin-top: auto;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: auto;
     }
 
     @media (max-width: 1024px) {
-        .news-grid {
-            grid-template-columns: repeat(2, 1fr);
-        }
+      .news-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
     @media (max-width: 768px) {
-        .news-grid {
-            grid-template-columns: 1fr;
-        }
-        .hero {
-            padding: 60px 24px;
-        }
-        nav {
-            padding: 20px;
-        }
+      .news-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 60px 24px;
+      }
+
+      nav {
+        padding: 20px;
+      }
     }
+
     .terminal-container {
-        max-width: 1200px;
-        margin: 60px auto;
-        background: #0d0e0f;
-        border: 1px solid #333;
-        border-radius: 6px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        font-family: 'DM Mono', monospace;
-        overflow: hidden;
+      max-width: 1200px;
+      margin: 60px auto;
+      background: #0d0e0f;
+      border: 1px solid #333;
+      border-radius: 6px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      font-family: 'DM Mono', monospace;
+      overflow: hidden;
     }
 
     .terminal-header {
-        background: #1a1b1c;
-        padding: 10px 15px;
-        display: flex;
-        align-items: center;
-        border-bottom: 1px solid #333;
+      background: #1a1b1c;
+      padding: 10px 15px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #333;
     }
 
     .terminal-buttons {
-        display: flex;
-        gap: 8px;
+      display: flex;
+      gap: 8px;
     }
 
     .t-btn {
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
     }
 
-    .t-close { background: #ff5f56; }
-    .t-min { background: #ffbd2e; }
-    .t-max { background: #27c93f; }
+    .t-close {
+      background: #ff5f56;
+    }
+
+    .t-min {
+      background: #ffbd2e;
+    }
+
+    .t-max {
+      background: #27c93f;
+    }
 
     .terminal-title {
-        margin-left: 20px;
-        color: #888;
-        font-size: 0.8rem;
+      margin-left: 20px;
+      color: #888;
+      font-size: 0.8rem;
     }
 
     .terminal-body {
-        padding: 20px;
-        color: #3bffbd;
-        font-size: 0.9rem;
-        line-height: 1.6;
+      padding: 20px;
+      color: #3bffbd;
+      font-size: 0.9rem;
+      line-height: 1.6;
     }
-    
-    .t-line { margin-bottom: 5px; }
-    .t-cmd { color: #fff; }
+
+    .t-line {
+      margin-bottom: 5px;
+    }
+
+    .t-cmd {
+      color: #fff;
+    }
+
     .t-cursor {
-        display: inline-block;
-        width: 8px;
-        height: 15px;
-        background: #3bffbd;
-        animation: blink 1s infinite;
-        vertical-align: middle;
+      display: inline-block;
+      width: 8px;
+      height: 15px;
+      background: #3bffbd;
+      animation: blink 1s infinite;
+      vertical-align: middle;
     }
-    
-    @keyframes blink { 50% { opacity: 0; } }
+
+    @keyframes blink {
+      50% {
+        opacity: 0;
+      }
+    }
 
     /* ── CYBER STACK ── */
     .cyber-stack {
-        max-width: 1400px;
-        margin: 0 auto 60px;
-        padding: 0 48px;
-        font-family: 'DM Mono', monospace;
+      max-width: 1400px;
+      margin: 0 auto 60px;
+      padding: 0 48px;
+      font-family: 'DM Mono', monospace;
     }
-    
+
     .cyber-header {
-        display: flex;
-        justify-content: space-between;
-        border-bottom: 1px solid var(--border);
-        padding-bottom: 12px;
-        margin-bottom: 24px;
-        color: var(--accent2);
-        font-size: 0.8rem;
-        letter-spacing: 0.2em;
-        text-transform: uppercase;
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 12px;
+      margin-bottom: 24px;
+      color: var(--accent2);
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
     }
-    
+
     .status-dot {
-        display: inline-block;
-        width: 6px;
-        height: 6px;
-        background: var(--accent2);
-        border-radius: 50%;
-        margin-right: 8px;
-        box-shadow: 0 0 10px var(--accent2);
-        animation: blink 2s infinite;
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background: var(--accent2);
+      border-radius: 50%;
+      margin-right: 8px;
+      box-shadow: 0 0 10px var(--accent2);
+      animation: blink 2s infinite;
     }
-    
+
     .cyber-grid {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
     }
-    
+
     @keyframes float {
-        0% { transform: translateY(0px); }
-        50% { transform: translateY(-4px); }
-        100% { transform: translateY(0px); }
+      0% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-4px);
+      }
+
+      100% {
+        transform: translateY(0px);
+      }
     }
 
     .tech-badge {
-        background: rgba(20, 21, 22, 0.6);
-        border: 1px solid var(--border);
-        padding: 8px 16px;
-        font-size: 0.9rem;
-        color: var(--text-dim);
-        transition: all 0.3s;
-        cursor: default;
-        position: relative;
-        overflow: hidden;
-        animation: float 4s ease-in-out infinite;
+      background: rgba(20, 21, 22, 0.6);
+      border: 1px solid var(--border);
+      padding: 8px 16px;
+      font-size: 0.9rem;
+      color: var(--text-dim);
+      transition: all 0.3s;
+      cursor: default;
+      position: relative;
+      overflow: hidden;
+      animation: float 4s ease-in-out infinite;
     }
-    
+
     .tech-badge:nth-child(even) {
-        animation-delay: 1s;
+      animation-delay: 1s;
     }
 
     .tech-badge:nth-child(3n) {
-        animation-delay: 2s;
+      animation-delay: 2s;
     }
-    
+
     .tech-badge:hover {
-        border-color: var(--accent);
-        color: var(--accent);
-        transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(200, 241, 53, 0.1);
-        animation-play-state: paused;
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(200, 241, 53, 0.1);
+      animation-play-state: paused;
     }
-    
+
     .tech-badge::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
-        transition: 0.5s;
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+      transition: 0.5s;
     }
-    
+
     .tech-badge:hover::before {
-        left: 100%;
+      left: 100%;
     }
   </style>
 </head>
+
 <body>
   <div class="glow glow-1"></div>
   <div class="glow glow-2"></div>
@@ -440,36 +483,36 @@
 
   <section class="hero">
     <div class="hero-eyebrow">
-        <div class="eyebrow-dot"></div>
-        <div class="eyebrow-text">Live Feed • February 18, 2026</div>
+      <div class="eyebrow-dot"></div>
+      <div class="eyebrow-text">Live Feed • February 18, 2026</div>
     </div>
     <h1 class="hero-title">Latest Tech<br><span>Headlines</span></h1>
     <p class="hero-desc">
-        Curated daily by AI from top sources like BBC, CNN, TechCrunch, and The Verge. 
-        Stay ahead with the most important updates in technology and innovation.
+      Curated daily by AI from top sources like BBC, CNN, TechCrunch, and The Verge.
+      Stay ahead with the most important updates in technology and innovation.
     </p>
   </section>
 
   <section class="cyber-stack">
     <div class="cyber-header">
-        <div class="cyber-status">
-            <span class="status-dot"></span> SYSTEM ONLINE
-        </div>
-        <div class="cyber-id">ID: 0x93FA2</div>
+      <div class="cyber-status">
+        <span class="status-dot"></span> SYSTEM ONLINE
+      </div>
+      <div class="cyber-id">ID: 0x93FA2</div>
     </div>
     <div class="cyber-grid">
-        <div class="tech-badge">Python 3.12</div>
-        <div class="tech-badge">React</div>
-        <div class="tech-badge">TypeScript</div>
-        <div class="tech-badge">Node.js</div>
-        <div class="tech-badge">Docker</div>
-        <div class="tech-badge">AWS Lambda</div>
-        <div class="tech-badge">GraphQL</div>
-        <div class="tech-badge">Next.js 14</div>
-        <div class="tech-badge">TailwindCSS</div>
-        <div class="tech-badge">PostgreSQL</div>
-        <div class="tech-badge">Redis</div>
-        <div class="tech-badge">OpenAI API</div>
+      <div class="tech-badge">Python 3.12</div>
+      <div class="tech-badge">React</div>
+      <div class="tech-badge">TypeScript</div>
+      <div class="tech-badge">Node.js</div>
+      <div class="tech-badge">Docker</div>
+      <div class="tech-badge">AWS Lambda</div>
+      <div class="tech-badge">GraphQL</div>
+      <div class="tech-badge">Next.js 14</div>
+      <div class="tech-badge">TailwindCSS</div>
+      <div class="tech-badge">PostgreSQL</div>
+      <div class="tech-badge">Redis</div>
+      <div class="tech-badge">OpenAI API</div>
     </div>
   </section>
 
@@ -477,21 +520,27 @@
     <div class="news-grid">
 
       <a href="https://www.bbc.com/news/articles/cn5g751pl7lo" target="_blank" class="news-card">
-        <img src="img/news/article_0.jpg" alt="I would scream in my sleep: Women from Syria's Alawite minority tell of kidnap and rape" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_0.jpg"
+          alt="I would scream in my sleep: Women from Syria's Alawite minority tell of kidnap and rape" class="card-img"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
             <span class="card-category">World</span>
             <span class="card-source">BBC News</span>
           </div>
-          <h3 class="card-title">I would scream in my sleep: Women from Syria's Alawite minority tell of kidnap and rape</h3>
-          <p class="card-desc">The BBC hears harrowing accounts of assaults appearing to target the sect of former President Assad.</p>
+          <h3 class="card-title">I would scream in my sleep: Women from Syria's Alawite minority tell of kidnap and rape
+          </h3>
+          <p class="card-desc">The BBC hears harrowing accounts of assaults appearing to target the sect of former
+            President Assad.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
       <a href="https://www.bbc.com/news/videos/cre0qz7v23go" target="_blank" class="news-card">
-        <img src="img/news/article_1.jpg" alt="'There was a lot of panic': Skier describes moment avalanche struck in Italy" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_1.jpg"
+          alt="'There was a lot of panic': Skier describes moment avalanche struck in Italy" class="card-img"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -499,13 +548,15 @@
             <span class="card-source">BBC News</span>
           </div>
           <h3 class="card-title">'There was a lot of panic': Skier describes moment avalanche struck in Italy</h3>
-          <p class="card-desc">Footage shows a queue of people, including children, covered in snow after an avalanche struck a valley in Courmayeur.</p>
+          <p class="card-desc">Footage shows a queue of people, including children, covered in snow after an avalanche
+            struck a valley in Courmayeur.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
       <a href="https://www.bbc.com/news/articles/cm21d4j26pdo" target="_blank" class="news-card">
-        <img src="img/news/article_2.jpg" alt="Prince William says it has taken 'long time to understand my emotions'" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_2.jpg" alt="Prince William says it has taken 'long time to understand my emotions'"
+          class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -513,13 +564,16 @@
             <span class="card-source">BBC News</span>
           </div>
           <h3 class="card-title">Prince William says it has taken 'long time to understand my emotions'</h3>
-          <p class="card-desc">Prince William has offered his advice to those struggling with their mental health, in a special Radio 1 panel discussion.</p>
+          <p class="card-desc">Prince William has offered his advice to those struggling with their mental health, in a
+            special Radio 1 panel discussion.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
       <a href="https://www.bbc.com/news/articles/c5yv9plyjgpo" target="_blank" class="news-card">
-        <img src="img/news/article_3.jpg" alt="Climber on trial for leaving girlfriend to die on Austria's highest mountain" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_3.jpg"
+          alt="Climber on trial for leaving girlfriend to die on Austria's highest mountain" class="card-img"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -527,13 +581,16 @@
             <span class="card-source">BBC News</span>
           </div>
           <h3 class="card-title">Climber on trial for leaving girlfriend to die on Austria's highest mountain</h3>
-          <p class="card-desc">Kerstin G's boyfriend is accused of leaving her unprotected and exhausted close to the summit during a blizzard.</p>
+          <p class="card-desc">Kerstin G's boyfriend is accused of leaving her unprotected and exhausted close to the
+            summit during a blizzard.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
       <a href="https://www.bbc.com/news/articles/cn87rv0jdy1o" target="_blank" class="news-card">
-        <img src="img/news/article_4.jpg" alt="Under pressure from Trump, Venezuela's new president has aces up her sleeve" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_4.jpg"
+          alt="Under pressure from Trump, Venezuela's new president has aces up her sleeve" class="card-img"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -547,7 +604,8 @@
       </a>
 
       <a href="https://www.bbc.com/sport/winter-olympics/live/c62nv57d85et" target="_blank" class="news-card">
-        <img src="img/news/article_5.jpg" alt="Winter Olympics: China's Su wins men's slopestyle gold" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_5.jpg" alt="Winter Olympics: China's Su wins men's slopestyle gold" class="card-img"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -555,27 +613,33 @@
             <span class="card-source">BBC News</span>
           </div>
           <h3 class="card-title">Winter Olympics: China's Su wins men's slopestyle gold</h3>
-          <p class="card-desc">Follow action from Milan-Cortina, with Team GB's men in a must-win curling match against the USA later.</p>
+          <p class="card-desc">Follow action from Milan-Cortina, with Team GB's men in a must-win curling match against
+            the USA later.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
       <a href="https://www.bbc.com/sport/football/live/ce8nvdd3jy6t" target="_blank" class="news-card">
-        <img src="img/news/article_6.jpg" alt="Vinicius racism claim: Mourinho & Benfica criticised over reaction to alleged abuse" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_6.jpg"
+          alt="Vinicius racism claim: Mourinho & Benfica criticised over reaction to alleged abuse" class="card-img"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
             <span class="card-category">World</span>
             <span class="card-source">BBC News</span>
           </div>
-          <h3 class="card-title">Vinicius racism claim: Mourinho & Benfica criticised over reaction to alleged abuse</h3>
-          <p class="card-desc">Reaction to Real Madrid's victory against Benfica as game marred by Vinicius Jr racism claims</p>
+          <h3 class="card-title">Vinicius racism claim: Mourinho & Benfica criticised over reaction to alleged abuse
+          </h3>
+          <p class="card-desc">Reaction to Real Madrid's victory against Benfica as game marred by Vinicius Jr racism
+            claims</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
       <a href="https://www.bbc.com/sport/articles/c0q3nejy1pjo" target="_blank" class="news-card">
-        <img src="img/news/article_7.jpg" alt="GB's curling semi-final hopes alive after sensational win over US" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_7.jpg" alt="GB's curling semi-final hopes alive after sensational win over US"
+          class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -583,13 +647,15 @@
             <span class="card-source">BBC News</span>
           </div>
           <h3 class="card-title">GB's curling semi-final hopes alive after sensational win over US</h3>
-          <p class="card-desc">Rebecca Morrison executes a sensational double takeout with her final stone as Team GB steal two in the final end to beat the United States 8-7.</p>
+          <p class="card-desc">Rebecca Morrison executes a sensational double takeout with her final stone as Team GB
+            steal two in the final end to beat the United States 8-7.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
       <a href="https://www.bbc.com/sport/articles/cm28nrn8274o" target="_blank" class="news-card">
-        <img src="img/news/article_8.jpg" alt="What do curlers do when they're not at the Olympics?" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_8.jpg" alt="What do curlers do when they're not at the Olympics?" class="card-img"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -597,13 +663,15 @@
             <span class="card-source">BBC News</span>
           </div>
           <h3 class="card-title">What do curlers do when they're not at the Olympics?</h3>
-          <p class="card-desc">Lifting weights like sprinters, strategising like chess players, and fuelling like Tour de France cyclists, the life of a Team GB curler.</p>
+          <p class="card-desc">Lifting weights like sprinters, strategising like chess players, and fuelling like Tour
+            de France cyclists, the life of a Team GB curler.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
       <a href="https://www.bbc.com/sport/articles/cy8g3je5y80o" target="_blank" class="news-card">
-        <img src="img/news/article_9.jpg" alt="Nakai, 17, tops women's short program as Japan dominate" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_9.jpg" alt="Nakai, 17, tops women's short program as Japan dominate" class="card-img"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -611,13 +679,15 @@
             <span class="card-source">BBC News</span>
           </div>
           <h3 class="card-title">Nakai, 17, tops women's short program as Japan dominate</h3>
-          <p class="card-desc">Japan dominate the short program in the women's figure skating at Milan-Cortina 2026 with their athletes occupying three of the top four places following the short program.</p>
+          <p class="card-desc">Japan dominate the short program in the women's figure skating at Milan-Cortina 2026 with
+            their athletes occupying three of the top four places following the short program.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
       <a href="https://www.bbc.com/sport/articles/c338y36kngzo" target="_blank" class="news-card">
-        <img src="img/news/article_10.jpg" alt="Nine medals up for grabs - Wednesday's guide" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_10.jpg" alt="Nine medals up for grabs - Wednesday's guide" class="card-img"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -625,13 +695,15 @@
             <span class="card-source">BBC News</span>
           </div>
           <h3 class="card-title">Nine medals up for grabs - Wednesday's guide</h3>
-          <p class="card-desc">What's happening and who to look out for at the 2026 Winter Olympics in Milan-Cortina.</p>
+          <p class="card-desc">What's happening and who to look out for at the 2026 Winter Olympics in Milan-Cortina.
+          </p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
       <a href="https://www.bbc.com/news/articles/cre2pelrpwzo" target="_blank" class="news-card">
-        <img src="img/news/article_11.jpg" alt="I used to hate my appearance. Here's how I learned to accept it" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_11.jpg" alt="I used to hate my appearance. Here's how I learned to accept it"
+          class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -639,13 +711,15 @@
             <span class="card-source">BBC News</span>
           </div>
           <h3 class="card-title">I used to hate my appearance. Here's how I learned to accept it</h3>
-          <p class="card-desc">Tilly and Charlotte share their experiences of body dysmorphic disorder and how they recovered from it.</p>
+          <p class="card-desc">Tilly and Charlotte share their experiences of body dysmorphic disorder and how they
+            recovered from it.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
       <a href="https://www.bbc.com/news/videos/cpqw2p1z19vo" target="_blank" class="news-card">
-        <img src="img/news/article_12.jpg" alt="Ros Atkins on...unanswered Andrew questions" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_12.jpg" alt="Ros Atkins on...unanswered Andrew questions" class="card-img"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -653,13 +727,15 @@
             <span class="card-source">BBC News</span>
           </div>
           <h3 class="card-title">Ros Atkins on...unanswered Andrew questions</h3>
-          <p class="card-desc">The BBC's Analysis Editor Ros Atkins looks at the questions around the way Buckingham Palace has responded to the various accusations against the King's brother.</p>
+          <p class="card-desc">The BBC's Analysis Editor Ros Atkins looks at the questions around the way Buckingham
+            Palace has responded to the various accusations against the King's brother.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
       <a href="https://www.bbc.com/news/videos/cly049er5xzo" target="_blank" class="news-card">
-        <img src="img/news/article_13.jpg" alt="Moment officers rescue injured bald eagle from icy Hudson River" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_13.jpg" alt="Moment officers rescue injured bald eagle from icy Hudson River"
+          class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -667,13 +743,15 @@
             <span class="card-source">BBC News</span>
           </div>
           <h3 class="card-title">Moment officers rescue injured bald eagle from icy Hudson River</h3>
-          <p class="card-desc">The bald eagle was safely removed from the water and transported to a New Jersey sanctuary, officials said.</p>
+          <p class="card-desc">The bald eagle was safely removed from the water and transported to a New Jersey
+            sanctuary, officials said.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
       <a href="https://www.bbc.com/news/articles/c9dne6z4p9qo" target="_blank" class="news-card">
-        <img src="img/news/article_14.jpg" alt="Gold fever hits South Africa after lucky find in cattle pen" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_14.jpg" alt="Gold fever hits South Africa after lucky find in cattle pen"
+          class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -681,27 +759,33 @@
             <span class="card-source">BBC News</span>
           </div>
           <h3 class="card-title">Gold fever hits South Africa after lucky find in cattle pen</h3>
-          <p class="card-desc">"This is the only hustle we know," miners tell the BBC as they try their luck at the site in Springs.</p>
+          <p class="card-desc">"This is the only hustle we know," miners tell the BBC as they try their luck at the site
+            in Springs.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
       <a href="https://www.bbc.com/news/articles/cwykn2endnyo" target="_blank" class="news-card">
-        <img src="img/news/article_15.jpg" alt="'He did it for us': US soldier recalls Jesse Jackson's efforts to free him and two other POWs" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_15.jpg"
+          alt="'He did it for us': US soldier recalls Jesse Jackson's efforts to free him and two other POWs"
+          class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
             <span class="card-category">World</span>
             <span class="card-source">BBC News</span>
           </div>
-          <h3 class="card-title">'He did it for us': US soldier recalls Jesse Jackson's efforts to free him and two other POWs</h3>
-          <p class="card-desc">In 1999, Jesse Jackson flew to Yugoslavia to help free three US soldiers captured during the Kosovo War.</p>
+          <h3 class="card-title">'He did it for us': US soldier recalls Jesse Jackson's efforts to free him and two
+            other POWs</h3>
+          <p class="card-desc">In 1999, Jesse Jackson flew to Yugoslavia to help free three US soldiers captured during
+            the Kosovo War.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
       <a href="https://www.bbc.com/news/articles/cp81kw4pzd2o" target="_blank" class="news-card">
-        <img src="img/news/article_16.jpg" alt="Historic trade deals put India on global stage - but challenges remain" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_16.jpg" alt="Historic trade deals put India on global stage - but challenges remain"
+          class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -709,13 +793,16 @@
             <span class="card-source">BBC News</span>
           </div>
           <h3 class="card-title">Historic trade deals put India on global stage - but challenges remain</h3>
-          <p class="card-desc">India has signed a string of trade deals recently, but export growth will require deeper reforms, say experts.</p>
+          <p class="card-desc">India has signed a string of trade deals recently, but export growth will require deeper
+            reforms, say experts.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
       <a href="https://www.bbc.com/news/articles/c2k8g4p44l0o" target="_blank" class="news-card">
-        <img src="img/news/article_17.jpg" alt="'It's overwhelming': Plastic from 1960s Canada washes up on Orkney beach" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_17.jpg"
+          alt="'It's overwhelming': Plastic from 1960s Canada washes up on Orkney beach" class="card-img"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -723,13 +810,16 @@
             <span class="card-source">BBC News</span>
           </div>
           <h3 class="card-title">'It's overwhelming': Plastic from 1960s Canada washes up on Orkney beach</h3>
-          <p class="card-desc">One litter picker says he has seen a huge increase in the amount of plastic washing up on Sanday this year.</p>
+          <p class="card-desc">One litter picker says he has seen a huge increase in the amount of plastic washing up on
+            Sanday this year.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
       <a href="https://www.bbc.com/news/articles/c98q4mz831mo" target="_blank" class="news-card">
-        <img src="img/news/article_18.jpg" alt="UK police force assessing Stansted Airport private flights over Epstein ties" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_18.jpg"
+          alt="UK police force assessing Stansted Airport private flights over Epstein ties" class="card-img"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -737,13 +827,15 @@
             <span class="card-source">BBC News</span>
           </div>
           <h3 class="card-title">UK police force assessing Stansted Airport private flights over Epstein ties</h3>
-          <p class="card-desc">Essex Police says it is assessing information in relation to private flights into and out of the airport.</p>
+          <p class="card-desc">Essex Police says it is assessing information in relation to private flights into and out
+            of the airport.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
       <a href="https://www.bbc.com/news/articles/cy4wvk9vn40o" target="_blank" class="news-card">
-        <img src="img/news/article_19.jpg" alt="Suspect in Rhode Island ice hockey shooting killed ex-wife and son" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_19.jpg" alt="Suspect in Rhode Island ice hockey shooting killed ex-wife and son"
+          class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -751,13 +843,15 @@
             <span class="card-source">BBC News</span>
           </div>
           <h3 class="card-title">Suspect in Rhode Island ice hockey shooting killed ex-wife and son</h3>
-          <p class="card-desc">Robert Dorgan - who also went by the name Roberta Esposito - was found dead inside the Pawtucket arena.</p>
+          <p class="card-desc">Robert Dorgan - who also went by the name Roberta Esposito - was found dead inside the
+            Pawtucket arena.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
       <a href="https://www.bbc.com/news/articles/cz7gvdx457vo" target="_blank" class="news-card">
-        <img src="img/news/article_20.jpg" alt="Peru's Congress ousts president after four months in office" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_20.jpg" alt="Peru's Congress ousts president after four months in office"
+          class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -765,13 +859,15 @@
             <span class="card-source">BBC News</span>
           </div>
           <h3 class="card-title">Peru's Congress ousts president after four months in office</h3>
-          <p class="card-desc">José Jerí is the third consecutive president to be removed and the country's seventh since 2016.</p>
+          <p class="card-desc">José Jerí is the third consecutive president to be removed and the country's seventh
+            since 2016.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
       <a href="https://www.bbc.com/news/articles/c62dke15357o" target="_blank" class="news-card">
-        <img src="img/news/article_21.jpg" alt="Rescuers search for nine missing skiers after California avalanche" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_21.jpg" alt="Rescuers search for nine missing skiers after California avalanche"
+          class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -779,13 +875,15 @@
             <span class="card-source">BBC News</span>
           </div>
           <h3 class="card-title">Rescuers search for nine missing skiers after California avalanche</h3>
-          <p class="card-desc">Rescuers are racing to the scene, which has seen about 30 inches (76cm) of snowfall in the last 24 hours.</p>
+          <p class="card-desc">Rescuers are racing to the scene, which has seen about 30 inches (76cm) of snowfall in
+            the last 24 hours.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
       <a href="https://www.bbc.com/news/articles/cx2rg2vndk1o" target="_blank" class="news-card">
-        <img src="img/news/article_22.jpg" alt="Social media suspended in Gabon for 'spreading of false information'" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_22.jpg" alt="Social media suspended in Gabon for 'spreading of false information'"
+          class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -799,7 +897,8 @@
       </a>
 
       <a href="https://www.bbc.com/sport/winter-olympics/live/c62nv57d85et" target="_blank" class="news-card">
-        <img src="img/news/article_23.jpg" alt="Winter Olympics: Latest news and updates from day 12" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_23.jpg" alt="Winter Olympics: Latest news and updates from day 12" class="card-img"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -807,13 +906,15 @@
             <span class="card-source">BBC News</span>
           </div>
           <h3 class="card-title">Winter Olympics: Latest news and updates from day 12</h3>
-          <p class="card-desc">Watch and follow action from the Milan-Cortina Winter Olympics, with Team GB's men in a must-win curling match against the USA later.</p>
+          <p class="card-desc">Watch and follow action from the Milan-Cortina Winter Olympics, with Team GB's men in a
+            must-win curling match against the USA later.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
       <a href="https://www.bbc.com/sport/cricket/articles/cqxd4rgr99qo" target="_blank" class="news-card">
-        <img src="img/news/article_24.jpg" alt="'It smacks of England' - Australia fail again at T20 World Cup" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_24.jpg" alt="'It smacks of England' - Australia fail again at T20 World Cup"
+          class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -821,13 +922,15 @@
             <span class="card-source">BBC News</span>
           </div>
           <h3 class="card-title">'It smacks of England' - Australia fail again at T20 World Cup</h3>
-          <p class="card-desc">Muddled selection and the lack of a plan B - how Australia's T20 World Cup campaign was derailed in Sri Lanka.</p>
+          <p class="card-desc">Muddled selection and the lack of a plan B - how Australia's T20 World Cup campaign was
+            derailed in Sri Lanka.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
       <a href="https://www.bbc.com/sport/articles/c0q3nejy1pjo" target="_blank" class="news-card">
-        <img src="img/news/article_25.jpg" alt="Staggering late win keeps alive GB semi-final hopes" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_25.jpg" alt="Staggering late win keeps alive GB semi-final hopes" class="card-img"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -835,13 +938,16 @@
             <span class="card-source">BBC News</span>
           </div>
           <h3 class="card-title">Staggering late win keeps alive GB semi-final hopes</h3>
-          <p class="card-desc">Rebecca Morrison executes a sensational double takeout with her final stone as Team GB steal two in the final end to beat the United States 8-7.</p>
+          <p class="card-desc">Rebecca Morrison executes a sensational double takeout with her final stone as Team GB
+            steal two in the final end to beat the United States 8-7.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
       <a href="https://www.bbc.com/sport/cricket/live/cy05gdxdwp2t" target="_blank" class="news-card">
-        <img src="img/news/article_26.jpg" alt="T20 World Cup - Pakistan on course for Super 8s against outclassed Namibia" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_26.jpg"
+          alt="T20 World Cup - Pakistan on course for Super 8s against outclassed Namibia" class="card-img"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -849,13 +955,15 @@
             <span class="card-source">BBC News</span>
           </div>
           <h3 class="card-title">T20 World Cup - Pakistan on course for Super 8s against outclassed Namibia</h3>
-          <p class="card-desc">Follow live text updates and listen to BBC Radio 5 Sports Extra commentary as Pakistan face Namibia at the ICC T20 World Cup in Colombo.</p>
+          <p class="card-desc">Follow live text updates and listen to BBC Radio 5 Sports Extra commentary as Pakistan
+            face Namibia at the ICC T20 World Cup in Colombo.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
       <a href="https://www.bbc.com/sport/football/articles/cp9myemmg3ro" target="_blank" class="news-card">
-        <img src="img/news/article_27.jpg" alt="'Cowards' - Vinicius speaks out as Benfica deny racism claims" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_27.jpg" alt="'Cowards' - Vinicius speaks out as Benfica deny racism claims"
+          class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -863,13 +971,16 @@
             <span class="card-source">BBC News</span>
           </div>
           <h3 class="card-title">'Cowards' - Vinicius speaks out as Benfica deny racism claims</h3>
-          <p class="card-desc">The Champions League match between Real Madrid and Benfica was halted for 10 minutes, with both sets of players leaving the pitch.</p>
+          <p class="card-desc">The Champions League match between Real Madrid and Benfica was halted for 10 minutes,
+            with both sets of players leaving the pitch.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
       <a href="https://www.bbc.com/sport/formula1/live/c05vp71j2m5t" target="_blank" class="news-card">
-        <img src="img/news/article_28.jpg" alt="F1 pre-season testing: Hamilton on track for afternoon session in Bahrain" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_28.jpg"
+          alt="F1 pre-season testing: Hamilton on track for afternoon session in Bahrain" class="card-img"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -877,12 +988,14 @@
             <span class="card-source">BBC News</span>
           </div>
           <h3 class="card-title">F1 pre-season testing: Hamilton on track for afternoon session in Bahrain</h3>
-          <p class="card-desc">Live text commentary of day one of the second F1 pre-season test at the Bahrain International Circuit.</p>
+          <p class="card-desc">Live text commentary of day one of the second F1 pre-season test at the Bahrain
+            International Circuit.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
-      <a href="https://cloud.email.bbc.com/bbcnewsignup2?&at_bbc_team=studios&at_medium=display&at_objective=acquisition&at_ptr_type=&at_ptr_name=bbc.comhp&at_format=Module&at_link_origin=intlfront&at_campaign=newsbriefing&at_campaign_type=owned" target="_blank" class="news-card">
+      <a href="https://cloud.email.bbc.com/bbcnewsignup2?&at_bbc_team=studios&at_medium=display&at_objective=acquisition&at_ptr_type=&at_ptr_name=bbc.comhp&at_format=Module&at_link_origin=intlfront&at_campaign=newsbriefing&at_campaign_type=owned"
+        target="_blank" class="news-card">
         <div class="card-placeholder">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -896,7 +1009,9 @@
       </a>
 
       <a href="https://www.bbc.com/news/articles/cge8nd5ve00o" target="_blank" class="news-card">
-        <img src="img/news/article_30.jpg" alt="Indian university faces backlash for claiming Chinese robodog as own at AI summit" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_30.jpg"
+          alt="Indian university faces backlash for claiming Chinese robodog as own at AI summit" class="card-img"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -910,7 +1025,9 @@
       </a>
 
       <a href="https://www.bbc.com/news/articles/cx2gn239exlo" target="_blank" class="news-card">
-        <img src="img/news/article_31.jpg" alt="How dark web agent spotted bedroom wall clue to rescue girl from years of harm" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_31.jpg"
+          alt="How dark web agent spotted bedroom wall clue to rescue girl from years of harm" class="card-img"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -924,7 +1041,9 @@
       </a>
 
       <a href="https://www.bbc.com/news/articles/cn4g8ynpwl8o" target="_blank" class="news-card">
-        <img src="img/news/article_32.jpg" alt="'I do not trust them': Top streamers left concerned by Discord age checks" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_32.jpg"
+          alt="'I do not trust them': Top streamers left concerned by Discord age checks" class="card-img"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -937,8 +1056,10 @@
         </div>
       </a>
 
-      <a href="https://www.bbc.com/future/article/20260216-how-the-sound-of-sport-is-being-reimagined-for-deaf-fans" target="_blank" class="news-card">
-        <img src="img/news/article_33.jpg" alt="New technology helps deaf fans experience the sound of sport" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <a href="https://www.bbc.com/future/article/20260216-how-the-sound-of-sport-is-being-reimagined-for-deaf-fans"
+        target="_blank" class="news-card">
+        <img src="img/news/article_33.jpg" alt="New technology helps deaf fans experience the sound of sport"
+          class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -946,13 +1067,16 @@
             <span class="card-source">BBC Tech</span>
           </div>
           <h3 class="card-title">New technology helps deaf fans experience the sound of sport</h3>
-          <p class="card-desc">New technologies tested at the Deaflympics in Tokyo are creating new ways of experience the atmosphere at sporting events.</p>
+          <p class="card-desc">New technologies tested at the Deaflympics in Tokyo are creating new ways of experience
+            the atmosphere at sporting events.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
-      <a href="https://www.bbc.com/reel/video/p0mw0yk0/the-new-technology-shaping-the-vehicles-of-tomorrow" target="_blank" class="news-card">
-        <img src="img/news/article_34.jpg" alt="The new technology shaping the vehicles of tomorrow" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <a href="https://www.bbc.com/reel/video/p0mw0yk0/the-new-technology-shaping-the-vehicles-of-tomorrow"
+        target="_blank" class="news-card">
+        <img src="img/news/article_34.jpg" alt="The new technology shaping the vehicles of tomorrow" class="card-img"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -960,13 +1084,15 @@
             <span class="card-source">BBC Tech</span>
           </div>
           <h3 class="card-title">The new technology shaping the vehicles of tomorrow</h3>
-          <p class="card-desc">Technology to get us around was a big theme at CES 2026. Tech Now tests out some of the latest innovations.</p>
+          <p class="card-desc">Technology to get us around was a big theme at CES 2026. Tech Now tests out some of the
+            latest innovations.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
       <a href="https://www.bbc.com/news/articles/c93wjywz5p5o" target="_blank" class="news-card">
-        <img src="img/news/article_35.jpg" alt="I turned myself into an AI-generated deathbot - here's what I found" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_35.jpg" alt="I turned myself into an AI-generated deathbot - here's what I found"
+          class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -974,13 +1100,16 @@
             <span class="card-source">BBC Tech</span>
           </div>
           <h3 class="card-title">I turned myself into an AI-generated deathbot - here's what I found</h3>
-          <p class="card-desc">A Cardiff University researcher recreated her own voice using a deathbot - but found it strange.</p>
+          <p class="card-desc">A Cardiff University researcher recreated her own voice using a deathbot - but found it
+            strange.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
-      <a href="https://www.bbc.com/reel/video/p0n1dx2t/the-tactile-tech-giving-deaf-runners-a-fair-start" target="_blank" class="news-card">
-        <img src="img/news/article_36.jpg" alt="The tactile tech giving deaf runners a fair start" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <a href="https://www.bbc.com/reel/video/p0n1dx2t/the-tactile-tech-giving-deaf-runners-a-fair-start"
+        target="_blank" class="news-card">
+        <img src="img/news/article_36.jpg" alt="The tactile tech giving deaf runners a fair start" class="card-img"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -988,13 +1117,15 @@
             <span class="card-source">BBC Tech</span>
           </div>
           <h3 class="card-title">The tactile tech giving deaf runners a fair start</h3>
-          <p class="card-desc">A gold medallist has developed a vibrating starting block to give deaf athletes clearer, fairer race starts.</p>
+          <p class="card-desc">A gold medallist has developed a vibrating starting block to give deaf athletes clearer,
+            fairer race starts.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
       <a href="https://www.bbc.com/news/articles/cjd9nllng22o" target="_blank" class="news-card">
-        <img src="img/news/article_37.jpg" alt="Hollywood studios take aim at 'ultra-realistic' AI video tool" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_37.jpg" alt="Hollywood studios take aim at 'ultra-realistic' AI video tool"
+          class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -1002,13 +1133,15 @@
             <span class="card-source">BBC Tech</span>
           </div>
           <h3 class="card-title">Hollywood studios take aim at 'ultra-realistic' AI video tool</h3>
-          <p class="card-desc">Clips including Brad Pitt and Tom Cruise fighting, made by new AI video tool Seedance, have gone viral.</p>
+          <p class="card-desc">Clips including Brad Pitt and Tom Cruise fighting, made by new AI video tool Seedance,
+            have gone viral.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
       <a href="https://www.bbc.com/news/articles/cy4wnw04e8wo" target="_blank" class="news-card">
-        <img src="img/news/article_38.jpg" alt="AI coding platform's flaws allow BBC reporter to be hacked" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_38.jpg" alt="AI coding platform's flaws allow BBC reporter to be hacked"
+          class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -1016,13 +1149,15 @@
             <span class="card-source">BBC Tech</span>
           </div>
           <h3 class="card-title">AI coding platform's flaws allow BBC reporter to be hacked</h3>
-          <p class="card-desc">Vibe-coding tools - which let people without coding skills create apps using AI - are exploding in popularity.</p>
+          <p class="card-desc">Vibe-coding tools - which let people without coding skills create apps using AI - are
+            exploding in popularity.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
       <a href="https://www.bbc.com/news/articles/cvgn2k285ypo" target="_blank" class="news-card">
-        <img src="img/news/article_39.jpg" alt="The tech firms embracing a 72-hour working week" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_39.jpg" alt="The tech firms embracing a 72-hour working week" class="card-img"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -1030,13 +1165,16 @@
             <span class="card-source">BBC Tech</span>
           </div>
           <h3 class="card-title">The tech firms embracing a 72-hour working week</h3>
-          <p class="card-desc">In the race for AI, tech firms are asking for their staff to work long hours. But there are risks, experts say.</p>
+          <p class="card-desc">In the race for AI, tech firms are asking for their staff to work long hours. But there
+            are risks, experts say.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
       <a href="https://www.bbc.com/news/articles/c62rexy9y3no" target="_blank" class="news-card">
-        <img src="img/news/article_40.jpg" alt="We had sex in a Chinese hotel, then found we had been broadcast to thousands" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_40.jpg"
+          alt="We had sex in a Chinese hotel, then found we had been broadcast to thousands" class="card-img"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -1044,13 +1182,15 @@
             <span class="card-source">BBC Tech</span>
           </div>
           <h3 class="card-title">We had sex in a Chinese hotel, then found we had been broadcast to thousands</h3>
-          <p class="card-desc">A couple who stayed in Shenzhen discovered their intimate moments were filmed as spy-cam porn.</p>
+          <p class="card-desc">A couple who stayed in Shenzhen discovered their intimate moments were filmed as spy-cam
+            porn.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
       <a href="https://www.bbc.com/news/articles/czd831elpz5o" target="_blank" class="news-card">
-        <img src="img/news/article_41.jpg" alt="Call of Duty advert banned for trivialising sexual violence" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_41.jpg" alt="Call of Duty advert banned for trivialising sexual violence"
+          class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -1058,13 +1198,15 @@
             <span class="card-source">BBC Tech</span>
           </div>
           <h3 class="card-title">Call of Duty advert banned for trivialising sexual violence</h3>
-          <p class="card-desc">Activision Blizzard UK Ltd said the ad for Call of Duty: Black Ops 7 was targeted at adults.</p>
+          <p class="card-desc">Activision Blizzard UK Ltd said the ad for Call of Duty: Black Ops 7 was targeted at
+            adults.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
       <a href="https://www.bbc.com/news/articles/c70nep7p9j6o" target="_blank" class="news-card">
-        <img src="img/news/article_42.jpg" alt="Child abuse increasing and more complex to police, crime agency says" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_42.jpg" alt="Child abuse increasing and more complex to police, crime agency says"
+          class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -1072,13 +1214,16 @@
             <span class="card-source">BBC Tech</span>
           </div>
           <h3 class="card-title">Child abuse increasing and more complex to police, crime agency says</h3>
-          <p class="card-desc">Police cannot tackle the issue alone, the NCA says, and technology companies must do more.</p>
+          <p class="card-desc">Police cannot tackle the issue alone, the NCA says, and technology companies must do
+            more.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
       <a href="https://www.bbc.com/news/articles/cr5l6gnen72o" target="_blank" class="news-card">
-        <img src="img/news/article_43.jpg" alt="Could Bill Gates and political tussles overshadow AI safety debate in Delhi?" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_43.jpg"
+          alt="Could Bill Gates and political tussles overshadow AI safety debate in Delhi?" class="card-img"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -1086,13 +1231,15 @@
             <span class="card-source">BBC Tech</span>
           </div>
           <h3 class="card-title">Could Bill Gates and political tussles overshadow AI safety debate in Delhi?</h3>
-          <p class="card-desc">As global tech leaders meet Delhi, India hopes to level the playing field for countries outside the US and China.</p>
+          <p class="card-desc">As global tech leaders meet Delhi, India hopes to level the playing field for countries
+            outside the US and China.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
       <a href="https://www.bbc.com/news/articles/ceqvjgrvpn3o" target="_blank" class="news-card">
-        <img src="img/news/article_44.jpg" alt="Long queues and confusion mar first day of India's landmark AI summit" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_44.jpg" alt="Long queues and confusion mar first day of India's landmark AI summit"
+          class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -1100,13 +1247,15 @@
             <span class="card-source">BBC Tech</span>
           </div>
           <h3 class="card-title">Long queues and confusion mar first day of India's landmark AI summit</h3>
-          <p class="card-desc">The India-AI Impact Summit 2026 in Delhi is expected to be attended by top tech leaders from the world.</p>
+          <p class="card-desc">The India-AI Impact Summit 2026 in Delhi is expected to be attended by top tech leaders
+            from the world.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
       <a href="https://www.bbc.com/news/articles/c5y4zl0w062o" target="_blank" class="news-card">
-        <img src="img/news/article_45.jpg" alt="Reddit's human content wins amid the AI flood" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_45.jpg" alt="Reddit's human content wins amid the AI flood" class="card-img"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -1114,13 +1263,15 @@
             <span class="card-source">BBC Tech</span>
           </div>
           <h3 class="card-title">Reddit's human content wins amid the AI flood</h3>
-          <p class="card-desc">Reddit says its human contributors are valued amid an internet awash with AI-generated content.</p>
+          <p class="card-desc">Reddit says its human contributors are valued amid an internet awash with AI-generated
+            content.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
       <a href="https://www.bbc.com/news/articles/clyze77xvdgo" target="_blank" class="news-card">
-        <img src="img/news/article_46.jpg" alt="Deepfake videos 'targeting' school staff probed" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_46.jpg" alt="Deepfake videos 'targeting' school staff probed" class="card-img"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -1128,13 +1279,15 @@
             <span class="card-source">BBC Tech</span>
           </div>
           <h3 class="card-title">Deepfake videos 'targeting' school staff probed</h3>
-          <p class="card-desc">The Education and Lifelong Learning Minister said the incident had been reported to the police.</p>
+          <p class="card-desc">The Education and Lifelong Learning Minister said the incident had been reported to the
+            police.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
       <a href="https://www.bbc.com/news/articles/cze0p7551d3o" target="_blank" class="news-card">
-        <img src="img/news/article_47.jpg" alt="Bereaved mum in tears as data campaign to become law" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_47.jpg" alt="Bereaved mum in tears as data campaign to become law" class="card-img"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -1142,13 +1295,15 @@
             <span class="card-source">BBC Tech</span>
           </div>
           <h3 class="card-title">Bereaved mum in tears as data campaign to become law</h3>
-          <p class="card-desc">The data of deceased children will now be preserved by social media companies within five days.</p>
+          <p class="card-desc">The data of deceased children will now be preserved by social media companies within five
+            days.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
       <a href="https://www.bbc.com/news/articles/cp9mxgldmp0o" target="_blank" class="news-card">
-        <img src="img/news/article_48.jpg" alt="New adverts urge boys not to share sexist content online" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_48.jpg" alt="New adverts urge boys not to share sexist content online"
+          class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -1156,13 +1311,15 @@
             <span class="card-source">BBC Tech</span>
           </div>
           <h3 class="card-title">New adverts urge boys not to share sexist content online</h3>
-          <p class="card-desc">The Scottish government campaign highlights the hurt that online misogyny can cause to women and girls.</p>
+          <p class="card-desc">The Scottish government campaign highlights the hurt that online misogyny can cause to
+            women and girls.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
       <a href="https://www.bbc.com/news/articles/c93wq6xqgy1o" target="_blank" class="news-card">
-        <img src="img/news/article_49.jpg" alt="ByteDance to curb AI video app after Disney legal threat" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_49.jpg" alt="ByteDance to curb AI video app after Disney legal threat"
+          class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -1170,13 +1327,15 @@
             <span class="card-source">BBC Tech</span>
           </div>
           <h3 class="card-title">ByteDance to curb AI video app after Disney legal threat</h3>
-          <p class="card-desc">Videos featuring Spider-Man and other characters which are Disney's intellectual property have gone viral since Seedance's update.</p>
+          <p class="card-desc">Videos featuring Spider-Man and other characters which are Disney's intellectual property
+            have gone viral since Seedance's update.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
       <a href="https://www.bbc.com/news/articles/cvg38x13x5yo" target="_blank" class="news-card">
-        <img src="img/news/article_50.jpg" alt="We will do battle with AI chatbots as we did with Grok, says Starmer" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_50.jpg" alt="We will do battle with AI chatbots as we did with Grok, says Starmer"
+          class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -1184,13 +1343,15 @@
             <span class="card-source">BBC Tech</span>
           </div>
           <h3 class="card-title">We will do battle with AI chatbots as we did with Grok, says Starmer</h3>
-          <p class="card-desc">The government's new plans will mean no online platform will get a "free pass" on children's safety on the internet, the prime minister says.</p>
+          <p class="card-desc">The government's new plans will mean no online platform will get a "free pass" on
+            children's safety on the internet, the prime minister says.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
       <a href="https://www.bbc.com/news/articles/cx2g7xp277vo" target="_blank" class="news-card">
-        <img src="img/news/article_51.jpg" alt="'Nail-biting' Lego victory gets boys to final" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_51.jpg" alt="'Nail-biting' Lego victory gets boys to final" class="card-img"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -1198,13 +1359,15 @@
             <span class="card-source">BBC Tech</span>
           </div>
           <h3 class="card-title">'Nail-biting' Lego victory gets boys to final</h3>
-          <p class="card-desc">The team End-Tech overcame 21 schools from as far away as Bradford to make the national final.</p>
+          <p class="card-desc">The team End-Tech overcame 21 schools from as far away as Bradford to make the national
+            final.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
       <a href="https://www.bbc.com/news/articles/cn8zg9pj2nyo" target="_blank" class="news-card">
-        <img src="img/news/article_52.jpg" alt="Exploding vape batteries 'putting lives at risk'" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_52.jpg" alt="Exploding vape batteries 'putting lives at risk'" class="card-img"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -1212,27 +1375,34 @@
             <span class="card-source">BBC Tech</span>
           </div>
           <h3 class="card-title">Exploding vape batteries 'putting lives at risk'</h3>
-          <p class="card-desc">A recycling facility says disposing of vapes in recycling is causing "significant problems".</p>
+          <p class="card-desc">A recycling facility says disposing of vapes in recycling is causing "significant
+            problems".</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
       <a href="https://www.bbc.com/news/articles/c24g1jyl3vmo" target="_blank" class="news-card">
-        <img src="img/news/article_53.jpg" alt="Female athletes hit back at 'weird' and 'derogatory' comments about their appearance" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_53.jpg"
+          alt="Female athletes hit back at 'weird' and 'derogatory' comments about their appearance" class="card-img"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
             <span class="card-category">Technology</span>
             <span class="card-source">BBC Tech</span>
           </div>
-          <h3 class="card-title">Female athletes hit back at 'weird' and 'derogatory' comments about their appearance</h3>
-          <p class="card-desc">Sporting stars describe unsolicited comments about their looks, as a survey suggests fewer girls have ambitions to become top athletes.</p>
+          <h3 class="card-title">Female athletes hit back at 'weird' and 'derogatory' comments about their appearance
+          </h3>
+          <p class="card-desc">Sporting stars describe unsolicited comments about their looks, as a survey suggests
+            fewer girls have ambitions to become top athletes.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
       <a href="https://www.bbc.com/news/articles/c1mjrgkk1m8o" target="_blank" class="news-card">
-        <img src="img/news/article_54.jpg" alt="Food prices are surging in Russia. Is the war hitting Russians in the pocket?" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_54.jpg"
+          alt="Food prices are surging in Russia. Is the war hitting Russians in the pocket?" class="card-img"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -1240,13 +1410,15 @@
             <span class="card-source">BBC Business</span>
           </div>
           <h3 class="card-title">Food prices are surging in Russia. Is the war hitting Russians in the pocket?</h3>
-          <p class="card-desc">Russia's economy is hanging between stagnation and decline, and ordinary Russians are beginning to feel the pinch.</p>
+          <p class="card-desc">Russia's economy is hanging between stagnation and decline, and ordinary Russians are
+            beginning to feel the pinch.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
       <a href="https://www.bbc.com/news/articles/c7473vyxgqpo" target="_blank" class="news-card">
-        <img src="img/news/article_55.jpg" alt="Bayer offers $7.25bn to settle weedkiller cancer claims" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_55.jpg" alt="Bayer offers $7.25bn to settle weedkiller cancer claims"
+          class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -1254,27 +1426,31 @@
             <span class="card-source">BBC Business</span>
           </div>
           <h3 class="card-title">Bayer offers $7.25bn to settle weedkiller cancer claims</h3>
-          <p class="card-desc">The company has faced years of legal battles over Roundup, a weedkiller made by Monsanto.</p>
+          <p class="card-desc">The company has faced years of legal battles over Roundup, a weedkiller made by Monsanto.
+          </p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
       <a href="https://www.bbc.com/news/articles/c795879x08go" target="_blank" class="news-card">
-        <img src="img/news/article_56.jpg" alt="I invested £12,000 in Brewdog  - I think I've lost it all" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_56.jpg" alt="I invested £12,000 in Brewdog  - I think I've lost it all"
+          class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
             <span class="card-category">Business</span>
             <span class="card-source">BBC Business</span>
           </div>
-          <h3 class="card-title">I invested £12,000 in Brewdog  - I think I've lost it all</h3>
-          <p class="card-desc">More than 200,000 people bought Equity for Punks shares in the craft brewer but many now believe they are worthless.</p>
+          <h3 class="card-title">I invested £12,000 in Brewdog - I think I've lost it all</h3>
+          <p class="card-desc">More than 200,000 people bought Equity for Punks shares in the craft brewer but many now
+            believe they are worthless.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
       <a href="https://www.bbc.com/news/articles/c5yg04jg1n5o" target="_blank" class="news-card">
-        <img src="img/news/article_57.jpg" alt="Lower food and fuel prices drive UK inflation down to 3%" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_57.jpg" alt="Lower food and fuel prices drive UK inflation down to 3%"
+          class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -1282,13 +1458,15 @@
             <span class="card-source">BBC Business</span>
           </div>
           <h3 class="card-title">Lower food and fuel prices drive UK inflation down to 3%</h3>
-          <p class="card-desc">The rate at which prices are rising is slowing down, which could lead to lower interest rates.</p>
+          <p class="card-desc">The rate at which prices are rising is slowing down, which could lead to lower interest
+            rates.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
       <a href="https://www.bbc.com/news/articles/cr7321n1n0eo" target="_blank" class="news-card">
-        <img src="img/news/article_58.jpg" alt="Shein under EU investigation over childlike sex dolls" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_58.jpg" alt="Shein under EU investigation over childlike sex dolls" class="card-img"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -1301,7 +1479,8 @@
         </div>
       </a>
 
-      <a href="https://cloud.email.bbc.com/WorldofBusiness_Newsletter_Signup?&at_bbc_team=studios&at_medium=emails&at_objective=acquisition&at_ptr_type=&at_ptr_name=bbc.com&at_format=Module&at_link_origin=homepage&at_campaign=wob&at_campaign_type=owned" target="_blank" class="news-card">
+      <a href="https://cloud.email.bbc.com/WorldofBusiness_Newsletter_Signup?&at_bbc_team=studios&at_medium=emails&at_objective=acquisition&at_ptr_type=&at_ptr_name=bbc.com&at_format=Module&at_link_origin=homepage&at_campaign=wob&at_campaign_type=owned"
+        target="_blank" class="news-card">
         <div class="card-placeholder">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -1309,13 +1488,15 @@
             <span class="card-source">BBC Business</span>
           </div>
           <h3 class="card-title">Sign up to World of Business</h3>
-          <p class="card-desc">Gain the leading edge with global insights for the boardroom and beyond, in your inbox every Wednesday.</p>
+          <p class="card-desc">Gain the leading edge with global insights for the boardroom and beyond, in your inbox
+            every Wednesday.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
       <a href="https://www.bbc.com/news/articles/c4gjx1j1nkjo" target="_blank" class="news-card">
-        <img src="img/news/article_60.jpg" alt="Trump eyes Venezuela visit – but obstacles to his oil plan remain" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_60.jpg" alt="Trump eyes Venezuela visit – but obstacles to his oil plan remain"
+          class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -1323,13 +1504,15 @@
             <span class="card-source">BBC Business</span>
           </div>
           <h3 class="card-title">Trump eyes Venezuela visit – but obstacles to his oil plan remain</h3>
-          <p class="card-desc">The US president wants American energy firms to start extracting the crude but they are reluctant.</p>
+          <p class="card-desc">The US president wants American energy firms to start extracting the crude but they are
+            reluctant.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
       <a href="https://www.bbc.com/news/articles/cx2y85xdyw3o" target="_blank" class="news-card">
-        <img src="img/news/article_61.jpg" alt="The Dutch love four-day working weeks, but are they sustainable?" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_61.jpg" alt="The Dutch love four-day working weeks, but are they sustainable?"
+          class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -1337,13 +1520,15 @@
             <span class="card-source">BBC Business</span>
           </div>
           <h3 class="card-title">The Dutch love four-day working weeks, but are they sustainable?</h3>
-          <p class="card-desc">The Netherlands has the lowest working hours in Europe, but some say it is harming its economy.</p>
+          <p class="card-desc">The Netherlands has the lowest working hours in Europe, but some say it is harming its
+            economy.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
       <a href="https://www.bbc.com/news/articles/c1l7pedyzjeo" target="_blank" class="news-card">
-        <img src="img/news/article_62.jpg" alt="UK unemployment hits highest rate for nearly five years" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_62.jpg" alt="UK unemployment hits highest rate for nearly five years"
+          class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -1357,7 +1542,9 @@
       </a>
 
       <a href="https://www.bbc.com/news/articles/cm21z4zgkx7o" target="_blank" class="news-card">
-        <img src="img/news/article_63.jpg" alt="Netflix and Paramount are battling for Warner Bros. Who is likely to win?" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_63.jpg"
+          alt="Netflix and Paramount are battling for Warner Bros. Who is likely to win?" class="card-img"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -1365,13 +1552,15 @@
             <span class="card-source">BBC Business</span>
           </div>
           <h3 class="card-title">Netflix and Paramount are battling for Warner Bros. Who is likely to win?</h3>
-          <p class="card-desc">What to know about the two firms' blockbuster battle to control Warner Bros Discovery.</p>
+          <p class="card-desc">What to know about the two firms' blockbuster battle to control Warner Bros Discovery.
+          </p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
       <a href="https://www.bbc.com/news/articles/c93wk4d7x19o" target="_blank" class="news-card">
-        <img src="img/news/article_64.jpg" alt="Hyatt Hotels chairman steps down over Jeffrey Epstein ties" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_64.jpg" alt="Hyatt Hotels chairman steps down over Jeffrey Epstein ties"
+          class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -1379,13 +1568,15 @@
             <span class="card-source">BBC Business</span>
           </div>
           <h3 class="card-title">Hyatt Hotels chairman steps down over Jeffrey Epstein ties</h3>
-          <p class="card-desc">Billionaire Thomas Pritzker said he had exercised "terrible judgement" in keeping contact with Epstein.</p>
+          <p class="card-desc">Billionaire Thomas Pritzker said he had exercised "terrible judgement" in keeping contact
+            with Epstein.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
       <a href="https://www.bbc.com/news/articles/c78j9end035o" target="_blank" class="news-card">
-        <img src="img/news/article_65.jpg" alt="Trump tariffs: Irish exports to US soared in 2025" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_65.jpg" alt="Trump tariffs: Irish exports to US soared in 2025" class="card-img"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -1393,13 +1584,15 @@
             <span class="card-source">BBC Business</span>
           </div>
           <h3 class="card-title">Trump tariffs: Irish exports to US soared in 2025</h3>
-          <p class="card-desc">Ireland's export performance was heavily influenced by US President Donald Trump's tariffs policy.</p>
+          <p class="card-desc">Ireland's export performance was heavily influenced by US President Donald Trump's
+            tariffs policy.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
       <a href="https://www.bbc.com/sport/football/articles/cgmzylx4004o" target="_blank" class="news-card">
-        <img src="img/news/article_66.jpg" alt="'We really messed up' - does European football need more balance?" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_66.jpg" alt="'We really messed up' - does European football need more balance?"
+          class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -1407,13 +1600,16 @@
             <span class="card-source">BBC Business</span>
           </div>
           <h3 class="card-title">'We really messed up' - does European football need more balance?</h3>
-          <p class="card-desc">One set of clubs dominate the Champions League, another win their domestic title every year but cannot compete - does European football have a problem?</p>
+          <p class="card-desc">One set of clubs dominate the Champions League, another win their domestic title every
+            year but cannot compete - does European football have a problem?</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
-      <a href="https://www.bbc.com/reel/video/p0lvwbpd/why-you-must-share-your-idea-and-get-honest-feedback" target="_blank" class="news-card">
-        <img src="img/news/article_67.jpg" alt="Why you must share your idea and get honest feedback" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <a href="https://www.bbc.com/reel/video/p0lvwbpd/why-you-must-share-your-idea-and-get-honest-feedback"
+        target="_blank" class="news-card">
+        <img src="img/news/article_67.jpg" alt="Why you must share your idea and get honest feedback" class="card-img"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -1421,13 +1617,16 @@
             <span class="card-source">BBC Business</span>
           </div>
           <h3 class="card-title">Why you must share your idea and get honest feedback</h3>
-          <p class="card-desc">Learn Steven's three crucial steps for validating your business proposal and why impartial feedback is vital.</p>
+          <p class="card-desc">Learn Steven's three crucial steps for validating your business proposal and why
+            impartial feedback is vital.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
-      <a href="https://www.bbc.com/reel/video/p0lvnn88/the-power-of-making-and-owning-decisions" target="_blank" class="news-card">
-        <img src="img/news/article_68.jpg" alt="The power of making and owning decisions" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <a href="https://www.bbc.com/reel/video/p0lvnn88/the-power-of-making-and-owning-decisions" target="_blank"
+        class="news-card">
+        <img src="img/news/article_68.jpg" alt="The power of making and owning decisions" class="card-img"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -1440,8 +1639,10 @@
         </div>
       </a>
 
-      <a href="https://www.bbc.com/reel/video/p0lvnshk/the-power-of-absorbing-information" target="_blank" class="news-card">
-        <img src="img/news/article_69.jpg" alt="The power of absorbing information" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <a href="https://www.bbc.com/reel/video/p0lvnshk/the-power-of-absorbing-information" target="_blank"
+        class="news-card">
+        <img src="img/news/article_69.jpg" alt="The power of absorbing information" class="card-img"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -1449,13 +1650,16 @@
             <span class="card-source">BBC Business</span>
           </div>
           <h3 class="card-title">The power of absorbing information</h3>
-          <p class="card-desc">Learn how to listen to improve your self-awareness. People will give you information, and that's power.</p>
+          <p class="card-desc">Learn how to listen to improve your self-awareness. People will give you information, and
+            that's power.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
-      <a href="https://www.bbc.com/reel/video/p0lvsp9v/why-planning-can-be-a-form-of-procrastination" target="_blank" class="news-card">
-        <img src="img/news/article_70.jpg" alt="Why planning can be a form of procrastination" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <a href="https://www.bbc.com/reel/video/p0lvsp9v/why-planning-can-be-a-form-of-procrastination" target="_blank"
+        class="news-card">
+        <img src="img/news/article_70.jpg" alt="Why planning can be a form of procrastination" class="card-img"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -1463,13 +1667,16 @@
             <span class="card-source">BBC Business</span>
           </div>
           <h3 class="card-title">Why planning can be a form of procrastination</h3>
-          <p class="card-desc">Learn how to avoid compulsive planning and instead hold plans loosely as a navigational aid.</p>
+          <p class="card-desc">Learn how to avoid compulsive planning and instead hold plans loosely as a navigational
+            aid.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
-      <a href="https://www.bbc.com/reel/video/p0lvspcz/how-to-navigate-a-world-competing-for-your-attention" target="_blank" class="news-card">
-        <img src="img/news/article_71.jpg" alt="How to navigate a world competing for your attention" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <a href="https://www.bbc.com/reel/video/p0lvspcz/how-to-navigate-a-world-competing-for-your-attention"
+        target="_blank" class="news-card">
+        <img src="img/news/article_71.jpg" alt="How to navigate a world competing for your attention" class="card-img"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -1477,13 +1684,16 @@
             <span class="card-source">BBC Business</span>
           </div>
           <h3 class="card-title">How to navigate a world competing for your attention</h3>
-          <p class="card-desc">Oliver offers tips on how to avoid getting distracted on social media when people profit from your scrolling.</p>
+          <p class="card-desc">Oliver offers tips on how to avoid getting distracted on social media when people profit
+            from your scrolling.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
-      <a href="https://www.bbc.com/reel/video/p0lvslhp/the-difference-between-good-and-bad-procrastination" target="_blank" class="news-card">
-        <img src="img/news/article_72.jpg" alt="The difference between 'good' and 'bad' procrastination" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <a href="https://www.bbc.com/reel/video/p0lvslhp/the-difference-between-good-and-bad-procrastination"
+        target="_blank" class="news-card">
+        <img src="img/news/article_72.jpg" alt="The difference between 'good' and 'bad' procrastination"
+          class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -1491,13 +1701,16 @@
             <span class="card-source">BBC Business</span>
           </div>
           <h3 class="card-title">The difference between 'good' and 'bad' procrastination</h3>
-          <p class="card-desc">Forget trying to stop procrastinating. Instead, learn Oliver's three rules to become a better procrastinator.</p>
+          <p class="card-desc">Forget trying to stop procrastinating. Instead, learn Oliver's three rules to become a
+            better procrastinator.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
-      <a href="https://www.bbc.com/reel/video/p0lvsly5/why-inbox-zero-is-a-strategy-that-breeds-distraction" target="_blank" class="news-card">
-        <img src="img/news/article_73.jpg" alt="Why 'inbox zero' is a strategy that breeds distraction" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <a href="https://www.bbc.com/reel/video/p0lvsly5/why-inbox-zero-is-a-strategy-that-breeds-distraction"
+        target="_blank" class="news-card">
+        <img src="img/news/article_73.jpg" alt="Why 'inbox zero' is a strategy that breeds distraction" class="card-img"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -1505,13 +1718,16 @@
             <span class="card-source">BBC Business</span>
           </div>
           <h3 class="card-title">Why 'inbox zero' is a strategy that breeds distraction</h3>
-          <p class="card-desc">Managing infinite emails, ideas, errands, and goals is hard. Oliver recommends a little strategic neglect.</p>
+          <p class="card-desc">Managing infinite emails, ideas, errands, and goals is hard. Oliver recommends a little
+            strategic neglect.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
-      <a href="https://www.bbc.com/reel/video/p0lvsjfp/how-time-creates-problems-especially-when-it-is-so-limited" target="_blank" class="news-card">
-        <img src="img/news/article_74.jpg" alt="How time creates problems, especially when it is so limited" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <a href="https://www.bbc.com/reel/video/p0lvsjfp/how-time-creates-problems-especially-when-it-is-so-limited"
+        target="_blank" class="news-card">
+        <img src="img/news/article_74.jpg" alt="How time creates problems, especially when it is so limited"
+          class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -1519,13 +1735,16 @@
             <span class="card-source">BBC Business</span>
           </div>
           <h3 class="card-title">How time creates problems, especially when it is so limited</h3>
-          <p class="card-desc">Discover why so many of our struggles are down to poor time management and denial of its finitude.</p>
+          <p class="card-desc">Discover why so many of our struggles are down to poor time management and denial of its
+            finitude.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
-      <a href="https://www.bbc.com/reel/video/p0lvyg90/why-sustainable-productivity-will-drive-success" target="_blank" class="news-card">
-        <img src="img/news/article_75.jpg" alt="Why sustainable productivity will drive success" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <a href="https://www.bbc.com/reel/video/p0lvyg90/why-sustainable-productivity-will-drive-success" target="_blank"
+        class="news-card">
+        <img src="img/news/article_75.jpg" alt="Why sustainable productivity will drive success" class="card-img"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -1533,13 +1752,16 @@
             <span class="card-source">BBC Business</span>
           </div>
           <h3 class="card-title">Why sustainable productivity will drive success</h3>
-          <p class="card-desc">Steven shares his three 'M' goal-setting framework to help you be more productive for the long-term.</p>
+          <p class="card-desc">Steven shares his three 'M' goal-setting framework to help you be more productive for the
+            long-term.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
-      <a href="https://www.bbc.com/reel/video/p0lvygq3/how-to-hire-the-best-people-for-your-team" target="_blank" class="news-card">
-        <img src="img/news/article_76.jpg" alt="How to hire the best people for your team" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <a href="https://www.bbc.com/reel/video/p0lvygq3/how-to-hire-the-best-people-for-your-team" target="_blank"
+        class="news-card">
+        <img src="img/news/article_76.jpg" alt="How to hire the best people for your team" class="card-img"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -1547,13 +1769,16 @@
             <span class="card-source">BBC Business</span>
           </div>
           <h3 class="card-title">How to hire the best people for your team</h3>
-          <p class="card-desc">Are they a bar raiser, bar maintainer or bar lowerer? Learn how to build a team that can get behind your mission.</p>
+          <p class="card-desc">Are they a bar raiser, bar maintainer or bar lowerer? Learn how to build a team that can
+            get behind your mission.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
-      <a href="https://www.bbc.com/reel/video/p0lvwc8v/what-is-your-business-culture-and-why-is-it-so-important-" target="_blank" class="news-card">
-        <img src="img/news/article_77.jpg" alt="What is your business culture and why is it so important?" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <a href="https://www.bbc.com/reel/video/p0lvwc8v/what-is-your-business-culture-and-why-is-it-so-important-"
+        target="_blank" class="news-card">
+        <img src="img/news/article_77.jpg" alt="What is your business culture and why is it so important?"
+          class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -1566,8 +1791,10 @@
         </div>
       </a>
 
-      <a href="https://www.bbc.com/reel/video/p0lvw8qm/how-to-know-yourself-grow-yourself-and-take-control" target="_blank" class="news-card">
-        <img src="img/news/article_78.jpg" alt="How to know yourself, grow yourself, and take control" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <a href="https://www.bbc.com/reel/video/p0lvw8qm/how-to-know-yourself-grow-yourself-and-take-control"
+        target="_blank" class="news-card">
+        <img src="img/news/article_78.jpg" alt="How to know yourself, grow yourself, and take control" class="card-img"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -1575,13 +1802,16 @@
             <span class="card-source">BBC Business</span>
           </div>
           <h3 class="card-title">How to know yourself, grow yourself, and take control</h3>
-          <p class="card-desc">Find out how to counteract limiting beliefs you hold about yourself and build new ones that serve you better.</p>
+          <p class="card-desc">Find out how to counteract limiting beliefs you hold about yourself and build new ones
+            that serve you better.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
-      <a href="https://www.bbc.com/reel/video/p0lvw8qw/how-to-get-the-money-you-need-to-start-a-business" target="_blank" class="news-card">
-        <img src="img/news/article_79.jpg" alt="How to get the money you need to start a business" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <a href="https://www.bbc.com/reel/video/p0lvw8qw/how-to-get-the-money-you-need-to-start-a-business"
+        target="_blank" class="news-card">
+        <img src="img/news/article_79.jpg" alt="How to get the money you need to start a business" class="card-img"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -1589,13 +1819,16 @@
             <span class="card-source">BBC Business</span>
           </div>
           <h3 class="card-title">How to get the money you need to start a business</h3>
-          <p class="card-desc">Learn how to start a business with nothing in the bank and how to get funding if you need it to get started.</p>
+          <p class="card-desc">Learn how to start a business with nothing in the bank and how to get funding if you need
+            it to get started.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
-      <a href="https://www.bbc.com/reel/video/p0lvw2cx/why-you-should-start-a-business-and-why-to-start-it-now" target="_blank" class="news-card">
-        <img src="img/news/article_80.jpg" alt="Why you should start a business and why to start it now" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <a href="https://www.bbc.com/reel/video/p0lvw2cx/why-you-should-start-a-business-and-why-to-start-it-now"
+        target="_blank" class="news-card">
+        <img src="img/news/article_80.jpg" alt="Why you should start a business and why to start it now"
+          class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -1603,13 +1836,16 @@
             <span class="card-source">BBC Business</span>
           </div>
           <h3 class="card-title">Why you should start a business and why to start it now</h3>
-          <p class="card-desc">Steven explains the common obstacles to starting a business and why now is the time to start yours.</p>
+          <p class="card-desc">Steven explains the common obstacles to starting a business and why now is the time to
+            start yours.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
-      <a href="https://www.bbc.com/reel/video/p0lvsmhn/how-to-choose-what-matters-most-in-life" target="_blank" class="news-card">
-        <img src="img/news/article_81.jpg" alt="How to choose what matters most in life" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <a href="https://www.bbc.com/reel/video/p0lvsmhn/how-to-choose-what-matters-most-in-life" target="_blank"
+        class="news-card">
+        <img src="img/news/article_81.jpg" alt="How to choose what matters most in life" class="card-img"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -1617,13 +1853,15 @@
             <span class="card-source">BBC Business</span>
           </div>
           <h3 class="card-title">How to choose what matters most in life</h3>
-          <p class="card-desc">Learn three big questions to ask yourself to zero in on what matters and what you should spend time on.</p>
+          <p class="card-desc">Learn three big questions to ask yourself to zero in on what matters and what you should
+            spend time on.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
       <a href="https://www.bbc.com/news/articles/cd9g28yzy0no" target="_blank" class="news-card">
-        <img src="img/news/article_82.jpg" alt="Six of Sarah Ferguson's companies winding down" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_82.jpg" alt="Six of Sarah Ferguson's companies winding down" class="card-img"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -1631,13 +1869,15 @@
             <span class="card-source">BBC Business</span>
           </div>
           <h3 class="card-title">Six of Sarah Ferguson's companies winding down</h3>
-          <p class="card-desc">The move follows further revelations over her friendship with the convicted paedophile Jeffrey Epstein.</p>
+          <p class="card-desc">The move follows further revelations over her friendship with the convicted paedophile
+            Jeffrey Epstein.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
       <a href="https://www.bbc.com/news/articles/c33j7m7y17xo" target="_blank" class="news-card">
-        <img src="img/news/article_83.jpg" alt="Reform names Robert Jenrick as pick for chancellor" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_83.jpg" alt="Reform names Robert Jenrick as pick for chancellor" class="card-img"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -1645,13 +1885,15 @@
             <span class="card-source">BBC Business</span>
           </div>
           <h3 class="card-title">Reform names Robert Jenrick as pick for chancellor</h3>
-          <p class="card-desc">Leader Nigel Farage says Reform is "the voice of opposition" to Labour, as he unveils his new top team.</p>
+          <p class="card-desc">Leader Nigel Farage says Reform is "the voice of opposition" to Labour, as he unveils his
+            new top team.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
       <a href="https://www.bbc.com/news/articles/cp32jgkqx0lo" target="_blank" class="news-card">
-        <img src="img/news/article_84.jpg" alt="Logan Paul's Pokémon card smashes record in $16m sale" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_84.jpg" alt="Logan Paul's Pokémon card smashes record in $16m sale" class="card-img"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -1659,13 +1901,15 @@
             <span class="card-source">BBC Business</span>
           </div>
           <h3 class="card-title">Logan Paul's Pokémon card smashes record in $16m sale</h3>
-          <p class="card-desc">Venture capitalist AJ Scaramucci buys the card to kick off his plan for a "planetary treasure hunt".</p>
+          <p class="card-desc">Venture capitalist AJ Scaramucci buys the card to kick off his plan for a "planetary
+            treasure hunt".</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
       <a href="https://www.bbc.com/news/articles/c363096kd5po" target="_blank" class="news-card">
-        <img src="img/news/article_85.jpg" alt="Strike deal reached after two days of chaos at Kenya's main airport" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_85.jpg" alt="Strike deal reached after two days of chaos at Kenya's main airport"
+          class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -1673,13 +1917,16 @@
             <span class="card-source">BBC Business</span>
           </div>
           <h3 class="card-title">Strike deal reached after two days of chaos at Kenya's main airport</h3>
-          <p class="card-desc">Passengers are still being urged to check their flight status before heading to the crowded airport.</p>
+          <p class="card-desc">Passengers are still being urged to check their flight status before heading to the
+            crowded airport.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
       <a href="https://www.bbc.com/news/articles/crm87109l3wo" target="_blank" class="news-card">
-        <img src="img/news/article_86.jpg" alt="Bedding firm backs down on 'Swift Home' trademark after Taylor Swift appeal" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_86.jpg"
+          alt="Bedding firm backs down on 'Swift Home' trademark after Taylor Swift appeal" class="card-img"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -1687,13 +1934,15 @@
             <span class="card-source">BBC Business</span>
           </div>
           <h3 class="card-title">Bedding firm backs down on 'Swift Home' trademark after Taylor Swift appeal</h3>
-          <p class="card-desc">Swift’s team had flagged similarities between her trademark and the company’s contested design.</p>
+          <p class="card-desc">Swift’s team had flagged similarities between her trademark and the company’s contested
+            design.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
       <a href="https://www.bbc.com/news/articles/cp32j7v2dy5o" target="_blank" class="news-card">
-        <img src="img/news/article_87.jpg" alt="Andrew's time as trade envoy should be investigated, says Vince Cable" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_87.jpg" alt="Andrew's time as trade envoy should be investigated, says Vince Cable"
+          class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -1701,13 +1950,15 @@
             <span class="card-source">BBC Business</span>
           </div>
           <h3 class="card-title">Andrew's time as trade envoy should be investigated, says Vince Cable</h3>
-          <p class="card-desc">The former prince's alleged actions were "totally unacceptable", the ex-business secretary says.</p>
+          <p class="card-desc">The former prince's alleged actions were "totally unacceptable", the ex-business
+            secretary says.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
       <a href="https://www.bbc.com/news/articles/c627eyzmmg8o" target="_blank" class="news-card">
-        <img src="img/news/article_88.jpg" alt="Brewdog staff 'upset and concerned' by sale plans" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_88.jpg" alt="Brewdog staff 'upset and concerned' by sale plans" class="card-img"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -1715,13 +1966,16 @@
             <span class="card-source">BBC Business</span>
           </div>
           <h3 class="card-title">Brewdog staff 'upset and concerned' by sale plans</h3>
-          <p class="card-desc">Unite said workers had been left in the dark over their futures after the craft beer firm announced plans to explore new investment.</p>
+          <p class="card-desc">Unite said workers had been left in the dark over their futures after the craft beer firm
+            announced plans to explore new investment.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
 
       <a href="https://www.bbc.com/news/articles/cvg5l75yx6vo" target="_blank" class="news-card">
-        <img src="img/news/article_89.jpg" alt="Gender pay gap won't close for another 30 years, warns trade unions group" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="img/news/article_89.jpg"
+          alt="Gender pay gap won't close for another 30 years, warns trade unions group" class="card-img"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="card-placeholder" style="display:none">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -1729,7 +1983,8 @@
             <span class="card-source">BBC Business</span>
           </div>
           <h3 class="card-title">Gender pay gap won't close for another 30 years, warns trade unions group</h3>
-          <p class="card-desc">The average woman employee "effectively works for 47 days of the year for free," according to the Trades Union Congress.</p>
+          <p class="card-desc">The average woman employee "effectively works for 47 days of the year for free,"
+            according to the Trades Union Congress.</p>
           <div class="read-more">Read Article →</div>
         </div>
       </a>
@@ -1747,7 +2002,8 @@
         </div>
       </a>
 
-      <a href="https://vermaden.wordpress.com/2026/02/18/native-freebsd-kerberos-ldap-with-freeipa-idm/" target="_blank" class="news-card">
+      <a href="https://vermaden.wordpress.com/2026/02/18/native-freebsd-kerberos-ldap-with-freeipa-idm/" target="_blank"
+        class="news-card">
         <div class="card-placeholder">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -1929,7 +2185,8 @@
         </div>
       </a>
 
-      <a href="https://fortune.com/2026/02/17/ai-productivity-paradox-ceo-study-robert-solow-information-technology-age/" target="_blank" class="news-card">
+      <a href="https://fortune.com/2026/02/17/ai-productivity-paradox-ceo-study-robert-solow-information-technology-age/"
+        target="_blank" class="news-card">
         <div class="card-placeholder">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -1955,7 +2212,8 @@
         </div>
       </a>
 
-      <a href="https://www.bostonglobe.com/2026/02/13/lifestyle/pencil-sharpener-museum-ohio/" target="_blank" class="news-card">
+      <a href="https://www.bostonglobe.com/2026/02/13/lifestyle/pencil-sharpener-museum-ohio/" target="_blank"
+        class="news-card">
         <div class="card-placeholder">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -2046,7 +2304,8 @@
         </div>
       </a>
 
-      <a href="https://practical.engineering/blog/2026/2/17/so-you-want-to-build-a-tunnel" target="_blank" class="news-card">
+      <a href="https://practical.engineering/blog/2026/2/17/so-you-want-to-build-a-tunnel" target="_blank"
+        class="news-card">
         <div class="card-placeholder">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -2111,7 +2370,8 @@
         </div>
       </a>
 
-      <a href="https://crabby-rathbun.github.io/mjrathbun-website/blog/posts/rathbuns-operator.html" target="_blank" class="news-card">
+      <a href="https://crabby-rathbun.github.io/mjrathbun-website/blog/posts/rathbuns-operator.html" target="_blank"
+        class="news-card">
         <div class="card-placeholder">📰</div>
         <div class="card-body">
           <div class="card-meta">
@@ -2128,23 +2388,24 @@
 
   <div class="terminal-container">
     <div class="terminal-header">
-        <div class="terminal-buttons">
-            <div class="t-btn t-close"></div>
-            <div class="t-btn t-min"></div>
-            <div class="t-btn t-max"></div>
-        </div>
-        <div class="terminal-title">user@pycast: ~/scripts</div>
+      <div class="terminal-buttons">
+        <div class="t-btn t-close"></div>
+        <div class="t-btn t-min"></div>
+        <div class="t-btn t-max"></div>
+      </div>
+      <div class="terminal-title">user@pycast: ~/scripts</div>
     </div>
     <div class="terminal-body">
-        <div class="t-line"><span class="t-cmd">user@pycast:~$</span> python3 news_scraper.py</div>
-        <div class="t-line">🚀 Starting PyCast automation engine...</div>
-        <div class="t-line">📱 Connecting to BBC Technology... <span style="color:#27c93f">Connected</span></div>
-        <div class="t-line">🚗 Connecting to BBC Business... <span style="color:#27c93f">Connected</span></div>
-        <div class="t-line">📥 Downloading 120 images to local cache...</div>
-        <div class="t-line">⚙️ Processing neural style transfer...</div>
-        <div class="t-line">✅ Build complete. Serving 120 articles.</div>
-        <div class="t-line"><span class="t-cmd">user@pycast:~$</span> <span class="t-cursor"></span></div>
+      <div class="t-line"><span class="t-cmd">user@pycast:~$</span> python3 news_scraper.py</div>
+      <div class="t-line">🚀 Starting PyCast automation engine...</div>
+      <div class="t-line">📱 Connecting to BBC Technology... <span style="color:#27c93f">Connected</span></div>
+      <div class="t-line">🚗 Connecting to BBC Business... <span style="color:#27c93f">Connected</span></div>
+      <div class="t-line">📥 Downloading 120 images to local cache...</div>
+      <div class="t-line">⚙️ Processing neural style transfer...</div>
+      <div class="t-line">✅ Build complete. Serving 120 articles.</div>
+      <div class="t-line"><span class="t-cmd">user@pycast:~$</span> <span class="t-cursor"></span></div>
     </div>
   </div>
 </body>
+
 </html>
