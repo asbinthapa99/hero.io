@@ -1,0 +1,1362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asbin Thapa | Art & Creative Portfolio</title>
+  <meta name="description"
+    content="Explore the art and creative portfolio of Asbin Thapa — digital art, graphic design, illustrations, and visual storytelling from Nepal to London.">
+  <meta name="keywords"
+    content="Asbin Thapa art, digital art, graphic design, creative portfolio, illustrations, visual art, Nepali artist London">
+  <meta name="author" content="Asbin Thapa">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://asbinthapa.info.np/art.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://asbinthapa.info.np/art.html">
+  <meta property="og:title" content="Asbin Thapa | Art & Creative Portfolio">
+  <meta property="og:description" content="Digital art, graphic design, and visual storytelling by Asbin Thapa.">
+  <meta property="og:image" content="https://asbinthapa.info.np/images/art%20asbin.jpeg">
+  <meta property="og:site_name" content="Asbin Thapa Portfolio">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Asbin Thapa | Art Portfolio">
+  <meta name="twitter:description" content="Digital art and creative design by Asbin Thapa.">
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "CollectionPage",
+          "@id": "https://asbinthapa.info.np/art.html#webpage",
+          "url": "https://asbinthapa.info.np/art.html",
+          "name": "Asbin Thapa Art & Creative Portfolio",
+          "description": "Digital art, graphic design, and visual storytelling by Asbin Thapa.",
+          "isPartOf": { "@id": "https://asbinthapa.info.np/#website" },
+          "about": { "@id": "https://asbinthapa.info.np/#person" },
+          "breadcrumb": { "@id": "https://asbinthapa.info.np/art.html#breadcrumb" },
+          "datePublished": "2024-01-01",
+          "dateModified": "2026-02-16"
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://asbinthapa.info.np/art.html#breadcrumb",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://asbinthapa.info.np/" },
+            { "@type": "ListItem", "position": 2, "name": "Art Portfolio", "item": "https://asbinthapa.info.np/art.html" }
+          ]
+        }
+      ]
+    }
+    </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #08080c;
+      --surface: #111118;
+      --surface2: #1a1a24;
+      --border: rgba(255, 255, 255, 0.06);
+      --text: #f0f0f5;
+      --text-muted: #6b6b80;
+      --accent: #c4a1ff;
+      --accent2: #ff6b9d;
+      --accent3: #64ffda;
+      --gradient: linear-gradient(135deg, #c4a1ff 0%, #ff6b9d 50%, #64ffda 100%);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Outfit', sans-serif;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* ─── Noise overlay ─── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* ─── Navigation ─── */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(8, 8, 12, 0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      transition: all 0.4s ease;
+    }
+
+    .nav.scrolled {
+      padding: 12px 40px;
+      background: rgba(8, 8, 12, 0.95);
+    }
+
+    .nav-logo {
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      text-decoration: none;
+      color: var(--text);
+    }
+
+    .nav-logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: color 0.3s;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gradient);
+      transition: width 0.3s;
+      border-radius: 2px;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .home-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      color: var(--text);
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      letter-spacing: 0.02em;
+    }
+
+    .home-btn:hover {
+      background: var(--accent);
+      color: var(--bg);
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(196, 161, 255, 0.25);
+    }
+
+    /* ─── Hero Section ─── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 120px 40px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(196, 161, 255, 0.08) 0%, rgba(255, 107, 157, 0.04) 40%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 20px;
+      background: rgba(196, 161, 255, 0.08);
+      border: 1px solid rgba(196, 161, 255, 0.15);
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 32px;
+      animation: fadeUp 0.8s ease;
+    }
+
+    .hero-badge .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent3);
+      animation: pulse 2s infinite;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 8vw, 7rem);
+      font-weight: 700;
+      line-height: 1.05;
+      margin-bottom: 24px;
+      animation: fadeUp 0.8s ease 0.1s both;
+    }
+
+    .hero h1 .gradient-text {
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 560px;
+      font-weight: 300;
+      margin-bottom: 40px;
+      animation: fadeUp 0.8s ease 0.2s both;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 48px;
+      animation: fadeUp 0.8s ease 0.3s both;
+    }
+
+    .hero-stat {
+      text-align: center;
+    }
+
+    .hero-stat .num {
+      font-size: 2.2rem;
+      font-weight: 800;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-stat .label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-top: 4px;
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      animation: fadeUp 0.8s ease 0.5s both;
+    }
+
+    .scroll-indicator span {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--accent), transparent);
+      animation: scrollPulse 2s ease infinite;
+    }
+
+    /* ─── Section Headers ─── */
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-header .tag {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .section-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 700;
+    }
+
+    .section-header p {
+      color: var(--text-muted);
+      margin-top: 12px;
+      font-size: 1rem;
+      font-weight: 300;
+    }
+
+    /* ─── Gallery ─── */
+    .gallery-section {
+      padding: 100px 40px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .gallery-filters {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      padding: 10px 24px;
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      color: var(--text-muted);
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--accent);
+      color: var(--bg);
+      border-color: var(--accent);
+    }
+
+    .gallery-grid {
+      columns: 3;
+      column-gap: 20px;
+    }
+
+    .gallery-item {
+      break-inside: avoid;
+      margin-bottom: 20px;
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .gallery-item.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      display: block;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), filter 0.4s;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.08);
+      filter: brightness(0.7);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(8, 8, 12, 0.95) 0%, transparent 50%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 24px;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+
+    .gallery-overlay h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .gallery-overlay span {
+      font-size: 0.78rem;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .gallery-overlay .expand-icon {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 0.9rem;
+    }
+
+    /* ─── Lightbox ─── */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(8, 8, 12, 0.97);
+      z-index: 10000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      backdrop-filter: blur(20px);
+      animation: fadeIn 0.3s ease;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 40px 120px rgba(0, 0, 0, 0.6);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text);
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+    }
+
+    .lightbox-close:hover {
+      background: var(--accent2);
+      color: #fff;
+      transform: rotate(90deg);
+    }
+
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text);
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+    }
+
+    .lightbox-nav:hover {
+      background: var(--accent);
+      color: var(--bg);
+    }
+
+    .lightbox-prev {
+      left: 30px;
+    }
+
+    .lightbox-next {
+      right: 30px;
+    }
+
+    .lightbox-caption {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* ─── About Section ─── */
+    .about-section {
+      padding: 100px 40px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about-image {
+      border-radius: 24px;
+      overflow: hidden;
+      position: relative;
+      aspect-ratio: 4/5;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .about-image:hover img {
+      transform: scale(1.05);
+    }
+
+    .about-image::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 24px;
+      pointer-events: none;
+    }
+
+    .about-content h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .about-content p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    .about-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .about-tag {
+      padding: 8px 18px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      transition: all 0.3s;
+    }
+
+    .about-tag:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .about-socials {
+      display: flex;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .about-socials a {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .about-socials a:hover {
+      background: var(--accent);
+      color: var(--bg);
+      border-color: var(--accent);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(196, 161, 255, 0.3);
+    }
+
+    /* ─── Process / Skills ─── */
+    .process-section {
+      padding: 80px 40px 100px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .process-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px 24px;
+      text-align: center;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .process-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--gradient);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .process-card:hover::before {
+      opacity: 1;
+    }
+
+    .process-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(196, 161, 255, 0.2);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    }
+
+    .process-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      background: rgba(196, 161, 255, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 1.4rem;
+      color: var(--accent);
+    }
+
+    .process-card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .process-card p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    /* ─── CTA ─── */
+    .cta-section {
+      padding: 100px 40px;
+      text-align: center;
+    }
+
+    .cta-box {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 60px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 32px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-box::before {
+      content: '';
+      position: absolute;
+      top: -80px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 400px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(196, 161, 255, 0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-box h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      position: relative;
+    }
+
+    .cta-box p {
+      color: var(--text-muted);
+      margin-bottom: 32px;
+      font-weight: 300;
+      position: relative;
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 36px;
+      background: var(--gradient);
+      border-radius: 100px;
+      color: #000;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: all 0.3s;
+      position: relative;
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 48px rgba(196, 161, 255, 0.3);
+    }
+
+    /* ─── Footer ─── */
+    .footer {
+      padding: 40px;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.82rem;
+    }
+
+    /* ─── Animations ─── */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.4;
+      }
+    }
+
+    @keyframes scrollPulse {
+      0% {
+        opacity: 0;
+        transform: scaleY(0);
+        transform-origin: top;
+      }
+
+      50% {
+        opacity: 1;
+        transform: scaleY(1);
+      }
+
+      100% {
+        opacity: 0;
+        transform: scaleY(0);
+        transform-origin: bottom;
+      }
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 1024px) {
+      .gallery-grid {
+        columns: 2;
+      }
+
+      .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav {
+        padding: 16px 20px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding: 120px 20px 80px;
+      }
+
+      .hero-stats {
+        gap: 28px;
+      }
+
+      .gallery-section {
+        padding: 60px 20px;
+      }
+
+      .gallery-grid {
+        columns: 1;
+      }
+
+      .about-section {
+        padding: 60px 20px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .about-image {
+        max-width: 360px;
+        margin: 0 auto;
+      }
+
+      .process-section {
+        padding: 60px 20px;
+      }
+
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-section {
+        padding: 60px 20px;
+      }
+
+      .cta-box {
+        padding: 40px 24px;
+      }
+
+      .lightbox-prev {
+        left: 10px;
+      }
+
+      .lightbox-next {
+        right: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav-logo">ASBIN<span>ART</span></a>
+    <ul class="nav-links">
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="index.html" class="home-btn">
+      <i class="fas fa-arrow-left"></i> Portfolio
+    </a>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-badge">
+      <span class="dot"></span> Creative Portfolio
+    </div>
+    <h1>Art &<br><span class="gradient-text">Visual Stories</span></h1>
+    <p>Exploring the boundaries between technology and art — from digital design to abstract expression, every piece
+      tells a story.</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="num">14+</div>
+        <div class="label">Art Pieces</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">3+</div>
+        <div class="label">Years Creating</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">5</div>
+        <div class="label">Mediums</div>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="gallery-section" id="gallery">
+    <div class="section-header">
+      <span class="tag">Gallery</span>
+      <h2>Selected Works</h2>
+      <p>A curated collection of digital art, graphic design, and creative explorations</p>
+    </div>
+
+    <div class="gallery-filters">
+      <button class="filter-btn active" data-filter="all">All Works</button>
+      <button class="filter-btn" data-filter="digital">Digital Art</button>
+      <button class="filter-btn" data-filter="design">Graphic Design</button>
+      <button class="filter-btn" data-filter="abstract">Abstract</button>
+    </div>
+
+    <div class="gallery-grid" id="gallery-grid">
+
+      <div class="gallery-item" data-category="digital">
+        <img src="images/art asbin.jpeg" alt="Digital Art by Asbin Thapa" loading="lazy">
+        <div class="gallery-overlay">
+          <span class="expand-icon"><i class="fas fa-expand"></i></span>
+          <h3>Self Expression</h3>
+          <span>Digital Art</span>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="abstract">
+        <img src="images/art 0.jpeg" alt="Abstract Art by Asbin Thapa" loading="lazy">
+        <div class="gallery-overlay">
+          <span class="expand-icon"><i class="fas fa-expand"></i></span>
+          <h3>Genesis</h3>
+          <span>Abstract</span>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="design">
+        <img src="images/art 2.jpeg" alt="Graphic Design by Asbin Thapa" loading="lazy">
+        <div class="gallery-overlay">
+          <span class="expand-icon"><i class="fas fa-expand"></i></span>
+          <h3>Chromatic Waves</h3>
+          <span>Graphic Design</span>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="digital">
+        <img src="images/art 3.jpeg" alt="Digital Art Piece by Asbin Thapa" loading="lazy">
+        <div class="gallery-overlay">
+          <span class="expand-icon"><i class="fas fa-expand"></i></span>
+          <h3>Ethereal Light</h3>
+          <span>Digital Art</span>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="abstract">
+        <img src="images/art 4.jpeg" alt="Abstract Art Design" loading="lazy">
+        <div class="gallery-overlay">
+          <span class="expand-icon"><i class="fas fa-expand"></i></span>
+          <h3>Fractured Reality</h3>
+          <span>Abstract</span>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="design">
+        <img src="images/art 44.jpeg" alt="Creative Design by Asbin Thapa" loading="lazy">
+        <div class="gallery-overlay">
+          <span class="expand-icon"><i class="fas fa-expand"></i></span>
+          <h3>Neon Dreams</h3>
+          <span>Graphic Design</span>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="digital">
+        <img src="images/art 5.jpeg" alt="Digital Illustration by Asbin" loading="lazy">
+        <div class="gallery-overlay">
+          <span class="expand-icon"><i class="fas fa-expand"></i></span>
+          <h3>Synthesis</h3>
+          <span>Digital Art</span>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="abstract">
+        <img src="images/art 7.jpeg" alt="Abstract Visual Art" loading="lazy">
+        <div class="gallery-overlay">
+          <span class="expand-icon"><i class="fas fa-expand"></i></span>
+          <h3>Resonance</h3>
+          <span>Abstract</span>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="design">
+        <img src="images/art 709.jpeg" alt="Art 709 by Asbin Thapa" loading="lazy">
+        <div class="gallery-overlay">
+          <span class="expand-icon"><i class="fas fa-expand"></i></span>
+          <h3>Spectrum 709</h3>
+          <span>Graphic Design</span>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="digital">
+        <img src="images/art 9.jpeg" alt="Digital Art Creation" loading="lazy">
+        <div class="gallery-overlay">
+          <span class="expand-icon"><i class="fas fa-expand"></i></span>
+          <h3>Digital Scape</h3>
+          <span>Digital Art</span>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="abstract">
+        <img src="images/art one .jpeg" alt="Art One by Asbin Thapa" loading="lazy">
+        <div class="gallery-overlay">
+          <span class="expand-icon"><i class="fas fa-expand"></i></span>
+          <h3>Origin Point</h3>
+          <span>Abstract</span>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="design">
+        <img src="images/artss.jpeg" alt="Arts Collection by Asbin Thapa" loading="lazy">
+        <div class="gallery-overlay">
+          <span class="expand-icon"><i class="fas fa-expand"></i></span>
+          <h3>Fluid Motion</h3>
+          <span>Graphic Design</span>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="digital">
+        <img src="images/artt.jpeg" alt="Art Design Work" loading="lazy">
+        <div class="gallery-overlay">
+          <span class="expand-icon"><i class="fas fa-expand"></i></span>
+          <h3>Pixel Bloom</h3>
+          <span>Digital Art</span>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="abstract">
+        <img src="images/artttt.jpeg" alt="Abstract Art Gallery" loading="lazy">
+        <div class="gallery-overlay">
+          <span class="expand-icon"><i class="fas fa-expand"></i></span>
+          <h3>Beyond Form</h3>
+          <span>Abstract</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- About the Artist -->
+  <section class="about-section" id="about">
+    <div class="about-grid">
+      <div class="about-image">
+        <img src="img/IMG_1069.jpg" alt="Asbin Thapa — Artist and Creator">
+      </div>
+      <div class="about-content">
+        <span class="tag"
+          style="color:var(--accent);font-size:0.72rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;">About
+          the Artist</span>
+        <h2>Asbin Thapa</h2>
+        <p>A creative soul bridging the gap between technology and art. Born in Nepal, now based in London, I explore
+          the intersection of digital design, abstract expression, and visual storytelling.</p>
+        <p>As a Computer Science student at Ulster University with a focus on blockchain and cybersecurity, my art
+          reflects the fusion of logic and creativity — structured yet free, technical yet emotional.</p>
+        <p>Every piece I create is an exploration of color, form, and meaning — driven by curiosity and a deep
+          appreciation for beauty in both code and canvas.</p>
+        <div class="about-tags">
+          <span class="about-tag">Digital Art</span>
+          <span class="about-tag">Graphic Design</span>
+          <span class="about-tag">Photography</span>
+          <span class="about-tag">Abstract</span>
+          <span class="about-tag">Illustration</span>
+          <span class="about-tag">Visual Identity</span>
+        </div>
+        <div class="about-socials">
+          <a href="https://www.instagram.com/asbin_chetrri/" target="_blank" aria-label="Instagram"><i
+              class="fab fa-instagram"></i></a>
+          <a href="https://github.com/asbinthapa99" target="_blank" aria-label="GitHub"><i
+              class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/asbin-thapa-6a9a4733b/" target="_blank" aria-label="LinkedIn"><i
+              class="fab fa-linkedin-in"></i></a>
+          <a href="https://twitter.com/MeHope55586" target="_blank" aria-label="Twitter"><i
+              class="fab fa-x-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Creative Process -->
+  <section class="process-section" id="process">
+    <div class="section-header">
+      <span class="tag">Process</span>
+      <h2>How I Create</h2>
+      <p>From idea to final piece — a glimpse into the creative workflow</p>
+    </div>
+    <div class="process-grid">
+      <div class="process-card">
+        <div class="process-icon"><i class="fas fa-lightbulb"></i></div>
+        <h3>Ideation</h3>
+        <p>Every piece starts with an idea — inspired by technology, nature, emotions, or the world around us.</p>
+      </div>
+      <div class="process-card">
+        <div class="process-icon"><i class="fas fa-pencil-alt"></i></div>
+        <h3>Sketching</h3>
+        <p>Rough concepts and compositions take shape through digital or traditional sketching and wireframing.</p>
+      </div>
+      <div class="process-card">
+        <div class="process-icon"><i class="fas fa-palette"></i></div>
+        <h3>Creation</h3>
+        <p>Using tools like Photoshop, Illustrator, and code, the vision comes to life with color, texture, and depth.
+        </p>
+      </div>
+      <div class="process-card">
+        <div class="process-icon"><i class="fas fa-gem"></i></div>
+        <h3>Refinement</h3>
+        <p>Every detail is polished — from color grading to composition balance — until the piece feels complete.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" id="contact">
+    <div class="cta-box">
+      <h2>Let's Create Together</h2>
+      <p>Have a creative project in mind? I'd love to collaborate and bring your vision to life.</p>
+      <a href="index.html#contact" class="cta-btn">
+        Get in Touch <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2026 Asbin Thapa. All rights reserved. Crafted with passion in London.</p>
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightbox-close"><i class="fas fa-times"></i></button>
+    <button class="lightbox-nav lightbox-prev" id="lightbox-prev"><i class="fas fa-chevron-left"></i></button>
+    <button class="lightbox-nav lightbox-next" id="lightbox-next"><i class="fas fa-chevron-right"></i></button>
+    <img src="" alt="Lightbox Image" id="lightbox-img">
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+  </div>
+
+  <script>
+    (function () {
+      // ─── Scroll nav effect ───
+      var nav = document.getElementById('nav');
+      window.addEventListener('scroll', function () {
+        nav.classList.toggle('scrolled', window.scrollY > 60);
+      });
+
+      // ─── Gallery scroll reveal ───
+      var items = document.querySelectorAll('.gallery-item');
+      var revealObs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry, i) {
+          if (entry.isIntersecting) {
+            setTimeout(function () {
+              entry.target.classList.add('visible');
+            }, i * 80);
+            revealObs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      items.forEach(function (item) { revealObs.observe(item); });
+
+      // ─── Filter buttons ───
+      var filters = document.querySelectorAll('.filter-btn');
+      filters.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          filters.forEach(function (b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          var filter = btn.getAttribute('data-filter');
+          items.forEach(function (item) {
+            if (filter === 'all' || item.getAttribute('data-category') === filter) {
+              item.style.display = 'block';
+              setTimeout(function () { item.classList.add('visible'); }, 100);
+            } else {
+              item.style.display = 'none';
+              item.classList.remove('visible');
+            }
+          });
+        });
+      });
+
+      // ─── Lightbox ───
+      var lightbox = document.getElementById('lightbox');
+      var lbImg = document.getElementById('lightbox-img');
+      var lbCaption = document.getElementById('lightbox-caption');
+      var currentIndex = 0;
+      var visibleItems = [];
+
+      function updateVisible() {
+        visibleItems = [];
+        items.forEach(function (item) {
+          if (item.style.display !== 'none') visibleItems.push(item);
+        });
+      }
+
+      function openLightbox(index) {
+        updateVisible();
+        currentIndex = index;
+        var item = visibleItems[currentIndex];
+        if (!item) return;
+        lbImg.src = item.querySelector('img').src;
+        var h3 = item.querySelector('.gallery-overlay h3');
+        lbCaption.textContent = h3 ? h3.textContent : '';
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      items.forEach(function (item, i) {
+        item.addEventListener('click', function () {
+          updateVisible();
+          var idx = visibleItems.indexOf(item);
+          openLightbox(idx >= 0 ? idx : 0);
+        });
+      });
+
+      document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+      lightbox.addEventListener('click', function (e) {
+        if (e.target === lightbox) closeLightbox();
+      });
+
+      document.getElementById('lightbox-prev').addEventListener('click', function (e) {
+        e.stopPropagation();
+        currentIndex = (currentIndex - 1 + visibleItems.length) % visibleItems.length;
+        var item = visibleItems[currentIndex];
+        lbImg.src = item.querySelector('img').src;
+        var h3 = item.querySelector('.gallery-overlay h3');
+        lbCaption.textContent = h3 ? h3.textContent : '';
+      });
+
+      document.getElementById('lightbox-next').addEventListener('click', function (e) {
+        e.stopPropagation();
+        currentIndex = (currentIndex + 1) % visibleItems.length;
+        var item = visibleItems[currentIndex];
+        lbImg.src = item.querySelector('img').src;
+        var h3 = item.querySelector('.gallery-overlay h3');
+        lbCaption.textContent = h3 ? h3.textContent : '';
+      });
+
+      // keyboard navigation
+      document.addEventListener('keydown', function (e) {
+        if (!lightbox.classList.contains('active')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') document.getElementById('lightbox-prev').click();
+        if (e.key === 'ArrowRight') document.getElementById('lightbox-next').click();
+      });
+    })();
+  </script>
+
+</body>
+
+</html>

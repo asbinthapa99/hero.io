@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asbin Thapa | Educational Portfolio & Roadmap — Ulster University</title>
+    <meta name="description"
+        content="Educational portfolio and academic roadmap of Asbin Thapa. BSc Computer Science with Blockchain at Ulster University London. Timeline, skills, achievements, and future goals.">
+    <meta name="keywords"
+        content="Asbin Thapa education, Ulster University, computer science, blockchain, academic portfolio, educational roadmap, London student, Nepal student UK">
+    <meta name="author" content="Asbin Thapa">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://asbinthapa.info.np/education.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="profile">
+    <meta property="og:url" content="https://asbinthapa.info.np/education.html">
+    <meta property="og:title" content="Asbin Thapa | Educational Portfolio & Roadmap">
+    <meta property="og:description"
+        content="Academic timeline, skills, and roadmap of Asbin Thapa — BSc Computer Science with Blockchain at Ulster University London.">
+    <meta property="og:image" content="https://asbinthapa.info.np/img/IMG_1069.jpg">
+    <meta property="og:site_name" content="Asbin Thapa Portfolio">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Asbin Thapa | Educational Portfolio">
+    <meta name="twitter:description"
+        content="BSc Computer Science with Blockchain at Ulster University. Academic timeline and roadmap.">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            /* Glassmorphism Variables */
+            --glass-bg: rgba(20, 20, 25, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --accent: #00f2ff;
+            --accent-secondary: #7000ff;
+        }
+
+        body {
+            margin: 0;
+            overflow-x: hidden;
+            background-color: #050505;
+            /* Fallback color */
+            color: #e0e0e0;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        /* 3D Background Container */
+        #spline-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            /* Behind everything */
+        }
+
+        /* Dark Overlay for Text Readability */
+        #overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            /* On top of Spline, behind content */
+            background: radial-gradient(circle at center, rgba(5, 5, 5, 0.3) 0%, rgba(5, 5, 5, 0.8) 100%);
+            pointer-events: none;
+            /* Allow clicks to pass through to Spline if interactive */
+        }
+
+        spline-viewer {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Card Styling */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px) scale(1.01);
+            border-color: rgba(0, 242, 255, 0.4);
+            box-shadow: 0 12px 40px rgba(0, 242, 255, 0.1);
+        }
+
+        /* Timeline Styling */
+        .timeline-line {
+            position: absolute;
+            left: 24px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--accent), var(--accent-secondary), transparent);
+            z-index: 0;
+        }
+
+        @media (min-width: 768px) {
+            .timeline-line {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #fff 0%, var(--accent) 50%, var(--accent-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Remove Spline Logo if possible via CSS (Works on some versions) */
+        spline-viewer::part(logo) {
+            display: none;
+        }
+    </style>
+
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.12.57/build/spline-viewer.js"></script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ProfilePage",
+          "mainEntity": {
+            "@type": "Person",
+            "name": "Asbin Thapa",
+            "jobTitle": "Blockchain Developer & Student",
+            "url": "https://asbinthapa.info.np",
+            "image": "https://asbinthapa.info.np/images/profile.jpg",
+            "description": "Computer Science student at Ulster University specializing in Blockchain, with expertise in Cybersecurity and Digital Marketing.",
+            "alumniOf": {
+                "@type": "CollegeOrUniversity",
+                "name": "Ulster University London"
+            },
+            "knowsAbout": [
+              "Blockchain Architecture",
+              "Smart Contracts (Solidity)",
+              "Cybersecurity",
+              "Network Security",
+              "Python",
+              "Digital Marketing",
+              "SEO"
+            ],
+            "hasCredential": [
+              {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "degree",
+                "educationalLevel": "Bachelor's",
+                "about": "Computer Science with Blockchain"
+              }
+            ],
+            "award": [
+                "University Admission Success",
+                "International Student Transition Success"
+            ],
+            "seeks": {
+                "@type": "Demand",
+                "description": "Internship opportunities in Blockchain Development or Cybersecurity."
+            },
+            "makesOffer": {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "Web Development & Social Media Management"
+                }
+            }
+          }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://asbinthapa.info.np/education.html#webpage",
+          "url": "https://asbinthapa.info.np/education.html",
+          "name": "Asbin Thapa — Educational Portfolio & Academic Roadmap",
+          "description": "Educational portfolio and academic roadmap of Asbin Thapa. BSc Computer Science with Blockchain at Ulster University London.",
+          "isPartOf": { "@id": "https://asbinthapa.info.np/#website" },
+          "about": { "@id": "https://asbinthapa.info.np/#person" },
+          "breadcrumb": { "@id": "https://asbinthapa.info.np/education.html#breadcrumb" },
+          "datePublished": "2024-01-01",
+          "dateModified": "2026-02-16"
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://asbinthapa.info.np/education.html#breadcrumb",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://asbinthapa.info.np/" },
+            { "@type": "ListItem", "position": 2, "name": "Education", "item": "https://asbinthapa.info.np/education.html" }
+          ]
+        }
+      ]
+    }
+    </script>
+</head>
+
+<body class="antialiased selection:bg-cyan-500 selection:text-black">
+
+    <div id="spline-container">
+        <spline-viewer url="https://prod.spline.design/DzXpcq4359WGYVxL/scene.splinecode"></spline-viewer>
+    </div>
+
+    <div id="overlay"></div>
+
+    <nav class="fixed w-full z-50 top-0 left-0 p-4 border-b border-white/5 bg-[#050505]/70 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="text-xl font-bold tracking-tighter">ASBIN<span class="text-cyan-400">THAPA</span></div>
+            <div class="hidden md:flex space-x-6 text-xs font-medium uppercase tracking-widest text-gray-400">
+                <a href="#about" class="hover:text-cyan-400 transition-colors">About</a>
+                <a href="#journey" class="hover:text-cyan-400 transition-colors">Journey</a>
+                <a href="#experience" class="hover:text-cyan-400 transition-colors">Experience</a>
+                <a href="#roadmap" class="hover:text-cyan-400 transition-colors">Roadmap</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="relative z-10 pt-32 pb-20 px-4 md:px-8">
+
+        <section id="about" class="max-w-6xl mx-auto mb-40 text-center">
+            <div
+                class="inline-flex items-center gap-2 px-3 py-1 mb-8 rounded-full border border-cyan-500/30 bg-cyan-900/10 text-cyan-400 text-[10px] font-bold tracking-[0.2em] uppercase animate-pulse">
+                <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+                Open to Work & Internships
+            </div>
+            <h1 class="text-5xl md:text-8xl font-bold mb-8 tracking-tight leading-tight">
+                Architecting the <br />
+                <span class="gradient-text">Decentralized Future</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed mb-12 font-light">
+                I am <strong class="text-white">Asbin Thapa</strong>. A Computer Science Undergraduate blending
+                <span class="text-cyan-300">Blockchain Technology</span> with <span
+                    class="text-purple-300">Cybersecurity</span> expertise.
+                Based in London, thinking globally.
+            </p>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+                <div class="glass-card p-6 flex flex-col items-center">
+                    <span class="text-3xl font-bold text-white mb-1">3+</span>
+                    <span class="text-xs text-gray-400 uppercase">Years Coding</span>
+                </div>
+                <div class="glass-card p-6 flex flex-col items-center">
+                    <span class="text-3xl font-bold text-white mb-1">UK</span>
+                    <span class="text-xs text-gray-400 uppercase">Based in London</span>
+                </div>
+                <div class="glass-card p-6 flex flex-col items-center">
+                    <span class="text-3xl font-bold text-white mb-1">BSc</span>
+                    <span class="text-xs text-gray-400 uppercase">Pursuing Degree</span>
+                </div>
+                <div class="glass-card p-6 flex flex-col items-center">
+                    <span class="text-3xl font-bold text-white mb-1">100%</span>
+                    <span class="text-xs text-gray-400 uppercase">Commitment</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="journey" class="max-w-5xl mx-auto mb-40 relative">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">Academic Timeline</h2>
+            </div>
+
+            <div class="timeline-line"></div>
+
+            <div class="space-y-16">
+                <div class="relative flex flex-col md:flex-row items-center md:justify-between group">
+                    <div class="w-full md:w-5/12 md:text-right pl-12 md:pl-0 md:pr-12 mb-4 md:mb-0">
+                        <div class="text-2xl font-bold text-white">Ulster University</div>
+                        <div class="text-cyan-400 font-mono text-sm">2021 - Present</div>
+                        <div class="text-xs text-gray-400 mt-1 uppercase tracking-wider">London, UK</div>
+                    </div>
+                    <div
+                        class="absolute left-[24px] md:left-1/2 transform -translate-x-1/2 w-6 h-6 bg-[#050505] border-4 border-cyan-400 rounded-full z-10 shadow-[0_0_20px_rgba(0,242,255,0.5)]">
+                    </div>
+                    <div class="w-full md:w-5/12 pl-12">
+                        <div class="glass-card p-6 hover:border-cyan-500/50">
+                            <h3 class="text-lg font-bold mb-2 text-cyan-100">BSc Computer Science (Blockchain)</h3>
+                            <ul class="list-disc list-inside text-sm text-gray-300 space-y-1">
+                                <li>Specialization in Distributed Ledger Tech</li>
+                                <li>Smart Contract Development</li>
+                                <li>Advanced Cybersecurity Protocols</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative flex flex-col md:flex-row-reverse items-center md:justify-between group">
+                    <div class="w-full md:w-5/12 md:text-left pl-12 md:pr-0 mb-4 md:mb-0">
+                        <div class="text-2xl font-bold text-white">Global Transition</div>
+                        <div class="text-cyan-400 font-mono text-sm">2020 - 2021</div>
+                        <div class="text-xs text-gray-400 mt-1 uppercase tracking-wider">Nepal → UK</div>
+                    </div>
+                    <div
+                        class="absolute left-[24px] md:left-1/2 transform -translate-x-1/2 w-4 h-4 bg-gray-600 rounded-full z-10">
+                    </div>
+                    <div class="w-full md:w-5/12 md:pr-12 pl-12 md:pl-0">
+                        <div class="glass-card p-6">
+                            <h3 class="text-lg font-bold mb-2 text-white">Cultural & Academic Adaptation</h3>
+                            <p class="text-sm text-gray-300">Bridge year focused on mastering English proficiency,
+                                understanding the UK educational ecosystem, and preparing for university admission.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative flex flex-col md:flex-row items-center md:justify-between group">
+                    <div class="w-full md:w-5/12 md:text-right pl-12 md:pl-0 md:pr-12 mb-4 md:mb-0">
+                        <div class="text-2xl font-bold text-white">Higher Secondary</div>
+                        <div class="text-cyan-400 font-mono text-sm">2018 - 2020</div>
+                        <div class="text-xs text-gray-400 mt-1 uppercase tracking-wider">Nepal</div>
+                    </div>
+                    <div
+                        class="absolute left-[24px] md:left-1/2 transform -translate-x-1/2 w-4 h-4 bg-gray-600 rounded-full z-10">
+                    </div>
+                    <div class="w-full md:w-5/12 pl-12">
+                        <div class="glass-card p-6">
+                            <h3 class="text-lg font-bold mb-2 text-white">Science & Mathematics</h3>
+                            <p class="text-sm text-gray-300">Foundational studies in Physics, Math, and Computer
+                                Science. Developed early analytical skills crucial for programming.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="max-w-6xl mx-auto mb-40">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">Practical Experience</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="glass-card p-8 group relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <svg class="w-24 h-24 text-cyan-500" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-2">Cybersecurity & Social Work</h3>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span
+                            class="px-2 py-1 text-[10px] bg-cyan-900/30 text-cyan-400 rounded border border-cyan-800">Network
+                            Security</span>
+                        <span
+                            class="px-2 py-1 text-[10px] bg-purple-900/30 text-purple-400 rounded border border-purple-800">Digital
+                            Safety</span>
+                    </div>
+                    <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                        Applying technical knowledge to ensure digital integrity. Simultaneously involved in social
+                        work, managing digital footprints and social media accounts for organizations, ensuring secure
+                        and effective communication.
+                    </p>
+                </div>
+
+                <div class="glass-card p-8 group relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <svg class="w-24 h-24 text-purple-500" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z" />
+                            <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-2">Digital Marketing & Design</h3>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span
+                            class="px-2 py-1 text-[10px] bg-pink-900/30 text-pink-400 rounded border border-pink-800">SEO</span>
+                        <span
+                            class="px-2 py-1 text-[10px] bg-blue-900/30 text-blue-400 rounded border border-blue-800">Analytics</span>
+                        <span
+                            class="px-2 py-1 text-[10px] bg-green-900/30 text-green-400 rounded border border-green-800">Graphics</span>
+                    </div>
+                    <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                        Active development of digital campaigns using SEO strategies and Google Analytics. Combining
+                        graphic design skills to create compelling visual content for social media management.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="max-w-6xl mx-auto mb-40">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="col-span-1 md:col-span-2">
+                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2 text-white">
+                        <span class="w-8 h-1 bg-cyan-500"></span> Technical Proficiency
+                    </h3>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                        <div class="bg-white/5 border border-white/5 p-4 rounded hover:bg-white/10 transition-colors">
+                            <div class="text-cyan-400 font-bold mb-1">Blockchain</div>
+                            <div class="text-xs text-gray-400">Smart Contracts, DeFi</div>
+                        </div>
+                        <div class="bg-white/5 border border-white/5 p-4 rounded hover:bg-white/10 transition-colors">
+                            <div class="text-purple-400 font-bold mb-1">Security</div>
+                            <div class="text-xs text-gray-400">Pen Testing, Risk Ops</div>
+                        </div>
+                        <div class="bg-white/5 border border-white/5 p-4 rounded hover:bg-white/10 transition-colors">
+                            <div class="text-yellow-400 font-bold mb-1">Languages</div>
+                            <div class="text-xs text-gray-400">Python, Java, JS</div>
+                        </div>
+                        <div class="bg-white/5 border border-white/5 p-4 rounded hover:bg-white/10 transition-colors">
+                            <div class="text-green-400 font-bold mb-1">Web 3.0</div>
+                            <div class="text-xs text-gray-400">dApps, Ethereum</div>
+                        </div>
+                        <div class="bg-white/5 border border-white/5 p-4 rounded hover:bg-white/10 transition-colors">
+                            <div class="text-pink-400 font-bold mb-1">Creative</div>
+                            <div class="text-xs text-gray-400">Photography, Design</div>
+                        </div>
+                        <div class="bg-white/5 border border-white/5 p-4 rounded hover:bg-white/10 transition-colors">
+                            <div class="text-blue-400 font-bold mb-1">Tools</div>
+                            <div class="text-xs text-gray-400">Git, Linux, Docker</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card p-6">
+                    <h3 class="text-xl font-bold mb-6 text-white">Achievements</h3>
+                    <ul class="space-y-4">
+                        <li class="flex gap-3">
+                            <div class="mt-1 w-2 h-2 rounded-full bg-green-400 shadow-[0_0_10px_lime]"></div>
+                            <div>
+                                <h4 class="text-sm font-bold text-gray-200">First Gen Student</h4>
+                                <p class="text-xs text-gray-400">First generation university attendee, setting a
+                                    benchmark for academic excellence.</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-3">
+                            <div class="mt-1 w-2 h-2 rounded-full bg-blue-400 shadow-[0_0_10px_cyan]"></div>
+                            <div>
+                                <h4 class="text-sm font-bold text-gray-200">Bilingual Fluency</h4>
+                                <p class="text-xs text-gray-400">Mastered English as a second language for professional
+                                    technical communication.</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-3">
+                            <div class="mt-1 w-2 h-2 rounded-full bg-purple-400 shadow-[0_0_10px_purple]"></div>
+                            <div>
+                                <h4 class="text-sm font-bold text-gray-200">Creative Portfolio</h4>
+                                <p class="text-xs text-gray-400">Curated a professional photography portfolio alongside
+                                    technical studies.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="roadmap" class="max-w-4xl mx-auto mb-20">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">Future Roadmap</h2>
+                <p class="text-gray-400 mt-4 text-sm">Strategic goals for the next 5 years.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div
+                    class="glass-card p-6 flex flex-col justify-between hover:bg-white/5 transition-colors border-l-4 border-l-yellow-500">
+                    <div>
+                        <div class="text-xs font-bold text-yellow-500 uppercase tracking-widest mb-2">Short Term</div>
+                        <h3 class="text-xl font-bold text-white mb-2">Honors Graduation</h3>
+                        <p class="text-sm text-gray-300">Complete BSc with Distinction. Deliver an innovative Blockchain
+                            Capstone Project solving a real-world fintech problem.</p>
+                    </div>
+                </div>
+
+                <div
+                    class="glass-card p-6 flex flex-col justify-between hover:bg-white/5 transition-colors border-l-4 border-l-cyan-500">
+                    <div>
+                        <div class="text-xs font-bold text-cyan-500 uppercase tracking-widest mb-2">Mid Term</div>
+                        <h3 class="text-xl font-bold text-white mb-2">Industry Integration</h3>
+                        <p class="text-sm text-gray-300">Secure a role as a Blockchain Developer or Security Analyst.
+                            Obtain CISSP & Smart Contract auditing certifications.</p>
+                    </div>
+                </div>
+
+                <div
+                    class="glass-card p-6 flex flex-col justify-between hover:bg-white/5 transition-colors border-l-4 border-l-purple-500">
+                    <div>
+                        <div class="text-xs font-bold text-purple-500 uppercase tracking-widest mb-2">Long Term</div>
+                        <h3 class="text-xl font-bold text-white mb-2">Postgrad & Research</h3>
+                        <p class="text-sm text-gray-300">Pursue Masters in Advanced Cryptography. Contribute to
+                            open-source decentralized protocols.</p>
+                    </div>
+                </div>
+
+                <div
+                    class="glass-card p-6 flex flex-col justify-between hover:bg-white/5 transition-colors border-l-4 border-l-green-500">
+                    <div>
+                        <div class="text-xs font-bold text-green-500 uppercase tracking-widest mb-2">Vision</div>
+                        <h3 class="text-xl font-bold text-white mb-2">Bridging Tech Gaps</h3>
+                        <p class="text-sm text-gray-300">Launch entrepreneurial ventures connecting UK tech innovation
+                            with developmental opportunities in Nepal.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="border-t border-white/10 pt-12 pb-8 text-center">
+            <div class="flex justify-center space-x-6 mb-8 text-gray-400">
+                <a href="#" class="hover:text-white transition-colors">LinkedIn</a>
+                <a href="#" class="hover:text-white transition-colors">GitHub</a>
+                <a href="#" class="hover:text-white transition-colors">Twitter</a>
+            </div>
+            <p class="text-gray-600 text-sm">&copy; 2024 Asbin Thapa. All rights reserved.</p>
+        </footer>
+
+    </main>
+
+</body>
+
+</html>
