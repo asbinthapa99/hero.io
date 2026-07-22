@@ -60,9 +60,6 @@
   <meta property="article:published_time" content="2024-01-01T00:00:00+00:00">
 
   <link rel="stylesheet" href="css/style.css" />
-  <noscript>
-    <link rel="stylesheet" href="assets/css/noscript.css">
-  </noscript>
   <script src="https://analytics.ahrefs.com/analytics.js" data-key="4TGFRuA98JdwXPv07WsuJA" async></script>
   <script src="https://kit.fontawesome.com/457a315592.js" crossorigin="anonymous"></script>
   <script type="application/ld+json">
@@ -412,12 +409,8 @@
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
 
   <!-- --------- CSS ---------- -->
-  <link rel="stylesheet" href="style.css">
-
   <!-- --------- FAVICON ---------- -->
-  <link rel="shortcut icon" href="" type="image/x-icon">
-
-  <title>Portfolio | </title>
+  <link rel="shortcut icon" href="img/Logos-removebg-preview.png" type="image/png">
 </head>
 
 <body>
@@ -464,46 +457,64 @@
       <!-- -------------- FEATURED BOX ---------------- -->
       <section class="featured-box" id="home">
 
-        <!-- ====== 3D FLOATING ILLUSTRATION ====== -->
-        <div class="hero-3d-scene">
-          <!-- Floating cube -->
-          <div class="hero-3d-shape cube-wrap">
-            <div class="cube">
-              <div class="cube-face front"></div>
-              <div class="cube-face back"></div>
-              <div class="cube-face left"></div>
-              <div class="cube-face right"></div>
-              <div class="cube-face top"></div>
-              <div class="cube-face bottom"></div>
-            </div>
-          </div>
-          <!-- Floating ring -->
-          <div class="hero-3d-shape ring-1"></div>
-          <!-- Floating sphere -->
-          <div class="hero-3d-shape sphere-1"></div>
-          <!-- Small floating dots -->
-          <div class="hero-3d-shape dot dot-1"></div>
-          <div class="hero-3d-shape dot dot-2"></div>
-          <div class="hero-3d-shape dot dot-3"></div>
-          <div class="hero-3d-shape dot dot-4"></div>
-          <!-- Second ring -->
-          <div class="hero-3d-shape ring-2"></div>
-          <!-- Second cube (smaller) -->
-          <div class="hero-3d-shape cube-wrap cube-small">
-            <div class="cube">
-              <div class="cube-face front"></div>
-              <div class="cube-face back"></div>
-              <div class="cube-face left"></div>
-              <div class="cube-face right"></div>
-              <div class="cube-face top"></div>
-              <div class="cube-face bottom"></div>
-            </div>
-          </div>
-          <!-- Glowing orb -->
-          <div class="hero-3d-shape orb"></div>
-        </div>
+        <!-- ====== CLEAN MINIMAL HERO ====== -->
 
         <style>
+          /* ====== MINIMAL HERO STYLES ====== */
+          #home {
+            background:
+              radial-gradient(1000px 500px at 15% 10%, rgba(102,126,234,0.08), transparent 60%),
+              radial-gradient(800px 400px at 90% 80%, rgba(78,205,196,0.06), transparent 60%),
+              #fafafa;
+          }
+          .featured-text-card,
+          .featured-name,
+          .featured-text-info,
+          .featured-text-btn,
+          .social_icons {
+            position: relative;
+          }
+          .featured-text {
+            background: rgba(255,255,255,0.55);
+            backdrop-filter: blur(18px) saturate(140%);
+            -webkit-backdrop-filter: blur(18px) saturate(140%);
+            border: 1px solid rgba(255,255,255,0.6);
+            border-radius: 24px;
+            padding: 40px 36px;
+            box-shadow:
+              0 1px 0 rgba(255,255,255,0.9) inset,
+              0 20px 60px -20px rgba(20,20,40,0.12);
+          }
+          .featured-image .image {
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 30px 80px -30px rgba(20,20,40,0.25);
+            background: transparent;
+            aspect-ratio: 1 / 1;
+          }
+          .featured-image .image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 24px;
+            filter: none;
+          }
+          @media (prefers-color-scheme: dark) {
+            #home {
+              background:
+                radial-gradient(1000px 500px at 15% 10%, rgba(102,126,234,0.12), transparent 60%),
+                radial-gradient(800px 400px at 90% 80%, rgba(78,205,196,0.08), transparent 60%),
+                #0d0d10;
+            }
+            .featured-text {
+              background: rgba(20,20,28,0.5);
+              border-color: rgba(255,255,255,0.08);
+            }
+          }
+        </style>
+        <style class="__legacy-hero-hidden">
+          .hero-3d-scene { display: none !important; }
+          [class*="hero-3d"] { display: none !important; }
           /* ====== 3D FLOATING ILLUSTRATION STYLES ====== */
           .hero-3d-scene {
             position: absolute;
@@ -864,28 +875,12 @@
                 gallery website <i class="uil uil-camera"></i>
               </button>
             </a>
-
-            </a>
-            <a href="art.html">
-              <button class="btn">
-                Art Blog <i class="uil uil-palette"></i>
-              </button>
-            </a>
-
           </div>
           <div class="social_icons">
-            <div class="social_icons">
-              <a href="https://www.instagram.com/asbin_chetrri/" target="_blank" class="icon"><i
-                  class="uil uil-instagram"></i></a>
-              <a href="https://twitter.com/MeHope55586" target="_blank" class="icon"><i
-                  class="uil uil-twitter-alt"></i></a>
-              <a href="https://github.com/asbinthapa99" target="_blank" class="icon"><i
-                  class="uil uil-github-alt"></i></a>
-              <a href="https://www.facebook.com/ThapaXetrry99" target="_blank" class="icon"><i
-                  class="uil uil-facebook-f"></i></a>
-            </div>
-
-
+            <a href="https://www.instagram.com/asbin_chetrri/" target="_blank" rel="noopener" class="icon" aria-label="Instagram"><i class="uil uil-instagram"></i></a>
+            <a href="https://twitter.com/MeHope55586" target="_blank" rel="noopener" class="icon" aria-label="Twitter"><i class="uil uil-twitter-alt"></i></a>
+            <a href="https://github.com/asbinthapa99" target="_blank" rel="noopener" class="icon" aria-label="GitHub"><i class="uil uil-github-alt"></i></a>
+            <a href="https://www.facebook.com/ThapaXetrry99" target="_blank" rel="noopener" class="icon" aria-label="Facebook"><i class="uil uil-facebook-f"></i></a>
           </div>
         </div>
         <div class="featured-image">
@@ -1307,11 +1302,6 @@
                 Additionally, I work in social work at a lower level, handle social media accounts, and have skills in
                 graphic design.
               </p>
-              <div class="about-btn">
-                <button class="btn" onclick="window.location.href='p.html'">
-                  tech-stack <i class="uil uil-shopping-cart"></i>
-                </button>
-              </div>
             </div>
           </div>
           <div class="col">
@@ -1765,40 +1755,69 @@
                 experience.</p>
             </a>
 
-            <a href="art.html" class="work-card">
+            <a href="https://inexanepal.com/" target="_blank" rel="noopener" class="work-card">
               <div class="work-card-img-wrap">
-                <img src="img/image.png" alt="Art Blog" class="work-card-img">
+                <img src="img/inexa-nepal.png" alt="Inexa Nepal — Refurbished Marketplace" class="work-card-img">
               </div>
               <div class="work-card-header">
-                <div class="work-card-icon" style="background:linear-gradient(135deg,#e74c3c,#c0392b);">
-                  <i class="uil uil-palette"></i>
+                <div class="work-card-icon" style="background:linear-gradient(135deg,#111,#333);">
+                  <i class="uil uil-shop"></i>
                 </div>
                 <div>
-                  <h3>Art Blog</h3>
-                  <span class="tag">Blog</span> <span class="tag">sample web art </span>
+                  <h3>Inexa Nepal</h3>
+                  <span class="tag">Fullstack</span> <span class="tag">Next.js</span> <span class="tag">E-Commerce</span>
                 </div>
               </div>
-              <p>Exploring the world of art and design — creative inspirations, techniques, and artistic expression.</p>
+              <p>A fullstack ecommerce marketplace with seller, admin, and customer panels — built with Next.js, NeonDB, Redis, and TypeScript.</p>
             </a>
 
-            <a href="p.html" class="work-card">
+            <a href="https://nhs-wait-intelligence.vercel.app/" target="_blank" rel="noopener" class="work-card">
               <div class="work-card-img-wrap">
-                <img src="img/image copy 2.png" alt="tech page " class="work-card-img">
+                <img src="img/nhs-wait-intelligence.png" alt="NHS Wait Intelligence — AI-powered waiting list platform" class="work-card-img">
               </div>
               <div class="work-card-header">
-                <div class="work-card-icon" style="background:linear-gradient(135deg,#b116e0,#bc11eb);">
-                  <i class="uil uil-apps"></i>
+                <div class="work-card-icon" style="background:linear-gradient(135deg,#005EB8,#41B6E6);">
+                  <i class="uil uil-medical-square"></i>
                 </div>
                 <div>
-                  <h3>tech-stack</h3>
-                  <span class="tag">startup</span> <span class="tag">web agency </span>
+                  <h3>NHS Wait Intelligence</h3>
+                  <span class="tag">AI</span> <span class="tag">Next.js</span> <span class="tag">FastAPI</span>
                 </div>
               </div>
-              <p> A self hosted and built startup tech agency page.</p>.</p>
+              <p>AI-powered NHS waiting list inequality platform — full-stack Next.js + FastAPI + PostgreSQL.</p>
             </a>
 
+            <a href="https://aawaj-nepal.vercel.app/" target="_blank" rel="noopener" class="work-card">
+              <div class="work-card-img-wrap">
+                <img src="img/guffgaff.png" alt="GuffGaff — Civic engagement platform for Nepali youth" class="work-card-img">
+              </div>
+              <div class="work-card-header">
+                <div class="work-card-icon" style="background:linear-gradient(135deg,#3b82f6,#8b5cf6);">
+                  <i class="uil uil-megaphone"></i>
+                </div>
+                <div>
+                  <h3>GuffGaff.com</h3>
+                  <span class="tag">Civic Tech</span> <span class="tag">Community</span>
+                </div>
+              </div>
+              <p>A civic engagement platform for Nepali youth to raise their voices about problems affecting Nepal.</p>
+            </a>
 
-
+            <a href="https://lumera-drab.vercel.app/" target="_blank" rel="noopener" class="work-card">
+              <div class="work-card-img-wrap">
+                <img src="img/lumera.png" alt="Lumera Technologies — Software studio frontend" class="work-card-img">
+              </div>
+              <div class="work-card-header">
+                <div class="work-card-icon" style="background:linear-gradient(135deg,#000,#555);">
+                  <i class="uil uil-brackets-curly"></i>
+                </div>
+                <div>
+                  <h3>Lumera Technologies</h3>
+                  <span class="tag">Frontend</span> <span class="tag">Studio Site</span>
+                </div>
+              </div>
+              <p>Frontend for Lumera Technologies — a Kathmandu-based software studio building web, mobile, and cloud products.</p>
+            </a>
 
 
           </div>
@@ -2202,19 +2221,12 @@
           <a href="education.html">
             <button class="btn">Academic Portfolio <i class="uil uil-graduation-cap"></i></button>
           </a>
-          <a href="art.html">
-            <button class="btn">Art Blog <i class="uil uil-palette"></i></button>
-          </a>
-          <a href="grocery.html">
+<a href="grocery.html">
             <button class="btn">Grocery Store <i class="uil uil-shopping-cart"></i></button>
           </a>
           <a href="photos.html">
             <button class="btn">Gallery <i class="uil uil-camera"></i></button>
           </a>
-          <a href="profile.html">
-            <button class="btn">Profile <i class="uil uil-user"></i></button>
-          </a>
-
         </div>
       </div>
       <div class="footer-social-icons">

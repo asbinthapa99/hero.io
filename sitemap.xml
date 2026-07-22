@@ -3,7 +3,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://asbinthapa.info.np/</loc>
-    <lastmod>2026-02-16</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -11,7 +11,7 @@
   <!-- Education Portfolio -->
   <url>
     <loc>https://asbinthapa.info.np/education.html</loc>
-    <lastmod>2026-02-16</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -19,7 +19,7 @@
   <!-- Photography Portfolio -->
   <url>
     <loc>https://asbinthapa.info.np/photos.html</loc>
-    <lastmod>2026-02-16</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -27,7 +27,7 @@
   <!-- PyCast News -->
   <url>
     <loc>https://asbinthapa.info.np/news.html</loc>
-    <lastmod>2026-02-16</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
@@ -35,23 +35,15 @@
   <!-- Grocery Store -->
   <url>
     <loc>https://asbinthapa.info.np/grocery.html</loc>
-    <lastmod>2026-02-16</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <!-- Art -->
-  <url>
-    <loc>https://asbinthapa.info.np/art.html</loc>
-    <lastmod>2026-02-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- About / Free Delivery -->
+<!-- About / Free Delivery -->
   <url>
     <loc>https://asbinthapa.info.np/about.html</loc>
-    <lastmod>2026-02-16</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -59,7 +51,7 @@
   <!-- Fresh and Organic -->
   <url>
     <loc>https://asbinthapa.info.np/free.html</loc>
-    <lastmod>2026-02-16</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
